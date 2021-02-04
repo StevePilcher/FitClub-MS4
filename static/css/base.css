@@ -2,10 +2,20 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
+html {
+    height: 100%;
+}
 
+body {
+    background: url('/media/homepage_hero.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: calc(100vh - 164px);
+    color: #555;
+    font-family: 'Anton', sans-serif;
+}
 
 /* Header & NavBar Styling */
 
-body {
-    font-family: 'Anton', sans-serif;
+.navbar {
+    padding: 0;
 }
