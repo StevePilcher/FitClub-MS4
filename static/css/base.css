@@ -1,6 +1,8 @@
 @charset "UTF-8";
 
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+
 
 html {
     height: 100%;
@@ -11,11 +13,31 @@ body {
     background-size: cover;
     height: calc(100vh - 164px);
     color: #555;
-    font-family: 'Anton', sans-serif;
+    font-family: 'Fjalla One', sans-serif;
 }
 
 /* Header & NavBar Styling */
 
 .navbar {
     padding: 0;
+}
+
+.navbar-brand {
+    padding-left: 15px;
+}
+
+
+
+/*Hero Quote & Landing Page*/
+
+#hero-quote {
+    padding: 3em;
+}
+
+#join-now-row {
+    padding-top: 1em;
+}
+
+.thick {
+    height: 50%;
 }
