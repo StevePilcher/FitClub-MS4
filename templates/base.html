@@ -47,11 +47,11 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                         <a class="navbar-brand" href="#">
-                            <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24">
+                            <img src="../media/fitness.png" alt="logo" width="45" height="45">
                         </a>
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Training Plans </a>
+                                <a class="nav-link" href="#">Training Plans</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Nutritional Plans</a>
@@ -62,50 +62,48 @@
                             </li>
                             {% endif %}
                         </ul>
-                        
+
                     </div>
                     <div class="col-6 col-lg-4">
-                            <ul class="list-inline list-unstyled text-end my-0">
-                                <li class="list-inline-item">
-                                    <a class="{% if grand_total %} text-warning font-weight-bold{% else %}text-light{% endif %} nav-link"
-                                        href="">
-                                        <div class="text-center">
-                                            <div><i class="fas fa-shopping-bag fa-lg"></i></div>
-                                            <p class="my-0">
-                                                {% if grand_total %}
-                                                £{{ grand_total|floatformat:2 }}
-                                                {% else %}
-                                                £0.00
-                                                {% endif %}
-                                            </p>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item dropdown">
-                                    <div class="dropdown px-1">
-                                        <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenu2"
-                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                            <div class="text-center text-light">
-                                                <div><i class="fas fa-user fa-lg"></i></div>
-                                                <p class="my-0">My Account</p>
-                                            </div>
-                                        </button>
-                                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenu2">
-                                            {% if request.user.is_authenticated %}
-                                            {% if request.user.is_superuser %}
-                                            <a href="" class="dropdown-item">Product Management</a>
-                                            {% endif %}
-                                            <a href="" class="dropdown-item">My Profile</a>
-                                            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                                            {% else %}
-                                            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                                            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                                            {% endif %}
-                                        </ul>
+                        <ul class="list-inline list-unstyled d-flex align-items-center justify-content-end my-0">
+                            <li class="list-inline-item dropdown">
+                                <a class="text-light nav-link" href="#" id="user-options" data-toggle="dropdown"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <div class="text-center">
+                                        <div><i class="fas fa-user fa-lg"></i></div>
+                                        <p class="my-0">My Account</p>
                                     </div>
-                                </li>
-                            </ul>
-                        </div>
+                                </a>
+                                <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                                    {% if request.user.is_authenticated %}
+                                    {% if request.user.is_superuser %}
+                                    <a href="" class="dropdown-item">Product Management</a>
+                                    {% endif %}
+                                    <a href="" class="dropdown-item">My Profile</a>
+                                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                                    {% else %}
+                                    <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                                    <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                                    {% endif %}
+                                </div>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="{% if grand_total %}text-warning font-weight-bold{% else %}text-light{% endif %} nav-link"
+                                    href="">
+                                    <div class="text-center">
+                                        <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                                        <p class="my-0">
+                                            {% if grand_total %}
+                                            £{{ grand_total|floatformat:2 }}
+                                            {% else %}
+                                            £0.00
+                                            {% endif %}
+                                        </p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
         </div>
