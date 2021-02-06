@@ -34,10 +34,16 @@ body {
     padding: 0;
 }
 
-#join-now-row {
-    padding-top: 1em;
-}
 
-.thick {
-    height: 50%;
+
+/*Products Page*/
+
+.overlay {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+    position: fixed;
+    background-color: grey;
+    z-index:-1;
 }
