@@ -30,8 +30,11 @@ body {
 
 /*Hero Quote & Landing Page*/
 
-#hero-quote {
-    padding: 0;
+.gradient-text {
+  font-size: 8em;
+  background: -webkit-linear-gradient(#f7bb05, #f74e05);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 
