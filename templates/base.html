@@ -45,15 +45,15 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                        <a class="navbar-brand block-md" href="#">
+                        <a class="navbar-brand block-md" href="{% url 'home' %}">
                             <img src="../media/fitness.png" alt="logo" width="45" height="45">
                         </a>
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Training Plans</a>
+                                <a class="nav-link" href="{% url 'products' %}">Training Plans</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="" >Nutritional Plans</a>
+                                <a class="nav-link" href="{% url 'products' %}" >Nutritional Plans</a>
                             </li>
                             {% if request.user.is_authenticated %}
                             <li class="nav-item">
@@ -127,7 +127,7 @@
     {% endblock %}
 
     {% block content %}
-    
+
     {% endblock %}
 
     {% block postloadjs %}
