@@ -19,6 +19,21 @@
             </div>
         </div>
         <div class="row">
+
+            <div class="dropdown">
+                <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Filter Items
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <li><a class="dropdown-item" type="button" href="{% url 'products' %}?sort=price&direction=desc">Price Hi-Lo</a></li>
+                    <li><a class="dropdown-item" type="button" href="{% url 'products' %}?sort=price&direction=asc">Price Lo-Hi</a></li>
+                    <li><a class="dropdown-item" type="button" href="{% url 'products' %}?sort=rating&direction=desc">Star Rating</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="row">
             <div class="product-container col-10 offset-1">
                 <div class="row mt-1 mb-2"></div>
                 <div class="row d-flex justify-content-around">
@@ -47,8 +62,7 @@
                                     <div class="col">
                                         <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
                                         {% if product.rating %}
-                                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} /
-                                            5</small>
+                                        <small class="text-muted"><i class="far fa-grin-stars"></i> {{ product.rating }}  / 5</small>
                                         {% else %}
                                         <small class="text-muted">No Rating</small>
                                         {% endif %}
