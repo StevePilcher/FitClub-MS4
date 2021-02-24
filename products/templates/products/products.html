@@ -10,8 +10,8 @@
 {% endblock %}
 
 {% block content %}
-<div class="bg-light text-dark">
-    <div class="container-fluid">
+<div class="text-dark">
+    <div class="bg-light container-fluid">
         <div class="row">
             <div class="col text-center mt-3">
                 <h2 class="logo-font">Products</h2>
@@ -35,7 +35,7 @@
         <div class="row">
             <div class="product-container col-10 offset-1">
                 <div class="row mt-1 mb-2"></div>
-                <div class="row d-flex justify-content-around">
+                <div class="row d-flex justify-content-evenly">
                     {% for product in products %}
                     <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3">
                         <div class="card h-100 barder-2 border-secondary">
