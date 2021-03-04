@@ -26,8 +26,6 @@ body {
     padding-left: 15px;
 }
 
-
-
 /*Hero Quote & Landing Page*/
 
 .gradient-text {
@@ -38,12 +36,11 @@ body {
 }
 
 
-
 /*Products Page*/
 
 .bg-light {
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
 }
 .overlay {
 	height: 100%;
@@ -51,6 +48,15 @@ body {
 	top: 0;
 	left: 0;
     position: fixed;
-    background-color:#f8f9fa;
-    z-index:-1;
+    background-color:#f8f9fa
+}
+
+/* Bag Page */
+
+.img-fluid {
+    max-height:  5em !important;
+}
+
+.w-15 {
+    width:1.5em;
 }
