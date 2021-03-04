@@ -16,32 +16,39 @@
         <div class="row">
             <div class="col-6 offset-3">
                 {% if bag_items %}
+
                 <table class="table table-sm table-bordered">
                     <thead class="table-dark">
-                        <td class="">Description {{ bag_items }}</td>
                         <td class="">Item</td>
+                        <td class="">Description</td>
+                        <td class="">Quantity</td>
                         <td class="">Price</td>
                     </thead>
+                    {% for item in bag_items %}
                     <tr class="table-light">
-                        <td class="table-light">...</td>
-                        <td class="table-light">...</td>
-                        <td class="table-light">...</td>
+                        <td class="p-3 w-25">
+                            <img class="img-fluid rounded" src="{{ item.product.image.url }}">
+                        </td>
+                        <td class="table-light">{{ item.product.name }}</td>
+                        <td class="table-light">{{ item.quantity }}</td>
+                        <td class="table-light">{{ item.product.price }}</td>
                     </tr>
+                    {% endfor %}
                     <tr class="table-light">
-                        <td class="table-light text-end" colspan="2">Subtotal</td>
+                        <td class="table-light text-end" colspan="3">Subtotal</td>
                         <td class="table-light">
-                            <!--Add Subtotal price here-->
+                            £{{ total|floatformat:2 }}
                         </td>
                     <tr class="table-light">
-                        <td class="table-light text-end" colspan="2">Delivery</td>
+                        <td class="table-light text-end" colspan="3">Delivery</td>
                         <td class="table-light">
-                            <!--Add delivery here-->
+                            £{{ delivery|floatformat:2 }}
                         </td>
                     </tr>
                     <tr class="table-light">
-                        <td class="table-light text-end" colspan="2">Total</td>
+                        <td class="table-light text-end" colspan="3">Total </td>
                         <td class="table-light">
-                            <!--Add Total here-->
+                            £{{ grand_total|floatformat:2 }}
                         </td>
                     </tr>
                     </tr>
