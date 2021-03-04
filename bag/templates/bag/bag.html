@@ -27,7 +27,7 @@
                     {% for item in bag_items %}
                     <tr class="table-light">
                         <td class="p-1 text-center">
-                            <img class="img-fluid rounded" src="{{ item.product.image.url }}">
+                            <img class="img-fluid-bag rounded" src="{{ item.product.image.url }}">
                         </td>
                         <td class="table-light align-middle">{{ item.product.name }}</td>
                         <td class="table-light align-middle">{{ item.quantity }}</td>
@@ -47,9 +47,9 @@
                         </td>
                     </tr>
                     <tr class="table-light">
-                        <td class="table-light text-end" colspan="3">Total </td>
+                        <td class="table-light text-end" colspan="3"><strong>Total</strong></td>
                         <td class="table-light">
-                            £{{ grand_total|floatformat:2 }}
+                            <strong>£{{ grand_total|floatformat:2 }}</strong>
                         </td>
                     </tr>
                     <tr class="table-light">
@@ -58,7 +58,7 @@
                                         <span class="icon">
                                             <i class="fas fa-chevron-left"></i>
                                         </span>
-                                        <span class="text-uppercase">Keep Shopping</span>
+                                        <span class="text-uppercase">Continue Shopping</span>
                                     </a>
                                     <a href="" class="btn btn-dark rounded-3 btn-lg">
                                         <span class="text-uppercase">Secure Checkout</span>
