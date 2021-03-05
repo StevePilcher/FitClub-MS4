@@ -56,13 +56,13 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <a href="{% url 'products' %}" class="btn btn-secondary rounded-0 mt-5">
+                                <a href="{% url 'products' %}" class="btn btn-secondary highlight rounded-0 mt-5">
                                     <span class="icon">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
                                     <span class="text-uppercase">Keep Shopping</span>
                                 </a>
-                                <input type="submit" class="btn btn-dark rounded-0 text-uppercase mt-5"
+                                <input type="submit" class="btn btn-dark highlight rounded-0 text-uppercase mt-5"
                                     value="Add to Bag">
                             </div>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
@@ -72,4 +72,10 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+    // Change icon colour on cursor hover
+    $('.highlight').hover(
+        function () { $(this).toggleClass('text-warning') }
+    )
+    </script>
     {% endblock %}
