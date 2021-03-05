@@ -16,6 +16,10 @@ body {
     font-family: 'Fjalla One', sans-serif;
 }
 
+.cursor-pointer {
+    cursor: pointer;
+}
+
 /* Header & NavBar Styling */
 
 .navbar {
