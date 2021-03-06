@@ -26,6 +26,10 @@ body {
     padding: 0;
 }
 
+.hero-spacer {
+    padding-top: 65px;
+}
+
 .navbar-brand {
     padding-left: 15px;
 }

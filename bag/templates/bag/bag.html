@@ -6,7 +6,7 @@
 
 {% block content %}
 <div class="text-dark">
-    <div class="container-fluid vh-100">
+    <div class="container-fluid vh-100 hero-spacer">
         <div class="row">
             <div class="col text-center mt-3">
                 <h2 class="logo-font text-warning">Shopping Bag</h2>
@@ -46,25 +46,25 @@
                     </tr>
                     {% endfor %}
                     <tr class="table-light">
-                        <td class="table-light text-end" colspan="4">Subtotal</td>
+                        <td class="table-light text-right" colspan="4">Subtotal</td>
                         <td class="table-light">
                             £{{ total|floatformat:2 }}
                         </td>
                     </tr>
                     <tr class="table-light">
-                        <td class="table-light text-end" colspan="4">Delivery</td>
+                        <td class="table-light text-right" colspan="4">Delivery</td>
                         <td class="table-light">
                             £{{ delivery|floatformat:2 }}
                         </td>
                     </tr>
                     <tr class="table-light">
-                        <td class="table-light text-end" colspan="4"><strong>Total</strong></td>
+                        <td class="table-light text-right" colspan="4"><strong>Total</strong></td>
                         <td class="table-light">
                             <strong>£{{ grand_total|floatformat:2 }}</strong>
                         </td>
                     </tr>
                     <tr class="table-light">
-                        <td class="table-light text-end" colspan="5">
+                        <td class="table-light text-right" colspan="5">
                             <a href="{% url 'products' %}" class="btn btn-outline-dark rounded-3 btn-lg">
                                 <span class="icon">
                                     <i class="fas fa-chevron-left"></i>
