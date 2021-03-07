@@ -22,12 +22,12 @@
             <div class="col-4 offset-2">
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form" class="pb-2">
                     {% csrf_token %}
-                    <fieldset class="rounded px-3 mb-1">
+                    <fieldset class="rounded mb-1">
                         <legend class="fieldset-label small text-black w-auto">Details</legend>
                         {{ order_form.full_name | as_crispy_field }}
                         {{ order_form.email | as_crispy_field }}
                     </fieldset>
-                    <fieldset class="rounded p-3 mb-2">
+                    <fieldset class="rounded mb-2">
                         <legend class="fieldset-label small text-black mb-0 w-auto">Delivery</legend>
                         <div>{{ order_form.phone_number | as_crispy_field }}</div>
                         {{ order_form.country | as_crispy_field }}
@@ -50,6 +50,33 @@
                             {% endif %}
                         </div>
                     </fieldset>
+                    <fieldset>
+                        <legend class="fieldset-label small text-black w-auto">Payment</legend>
+                        <!-- A Stripe card element will go here -->
+                        <div class="mb-3 pt-2 StripeElement" id="card-element"></div>
+                        <!-- Used to display form errors -->
+                        <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                    </fieldset>
+                    <div class="submit-button text-right mt-5 mb-2">
+                        <a href="{% url 'view_bag' %}" class="btn btn-outline-dark rounded-3 btn-lg">
+                            <span class="icon">
+                                <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="font-weight-bold">Adjust Bag</span>
+                        </a>
+                        <button href="{% url 'checkout' %}" id="submit-button" class="btn btn-dark rounded-3 btn-lg">
+                            <span class="font-weight-bold">Complete Order</span>
+                            <span class="icon">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </button>
+                        <p class="small text-danger my-0">
+                            <span class="icon">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </span>
+                            <span>Your card will be charged <strong>${{ grand_total|floatformat:2 }}</strong></span>
+                        </p>
+                    </div>
                 </form>
             </div>
             <div class="col-4">
@@ -85,40 +112,6 @@
                     </tr>
                 </table>
                 {% endif %}
-                <form>
-                    <fieldset>
-                        <legend class="fieldset-label small text-black w-auto">Payment</legend>
-                        <p class="small text-warning my-0 pb-2">
-                            <span class="icon">
-                                <i class="fas fa-exclamation-circle"></i>
-                            </span>
-                            <span>Your card will be charged<strong>£{{ grand_total|floatformat:2 }}</strong></span>
-                        </p>
-                        <!-- A Stripe card element will go here -->
-                        <div class="mb-3 pt-2 StripeElement" id="card-element"></div>
-                        <!-- Used to display form errors -->
-                        <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
-                    </fieldset>
-                    <table class="text-right w-100">
-                        <tr>
-                            <td>
-                                <a href="{% url 'products' %}" class="btn btn-outline-dark rounded-3 btn-lg">
-                                    <span class="icon">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span class="text-uppercase">Update Bag</span>
-                                </a>
-                                <a href="{% url 'checkout' %}" id="checkout-button"
-                                    class="btn btn-dark rounded-3 btn-lg">
-                                    <span class="text-uppercase">Finalise Order</span>
-                                    <span class="icon">
-                                        <i class="fas fa-lock"></i>
-                                    </span>
-                                </a>
-                            </td>
-                        </tr>
-                    </table>
-                </form>
             </div>
         </div>
     </div>
