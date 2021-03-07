@@ -76,4 +76,58 @@
                         <td class="table-light">
                             £{{ delivery|floatformat:2 }}
                         </td>
+<<<<<<< HEAD
             
+=======
+                    </tr>
+                    <tr class="table-light">
+                        <td class="table-light text-end" colspan="3"><strong>Total</strong></td>
+                        <td class="table-light">
+                            <strong>£{{ grand_total|floatformat:2 }}</strong>
+                        </td>
+                    </tr>
+                </table>
+                {% endif %}
+                <form>
+                    <fieldset class="">
+                        <legend class="fieldset-label small text-black w-auto">Payment</legend>
+                        <p class="small text-warning my-0">
+                            <span class="icon">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </span>
+                            <span>Your card will be charged<strong>${{ grand_total|floatformat:2 }}</strong></span>
+                        </p>
+                        <!-- A Stripe card element will go here -->
+                        <div class="mb-3" id="card-element"></div>
+
+                        <!-- Used to display form errors -->
+                        <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                    </fieldset>
+                    <table class="text-right w-100">
+                        <tr>
+                            <td>
+                                <a href="{% url 'products' %}" class="btn btn-outline-dark rounded-3 btn-lg">
+                                    <span class="icon">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="text-uppercase">Update Bag</span>
+                                </a>
+                                <a href="{% url 'checkout' %}" class="btn btn-dark rounded-3 btn-lg">
+                                    <span class="text-uppercase">Finalise Order</span>
+                                    <span class="icon">
+                                        <i class="fas fa-lock"></i>
+                                    </span>
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block postloadjs %}
+{{ block.super }}
+{% endblock %}
+>>>>>>> e29152c51d9697eb3b3935a375a0127f127dfc2e
