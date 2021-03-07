@@ -23,12 +23,12 @@
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form" class="pb-2">
                     {% csrf_token %}
                     <fieldset class="rounded px-3 mb-1">
-                        <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
+                        <legend class="fieldset-label small text-black w-auto">Details</legend>
                         {{ order_form.full_name | as_crispy_field }}
                         {{ order_form.email | as_crispy_field }}
                     </fieldset>
                     <fieldset class="rounded p-3 mb-2">
-                        <legend class="fieldset-label small text-black pb-2 w-auto">Delivery</legend>
+                        <legend class="fieldset-label small text-black mb-0 w-auto">Delivery</legend>
                         <div>{{ order_form.phone_number | as_crispy_field }}</div>
                         {{ order_form.country | as_crispy_field }}
                         {{ order_form.postcode | as_crispy_field }}
@@ -54,7 +54,7 @@
             </div>
             <div class="col-4">
                 {% if bag_items %}
-                <table class="table table-sm table-borderless text-center table-striped">
+                <table class="table table-sm table-borderless text-center boot-border">
                     {% for item in bag_items %}
                     <tr class="table-light">
                         <td class="p-1 text-center">
@@ -76,9 +76,6 @@
                         <td class="table-light">
                             £{{ delivery|floatformat:2 }}
                         </td>
-<<<<<<< HEAD
-            
-=======
                     </tr>
                     <tr class="table-light">
                         <td class="table-light text-end" colspan="3"><strong>Total</strong></td>
@@ -89,16 +86,16 @@
                 </table>
                 {% endif %}
                 <form>
-                    <fieldset class="">
+                    <fieldset>
                         <legend class="fieldset-label small text-black w-auto">Payment</legend>
-                        <p class="small text-warning my-0">
+                        <p class="small text-warning my-0 pb-2">
                             <span class="icon">
                                 <i class="fas fa-exclamation-circle"></i>
                             </span>
                             <span>Your card will be charged<strong>${{ grand_total|floatformat:2 }}</strong></span>
                         </p>
                         <!-- A Stripe card element will go here -->
-                        <div class="mb-3" id="card-element"></div>
+                        <div class="mb-3 pt-2 StripeElement" id="card-element"></div>
 
                         <!-- Used to display form errors -->
                         <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
@@ -112,7 +109,8 @@
                                     </span>
                                     <span class="text-uppercase">Update Bag</span>
                                 </a>
-                                <a href="{% url 'checkout' %}" class="btn btn-dark rounded-3 btn-lg">
+                                <a href="{% url 'checkout' %}" id="checkout-button"
+                                    class="btn btn-dark rounded-3 btn-lg">
                                     <span class="text-uppercase">Finalise Order</span>
                                     <span class="icon">
                                         <i class="fas fa-lock"></i>
@@ -129,5 +127,7 @@
 {% endblock %}
 {% block postloadjs %}
 {{ block.super }}
+{{ stripe_public_key|json_script:"id_stripe_public_key" }}
+{{ client_secret|json_script:"id_client_secret" }}
+<script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}
->>>>>>> e29152c51d9697eb3b3935a375a0127f127dfc2e
