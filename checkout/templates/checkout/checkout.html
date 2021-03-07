@@ -26,16 +26,16 @@
                         <legend class="fieldset-label small text-black w-auto">Details</legend>
                         {{ order_form.full_name | as_crispy_field }}
                         {{ order_form.email | as_crispy_field }}
+                        {{ order_form.phone_number | as_crispy_field }}
                     </fieldset>
                     <fieldset class="rounded mb-2">
                         <legend class="fieldset-label small text-black mb-0 w-auto">Delivery</legend>
-                        <div>{{ order_form.phone_number | as_crispy_field }}</div>
-                        {{ order_form.country | as_crispy_field }}
-                        {{ order_form.postcode | as_crispy_field }}
-                        {{ order_form.town_or_city | as_crispy_field }}
                         {{ order_form.street_address1 | as_crispy_field }}
                         {{ order_form.street_address2 | as_crispy_field }}
+                        {{ order_form.town_or_city | as_crispy_field }}
                         {{ order_form.county | as_crispy_field }}
+                        {{ order_form.country | as_crispy_field }}
+                        {{ order_form.postcode | as_crispy_field }}
                         <div class="form-check form-check-inline float-right mr-0">
                             {% if user.is_authenticated %}
                             <label class="form-check-label" for="id-save-info">Save this information to my
@@ -74,14 +74,14 @@
                             <span class="icon">
                                 <i class="fas fa-exclamation-circle"></i>
                             </span>
-                            <span>Your card will be charged <strong>${{ grand_total|floatformat:2 }}</strong></span>
+                            <span>Your card will be charged <strong>£{{ grand_total|floatformat:2 }}</strong></span>
                         </p>
                     </div>
                 </form>
             </div>
             <div class="col-4">
                 {% if bag_items %}
-                <table class="table table-sm table-borderless text-center boot-border">
+                <table class="table table-sm table-borderless rounded-3 text-center boot-border">
                     {% for item in bag_items %}
                     <tr class="table-light">
                         <td class="p-1 text-center">
