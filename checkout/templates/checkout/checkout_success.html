@@ -8,22 +8,77 @@
 {% endblock %}
 
 {% block content %}
-
-
-<div class="container-fluid">
+<div class="overlay"></div>
+<div class="container-fluid rounded">
     <div class="h-50 d-flex align-items-center justify-content-center">
         <div class="row d-flex hero-spacer" id="hero-quote">
             <div class="col text-center mt-3">
-                <h2 class="logo-font text-warning">Success!</h2>
+                <h2 class="logo-font text-warning">Success<br>
+                    You are one step closer to achiveing your goals!</h2>
                 <hr class="w-100 mb-1">
-                <p class="text-dark">Your order summary is below for {{ order.order_number }}<br>
+                <p class="text-dark">Your order summary is below for order {{ order.order_number }}<br>
                     An confirmation email has been sent to {{ order.email }}</p>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-12 col-lg-8">
-
+        <div class="col-12 col-lg-8 offset-lg-2">
+            <div class="row">
+                <div class="col text-start mt-3">
+                    <h4 class="text-dark">Payment Address</h4>
+                    <p class="text-dark"> {{ order.full_name }}<br>
+                        {{ order.street_address1 }}<br>
+                        {% if order.street_address2 %} {{ order.street_address2 }} {% endif %}<br>
+                        {{ order.town_or_city }}<br>
+                        {% if order.county %} {{ order.county }} {% endif %}<br>
+                        {{ order.postcode }}<br>
+                        {{ order.country }}<br>
+                    </p>
+                </div>
+            </div>
+            {% for item in order.lineitems.all %}
+            <table class="table table-sm table-borderless rounded-3 text-center boot-border">
+                <thead class="table-dark text-center">
+                    <td class="w-15">Item</td>
+                    <td class="w-15">Description</td>
+                    <td class="w-15">Quantity</td>
+                    <td class="w-15">Price</td>
+                </thead>
+                <tr class="table-light">
+                    <td class="p-1 text-center">
+                        <img class="img-fluid-bag rounded" src="{{ item.product.image.url }}">
+                    </td>
+                    <td class="table-light align-middle">{{ item.product.name }}</td>
+                    <td class="table-light align-middle">{{ item.quantity }}</td>
+                    <td class="table-light align-middle">£{{ item.product.price }}</td>
+                </tr>
+                {% endfor %}
+                <tr class="table-light">
+                    <td class="table-light text-right" colspan="3">Subtotal</td>
+                    <td class="table-light">
+                        £{{ order.order_total }}
+                    </td>
+                </tr>
+                <tr class="table-light">
+                    <td class="table-light text-right" colspan="3">Delivery</td>
+                    <td class="table-light">
+                        £{{ order.delivery_cost }}
+                    </td>
+                </tr>
+                <tr class="table-light">
+                    <td class="table-light text-right" colspan="3"><strong>Completed Order Total</strong></td>
+                    <td class="table-light">
+                        <strong>£{{ order.grand_total }}</strong>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row text-center pb-5">
+        <div class="col-12 col-lg-8 offset-lg-2 text-dark">
+            <p>It's time to join your fellow FitClub members and get going, head to the fit forum!</p>
+            <a href="" class="btn btn-dark text-light py-3">Athletes Forum
+            </a>
         </div>
     </div>
 </div>
