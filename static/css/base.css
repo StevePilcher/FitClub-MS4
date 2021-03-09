@@ -96,3 +96,14 @@ card-img-top {
     border: 1px solid #ced4da;
     border-radius: .25rem;
 }
+/* Checkout Page */
+
+select,
+select option {
+    color: #000000;
+}
+
+select:invalid,
+select option[value=""] {
+    color: #6c757d !important;
+}
