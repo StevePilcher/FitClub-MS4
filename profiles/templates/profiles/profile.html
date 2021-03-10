@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+{% endblock %}
+
+{% block page_header %}
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="h-50 d-flex align-items-center justify-content-center">
+        <div class="row d-flex hero-spacer" id="hero-quote">
+            <div class="col text-center mt-3">
+                <h2 class="logo-font text-warning">My Profile</h2>
+                <hr class="w-100 mb-1">
+                <p class="text-dark"></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
