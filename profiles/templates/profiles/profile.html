@@ -8,22 +8,64 @@
 {% block page_header %}
 {% endblock %}
 
-{% block extra_css %}
-    <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
-{% endblock %}
-
 {% block content %}
 <div class="overlay"></div>
 <div class="container-fluid">
-    <div class="h-50 d-flex align-items-center justify-content-center">
-        <div class="row d-flex hero-spacer" id="hero-quote">
-            <div class="col text-center mt-3">
-                <h2 class="logo-font text-warning">My Profile</h2>
-                <hr class="w-100 mb-1">
-                <p class="text-dark">
-                    {{ profile }}
-                </p>
-            </div>
+    <div class="row d-flex hero-spacer" id="hero-quote">
+        <div class="col text-center mt-3">
+            <h2 class="logo-font text-warning">My Profile</h2>
+            <hr class="w-100 mb-1">
+            <p class="text-dark">
+                {{ profile }}
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 offset-2">
+            <form action="{% url 'profile' %}" method="POST" id="profile-update-form" class="pb-2">
+                {% csrf_token %}
+                <fieldset class="rounded mb-2">
+                    <legend class="fieldset-label text-black mb-0 w-auto">Profile Information</legend>
+                    {{ form|crispy }}
+                </fieldset>
+                <button href="{% url 'profile' %}" id="submit-button" class="btn btn-dark rounded-3">
+                    <span>Update Profile</span>
+                </button>
+            </form>
+        </div>
+        <div class="col-4">
+
+            <table class="table table-sm table-borderless rounded-3 text-center boot-border">
+
+                <tr class="table-light">
+                    <td class="p-1 text-center">
+                        <img class="img-fluid-bag rounded" src="{{ item.product.image.url }}">
+                    </td>
+                    <td class="table-light align-middle"></td>
+                    <td class="table-light align-middle"></td>
+                    <td class="table-light align-middle"></td>
+                </tr>
+
+                <tr class="table-light">
+                    <td class="table-light text-end" colspan="3">Subtotal</td>
+                    <td class="table-light">
+                        {{ orders }}
+                    </td>
+                </tr>
+                <tr class="table-light">
+                    <td class="table-light text-end" colspan="3">Delivery</td>
+                    <td class="table-light">
+
+                    </td>
+                </tr>
+                <tr class="table-light">
+                    <td class="table-light text-end" colspan="3"><strong>Total</strong></td>
+                    <td class="table-light">
+                        <strong></strong>
+                    </td>
+                </tr>
+            </table>
+
         </div>
     </div>
 </div>
