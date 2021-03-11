@@ -9,7 +9,7 @@ class OrderForm(forms.ModelForm):
                   'phone_number', 'street_address1',
                   'street_address2', 'postcode',
                   'town_or_city', 'country',
-                  'county')
+                  'county',)
 
     def __init__(self, *args, **kwargs):
         """

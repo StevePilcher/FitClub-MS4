@@ -15,16 +15,21 @@
         <div class="col text-center mt-3">
             <h2 class="logo-font text-warning">{{ profile.user }}'s Profile</h2>
             <hr class="w-100 mb-1">
-            <p class="text-dark">
-                {{ profile.user_image }}
-                {{ orders }}
-            </p>
         </div>
     </div>
     <div class="row">
         <div class="col-4 offset-2">
             <form action="{% url 'profile' %}" method="POST" id="profile-update-form" class="pb-2">
                 {% csrf_token %}
+                {% if profile.user_image %}
+                <a href="{{ profile.user_image.url }}" target="_blank">
+                    <img class="img-fluid" src="{{ profile.user_image.url }}" alt="{{profle.name }}">
+                </a>
+                {% else %}
+                <a href="">
+                    <img class="img-fluid" src="{{ MEDIA_URL }}user.png" alt="{{ profile.name }}">
+                </a>
+                {% endif %}
                 <fieldset class="rounded mb-2">
                     <legend class="fieldset-label text-black mb-0 w-auto">Profile Information</legend>
                     {{ form|crispy }}
