@@ -13,10 +13,11 @@
 <div class="container-fluid">
     <div class="row d-flex hero-spacer" id="hero-quote">
         <div class="col text-center mt-3">
-            <h2 class="logo-font text-warning">My Profile</h2>
+            <h2 class="logo-font text-warning">{{ profile.user }}'s Profile</h2>
             <hr class="w-100 mb-1">
             <p class="text-dark">
-                {{ profile }}
+                {{ profile.user_image }}
+                {{ orders }}
             </p>
         </div>
     </div>
@@ -34,36 +35,35 @@
             </form>
         </div>
         <div class="col-4">
-
-            <table class="table table-sm table-borderless rounded-3 text-center boot-border">
-
+            <table class="table table-sm table-borderless text-center boot-border">
                 <tr class="table-light">
-                    <td class="p-1 text-center">
-                        <img class="img-fluid-bag rounded" src="{{ item.product.image.url }}">
-                    </td>
-                    <td class="table-light align-middle"></td>
-                    <td class="table-light align-middle"></td>
-                    <td class="table-light align-middle"></td>
+                    <thead class="table-dark text-center">
+                        <td class="w-15">Order No</td>
+                        <td class="w-15">Date</td>
+                        <td class="w-15">Items</td>
+                        <td class="w-15">Total</td>
+                    </thead>
                 </tr>
-
-                <tr class="table-light">
-                    <td class="table-light text-end" colspan="3">Subtotal</td>
-                    <td class="table-light">
-                        {{ orders }}
-                    </td>
-                </tr>
-                <tr class="table-light">
-                    <td class="table-light text-end" colspan="3">Delivery</td>
-                    <td class="table-light">
-
-                    </td>
-                </tr>
-                <tr class="table-light">
-                    <td class="table-light text-end" colspan="3"><strong>Total</strong></td>
-                    <td class="table-light">
-                        <strong></strong>
-                    </td>
-                </tr>
+                <tbody>
+                    {% for order in orders %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'order_history' order.order_number}" 
+                            title="{{ order.order_number }}">{{ order.order_number|truncatechars:6 }}
+                            </a>
+                            </td>
+                            <td>{{ order.date }}</td>
+                            <td>
+                                <ul>
+                                    {% for item in order.lineitems.all %}
+                                    <li> {{ item.product.name }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                            <td>{{ order.grand_total }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
             </table>
 
         </div>
