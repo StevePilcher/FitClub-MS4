@@ -43,8 +43,7 @@ card.addEventListener('change', function (event) {
 });
 
 
-// Handle form submit 
-
+// Handle form submit
 var form = document.getElementById('payment-form');
 
 form.addEventListener('submit', function (ev) {
@@ -52,13 +51,12 @@ form.addEventListener('submit', function (ev) {
     card.update({ 'disabled': true });
     $('#submit-button').attr('disabled', true);
 
-    var saveInfo = Boolean($('#id-save-info').attr('checked'))
-    var csrfToken = $('input[name="csrfmiddlewaretoken"]').val()
+    // From using {% csrf_token %} in the form
+    var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
     var postData = {
         'csrfmiddlewaretoken': csrfToken,
         'client_secret': clientSecret,
-        'saveInfo': saveInfo,
-    }
+    };
     var url = '/checkout/cache_checkout_data/';
 
     $.post(url, postData).done(function () {
@@ -94,10 +92,10 @@ form.addEventListener('submit', function (ev) {
             if (result.error) {
                 var errorDiv = document.getElementById('card-errors');
                 var html = `
-                <span class="icon" role="alert">
-                <i class="fas fa-times"></i>
-                </span>
-                <span>${result.error.message}</span>`;
+                    <span class="icon" role="alert">
+                    <i class="fas fa-times"></i>
+                    </span>
+                    <span>${result.error.message}</span>`;
                 $(errorDiv).html(html);
                 card.update({ 'disabled': false });
                 $('#submit-button').attr('disabled', false);
@@ -108,7 +106,7 @@ form.addEventListener('submit', function (ev) {
             }
         });
     }).fail(function () {
-        // Reload the page, error will be in push to django messages
+        // just reload the page
         location.reload();
     })
 });

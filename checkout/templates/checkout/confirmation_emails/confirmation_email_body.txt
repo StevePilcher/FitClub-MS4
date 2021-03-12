@@ -1,0 +1,20 @@
+Hey {{ user.full_name }}!
+
+This email is confirmation of you recent purchase from FitClub. 
+
+Order Number {{ order.ordernumber }}
+Order Date {{ order.date }}
+{% for item in bag_items %}
+Items Ordered 
+{{ item.product.image.url }} 
+{{ item.name }}
+{% endfor %}
+
+Your order will be delivered via email shortly but you can already log in to the Club forum to get inspired with
+fellow FitClub members ! 
+
+If you have any problems please contact us on {{ contact_email }}
+
+Sincerely, 
+
+The FitClub Team
