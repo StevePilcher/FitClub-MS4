@@ -3,13 +3,12 @@
         aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand block-md" href="{% url 'home' %}">
-        <img src="../media/fitness.png" alt="logo" width="45" height="45">
+    <a class="nav-link block-md" id="nav-brand" href="{% url 'home' %}">FitClub
     </a>
     <div class="collapse navbar-collapse" id="navbarToggler">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item">
-                <a class="nav-link text-light px-2" href="{% url 'products' %}">Fitclub Products</a>
+                <a class="nav-link text-light px-2" href="{% url 'products' %}">FitClub Products</a>
             </li>
             {% if request.user.is_authenticated %}
             <li class="nav-item">

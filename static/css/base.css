@@ -3,6 +3,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Pacifico&display=swap');
+
 
 html {
     height: 100%;
@@ -65,18 +68,21 @@ a {
 .hero-spacer {
     padding-top: 65px;
 }
-
-.navbar-brand {
+#nav-brand {
     padding-left: 15px;
+    font-family: 'Pacifico', cursive;
+    font-size: 2rem;
 }
 
 /*Hero Quote & Landing Page*/
 
 .gradient-text {
-  font-size: 8em;
+  font-size: 7em;
   background: -webkit-linear-gradient(#f7bb05, #f74e05);
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-family: 'Pacifico', cursive;
+  overflow-y: visible;
 }
 
 

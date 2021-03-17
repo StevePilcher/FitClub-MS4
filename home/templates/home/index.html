@@ -6,22 +6,22 @@
 
 {% block content %}
 <div class="container-fluid">
-    <div class="h-50 d-flex align-items-center justify-content-center">
+    <div class="d-flex align-items-center justify-content-center">
         <div class="row d-flex hero-spacer" id="hero-quote">
             <div class="col-12 d-flex justify-content-center align-items-center ">
-                <h1 class="display-1 logo-font gradient-text text-center">
+                <h1 class="gradient-text text-center">
                     Achieve Your<br>
                     Fitness Goals<br>
                 </h1>
             </div>
         </div>
     </div>
-    <div class="h-50 d-flex align-items-top justify-content-center">
+    <div class="pt-5 d-flex align-items-top justify-content-center">
         <div class="row" id="join-now-row">
             <div class="col-12">
-                <h4>
-                    <a href="{% url 'products' %}" class="join-now-button btn btn-dark btn-lg text-uppercase text-light py-3">Join Now</a>
-                </h4>
+                <h3>
+                    <a href="{% url 'account_signup' %}" class="join-now-button btn btn-dark btn-lg text-uppercase text-light py-3">Join Now</a>
+                </h3>
             </div>
         </div>
     </div>
