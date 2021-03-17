@@ -84,7 +84,22 @@ a {
   font-family: 'Pacifico', cursive;
   overflow-y: visible;
 }
+/* Toasts */ 
 
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
+    width: 250px
+}
+
+.custom-toast {
+    overflow: visible;
+}
+.toast-capper {
+    height: 2px;
+}
 
 /*Products Page*/
 
