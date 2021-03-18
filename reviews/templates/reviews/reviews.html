@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-4 offset-2">
+        <form action="{% url 'review' %}" method="POST" id="profile-update-form" class="pb-2">
+            {% csrf_token %}
+            <fieldset class="rounded mb-2">
+                <legend class="fieldset-label text-black mb-0 w-auto">Product Reviews</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <button href="{% url 'review' %}" id="submit-button" class="btn btn-dark rounded-3">
+                <span>Submit review</span>
+            </button>
+        </form>
+    </div>
+    {% for review in reviews %}
+    {{ review.review_title }}
+    {{ review.review_desc }}
+    {{ review.review_date }}
+    {{ review.review_user }}
+    {% endfor %}
+</div>

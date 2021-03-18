@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Product, Category
+from reviews.models import Review
+from reviews.forms import ProductReviewForm
 from django.db.models import Q
 from django.db.models.functions import Lower, Replace
 
@@ -44,12 +46,14 @@ def all_products(request):
 
 
 def product_detail(request, product_id):
-    """ A view to show individual product details """
-
+    """ A view to show individual product details & reviews """
     product = get_object_or_404(Product, pk=product_id)
-
+    reviews = product.reviews.all()
+    form = ProductReviewForm()
     context = {
         'product': product,
+        'reviews': reviews,
+        'form': form,
     }
-
+    print(reviews)
     return render(request, 'products/product_detail.html', context)
