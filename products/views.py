@@ -1,11 +1,5 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Product, Category
-from reviews.forms import ProductReviewForm
-from profiles.models import UserProfile
-
-
-
-# Create your views here.
 
 
 def all_products(request):
@@ -46,14 +40,12 @@ def all_products(request):
 
 def product_detail(request, product_id):
     """ A view to show individual product details & reviews """
-    profile = get_object_or_404(UserProfile, user=request.user)
     product = get_object_or_404(Product, pk=product_id)
     reviews = product.reviews.all()
 
     context = {
         'product': product,
         'reviews': reviews,
-        'user': profile,
     }
 
     return render(request, 'products/product_detail.html', context)
