@@ -4,17 +4,16 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Forum(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    topic = models.CharField(max_length=80)
-    user_post = models.CharField(max_length=300)
-    date_time = models.DateTimeField(auto_created=True)
+    name = models.CharField(max_length=50, unique=True)
+    description = models.CharField(max_length=80)
 
     def __str__(self):
-        return str(self.topic)
+        return str(self.name)
 
-class Conversation(models.Model):
-    forum = models.ForeignKey(Forum,blank=True,on_delete=models.CASCADE)
-    chat = models.CharField(max_length=1000)
+class Topic(models.Model):
+    subject = models.CharField(max_length=255)
+    last_updated = models.DateTimeField(auto_now_add=True)
+    board = models.ForeignKey(Board, related_name='topics')
+    originator = models.ForeignKey(User, related_name='topics')
 
-    def __str__(self):
-        return str(self.forum)
+class Board(model.Models):

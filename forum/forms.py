@@ -1,12 +1,9 @@
 from django import forms
-from .models import Forum, Conversation
+from .models import Forum
 
 
-class CreateNewForum(forms.ModelForm):
-    model = Forum
-    fields = "__all__"
-
-
-class CreateNewConversation(forms.ModelForm):
-    model = Conversation
-    fields = '__all__'
+class CreateForumPost(forms.ModelForm):
+    class Meta:
+        model = Forum
+        fields = "__all__"
+        exclude = ('user', 'date_time')

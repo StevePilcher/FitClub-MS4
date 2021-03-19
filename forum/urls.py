@@ -2,7 +2,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('forum/', views.forum, name='forum')
-    path('addForum/',views.addForum,name='addForum'),
-    path('addConversation/',views.addConversation,name='addConversation'),
+    path('', views.forum, name='forum'),
+    path('add_post/',views.add_post,name='add_post'),
 ]
