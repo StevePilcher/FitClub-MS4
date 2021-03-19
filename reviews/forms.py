@@ -5,7 +5,7 @@ from .models import Review
 class ProductReviewForm(forms.ModelForm):
     class Meta:
         model = Review
-        exclude = ('sku', 'review_date')
+        exclude = ('sku', 'review_user')
 
     def __init__(self, *args, **kwargs):
         """
@@ -15,15 +15,14 @@ class ProductReviewForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         placeholders = {
             'review_title': 'Review Title',
-            'review_user': 'Username',
             'review_desc': 'Review',
             'rating': 'Rating',
+            'review_date': 'Date',
         }
-        self.fields['review_title'].widget.attrs['autofocus'] = True
         for field in self.fields:
             if self.fields[field].required:
                 placeholder = f'{placeholders[field]} *'
             else:
                 placeholder = placeholders[field]
         self.fields[field].widget.attrs['placeholder'] = placeholder
-        self.fields[field].label = False
+

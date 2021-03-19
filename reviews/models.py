@@ -12,7 +12,7 @@ class Review(models.Model):
                                     null=True, blank=True)
     review_desc = models.CharField(max_length=500, blank=False)
     review_date = models.DateField()
-    rating = models.DecimalField(max_digits=6, decimal_places=2,
+    rating = models.DecimalField(max_digits=6, decimal_places=0,
                                  null=True, blank=True)
 
     def __str__(self):

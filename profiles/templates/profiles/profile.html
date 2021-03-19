@@ -19,7 +19,7 @@
     </div>
     <div class="row">
         <div class="col-4 offset-2">
-            <form action="{% url 'profile' %}" method="POST" id="profile-update-form" class="pb-2">
+            <form action="{% url 'profile' %}" method="POST" id="profile-update-form" class="pb-2" enctype="multipart/form-data">
                 {% csrf_token %}
                 {% if profile.user_image %}
                 <a href="{{ profile.user_image.url }}" target="_blank">
