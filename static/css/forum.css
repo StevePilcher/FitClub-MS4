@@ -11,3 +11,11 @@
 .table td {
     vertical-align: middle;
 }
+
+.table {
+    width: 100%;
+}
+
+.forum-table-font {
+    font-size: 2rem;
+}
