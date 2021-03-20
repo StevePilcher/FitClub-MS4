@@ -13,7 +13,7 @@ class Forum(models.Model):
 
 class Topic(models.Model):
     subject = models.CharField(max_length=255)
-    Forum = models.ForeignKey(Forum, related_name='topics', on_delete=models.CASCADE)
+    forum = models.ForeignKey(Forum, related_name='topics', on_delete=models.CASCADE)
     originator = models.ForeignKey(User, related_name='topics', on_delete=models.CASCADE)
     last_updated = models.DateTimeField(auto_now_add=True)
 

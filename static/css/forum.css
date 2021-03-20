@@ -5,7 +5,8 @@
 }
 
 .forum-headers {
-    font-family: 'Pacifico' , sans-serif
+    font-family: 'Pacifico' , sans-serif;
+    color: #ffc107;
 }
 
 .table td {

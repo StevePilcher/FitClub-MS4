@@ -26,8 +26,8 @@
                     <tr>{% for forum in forums %}
                         <td class="topic-title">
                             <a href="{% url 'forum_detail' forum.id %}">
-                            <h3 class="m-0">{{ forum.name }}</h3><br>
-                            <p><small class="text-muted d-block">{{ forum.description }}</small></p>
+                                <h3 class="m-0">{{ forum.name }}</h3><br>
+                                <p><small class="text-muted d-block">{{ forum.description }}</small></p>
                         </td>
                         <td class="forum-table-font">0</td>
                         <td class="forum-table-font">0</td>
@@ -40,4 +40,6 @@
         </div>
     </div>
 
-    {% endblock %}
+</div>
+
+{% endblock %}
