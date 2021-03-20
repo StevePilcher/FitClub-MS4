@@ -12,7 +12,7 @@
             </li>
             {% if request.user.is_authenticated %}
             <li class="nav-item">
-                <a class="nav-link text-light px-2" href="{% url 'forum' %}">FitClub Forum</a>
+                <a class="nav-link text-light px-2" href="{% url 'all_forums' %}">FitClub Forum</a>
             </li>
             {% endif %}
         </ul>
