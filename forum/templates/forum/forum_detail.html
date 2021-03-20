@@ -21,31 +21,33 @@
                 </nav>
             </div>
             <div class="row w-100">
-                <table class="table table-hover table-light text-center">
-                    <thead class="thead-dark">
-                    <tr class="forum-headers">
-                        <th><h3>Topic</h3></th>
-                        <th><h3>Originator</h3></th>
-                        <th><h3>Replies</h3></th>
-                        <th><h3>Views</h3></th>
-                        <th><h3>Last Update</h3></th>
-                    </tr>
-                    </thead>
-                    <tbody class="text-center align-items-center">
-                    <tr>{% for topic in forum.topics.all %}
-                        <td class="topic-title">
-                            <a href="{% url 'forum_detail' forum.id %}">
-                                <h3 class="m-0">{{ topic.subject }}</h3><br>
-                                <p><small class="text-muted d-block"></small></p>
-                        </td>
-                        <td class="">{{ topic.originator.username }}</td>
-                        <td class="">0</td>
-                        <td class="">0</td>
-                        <td class="">{{ topic.last_updated }}</td>
-                    </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
+                <div class="col-12 justify-content-center align-items-center">
+                    <table class="table table-hover table-light text-center rounded">
+                        <thead class="thead-dark">
+                        <tr class="forum-headers">
+                            <th><h3>Topic</h3></th>
+                            <th><h3>Originator</h3></th>
+                            <th><h3>Replies</h3></th>
+                            <th><h3>Views</h3></th>
+                            <th><h3>Last Update</h3></th>
+                        </tr>
+                        </thead>
+                        <tbody class="text-center align-items-center">
+                        <tr>{% for topic in forum.topics.all %}
+                            <td class="topic-title">
+                                <a href="{% url 'forum_detail' forum.id %}">
+                                    <h3 class="m-0">{{ topic.subject }}</h3><br>
+                                    <p><small class="text-muted d-block"></small></p>
+                            </td>
+                            <td class="">{{ topic.originator.username }}</td>
+                            <td class="">0</td>
+                            <td class="">0</td>
+                            <td class="">{{ topic.last_updated }}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
@@ -55,7 +57,7 @@
                                 <span class="icon">
                                     <i class="far fa-plus-square"></i>
                                 </span>
-                <span class="text-uppercase">Add Forum</span>
+                <span class="text-uppercase">Add Topic</span>
             </a>
         </div>
     </div>

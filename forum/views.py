@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Forum, Topic, Messages
+from django.contrib import messages
 from django.contrib.auth.models import User
-
+from .models import Forum, Topic, Posts
 
 # Create your views here.
 def all_forums(request):
@@ -39,13 +39,13 @@ def new_topic(request, forum_id):
             originator=user,
         )
 
-        message = Messages.objects.create(
+        post = Posts.objects.create(
             message=message,
             topic=topic,
             created_by=user,
         )
-
-        return redirect('all_forums', forum_id=forum.id)
+        messages.success(request, f'Your {topic.subject} has been created')
+        return redirect('forum_detail', forum_id=forum.id)
 
     context = {
         'forum': forum,
