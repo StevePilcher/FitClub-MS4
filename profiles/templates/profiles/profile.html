@@ -23,7 +23,7 @@
                 {% csrf_token %}
                 {% if profile.user_image %}
                 <a href="{{ profile.user_image.url }}" target="_blank">
-                    <img class="img-fluid" src="{{ profile.user_image.url }}" alt="{{profle.name }}">
+                    <img class="img-fluid" src="{{ profile.user_image.url }}" alt="{{ profile.name }}">
                 </a>
                 {% else %}
                 <a href="">

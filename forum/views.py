@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import Forum, Topic, Posts
 
-# Create your views here.
+
+@login_required
 def all_forums(request):
     forums = Forum.objects.all()
     context = {
@@ -13,6 +15,7 @@ def all_forums(request):
     return render(request, template, context)
 
 
+@login_required
 def forum_detail(request, forum_id):
     forum = get_object_or_404(Forum, pk=forum_id)
 
@@ -24,6 +27,7 @@ def forum_detail(request, forum_id):
     return render(request, template, context)
 
 
+@login_required
 def new_topic(request, forum_id):
     forum = get_object_or_404(Forum, pk=forum_id)
 
@@ -44,6 +48,7 @@ def new_topic(request, forum_id):
             topic=topic,
             created_by=user,
         )
+
         messages.success(request, f'Your {topic.subject} has been created')
         return redirect('forum_detail', forum_id=forum.id)
 
@@ -53,3 +58,12 @@ def new_topic(request, forum_id):
     template = 'forum/new_topic.html'
 
     return render(request, template, context)
+
+
+def topic_posts(request, forum_id, topic_id):
+    topic = get_object_or_404(Topic, forum_id=forum_id, pk=topic_id)
+
+    for post in topic.posts.all():
+        print(post.created_by.user_image.url)
+
+    return render(request, 'forum/topic_posts.html', {'topic': topic})

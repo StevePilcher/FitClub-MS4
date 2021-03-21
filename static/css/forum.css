@@ -20,3 +20,12 @@
 .forum-table-font {
     font-size: 2rem;
 }
+
+topic-title {
+    font-size: 0.75rem;
+}
+
+.forum-profile-image {
+    max-width: 72px;
+    max-height: 72px;
+}

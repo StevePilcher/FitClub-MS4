@@ -11,31 +11,38 @@
 {% block content %}
 <div class="container-fluid">
     <div class="d-flex align-items-center justify-content-center">
-        <div class="row w-50 d-flex forum-spacer" id="hero-quote">
+        <div class="row w-100 d-flex forum-spacer" id="hero-quote">
             <div class="col-12 justify-content-center align-items-center ">
-                <table class="table table-hover table-light text-center">
-                    <thead class="thead-dark">
-                    <tr class="forum-headers">
-                        <th scope="col"><h2>Forums</h2></th>
-                        <th scope="col"><h2>Topics</h2></th>
-                        <th scope="col"><h2>Messages</h2></th>
-                        <th scope="col"><h2>Last Post</h2></th>
-                    </tr>
-                    </thead>
-                    <tbody class="text-center align-items-center">
-                    <tr>{% for forum in forums %}
-                        <td class="topic-title">
-                            <a href="{% url 'forum_detail' forum.id %}">
-                                <h3 class="m-0">{{ forum.name }}</h3><br>
-                                <p><small class="text-muted d-block">{{ forum.description }}</small></p>
-                        </td>
-                        <td class="forum-table-font">0</td>
-                        <td class="forum-table-font">0</td>
-                        <td class="forum-table-font">0</td>
-                    </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
+                <nav aria-label="breadcrumb ">
+                    <ol class="breadcrumb bg-light">
+                        <li class="breadcrumb-item active" aria-current="page">Forums /</li>
+                    </ol>
+                </nav>
+                <div class="card col-12 bg-dark">
+                    <table class="table table-hover table-light text-center">
+                        <thead class="thead-dark">
+                        <tr class="forum-headers">
+                            <th scope="col"><h2>Forums</h2></th>
+                            <th scope="col"><h2>Topics</h2></th>
+                            <th scope="col"><h2>Messages</h2></th>
+                            <th scope="col"><h2>Last Post</h2></th>
+                        </tr>
+                        </thead>
+                        <tbody class="text-center align-items-center">
+                        <tr>{% for forum in forums %}
+                            <td class="topic-title">
+                                <a href="{% url 'forum_detail' forum.id %}">
+                                    <h3 class="m-0">{{ forum.name }}</h3><br>
+                                    <p><small class="text-muted d-block">{{ forum.description }}</small></p>
+                            </td>
+                            <td class="forum-table-font">0</td>
+                            <td class="forum-table-font">0</td>
+                            <td class="forum-table-font">0</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

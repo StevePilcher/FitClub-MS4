@@ -11,53 +11,50 @@
 {% block content %}
 <div class="container-fluid">
     <div class="d-flex align-items-center justify-content-center">
-        <div class="row w-50 d-flex forum-spacer" id="hero-quote">
-            <div class="col-12 justify-content-center align-items-center ">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{% url 'all_forums' %}">Forum</a></li>
+        <div class="row w-100 d-flex forum-spacer" id="hero-quote">
+            <div class="col-12 justify-content-center align-items-center rounded p-0">
+                <nav aria-label="breadcrumb ">
+                    <ol class="breadcrumb bg-light">
+                        <li class="breadcrumb-item"><a href="{% url 'all_forums' %}">Forums</a></li>
                         <li class="breadcrumb-item active" aria-current="page">{{ forum.name }}</li>
                     </ol>
                 </nav>
             </div>
-            <div class="row w-100">
-                <div class="col-12 justify-content-center align-items-center">
-                    <table class="table table-hover table-light text-center rounded">
-                        <thead class="thead-dark">
-                        <tr class="forum-headers">
-                            <th><h3>Topic</h3></th>
-                            <th><h3>Originator</h3></th>
-                            <th><h3>Replies</h3></th>
-                            <th><h3>Views</h3></th>
-                            <th><h3>Last Update</h3></th>
-                        </tr>
-                        </thead>
-                        <tbody class="text-center align-items-center">
-                        <tr>{% for topic in forum.topics.all %}
-                            <td class="topic-title">
-                                <a href="{% url 'forum_detail' forum.id %}">
-                                    <h3 class="m-0">{{ topic.subject }}</h3><br>
-                                    <p><small class="text-muted d-block"></small></p>
-                            </td>
-                            <td class="">{{ topic.originator.username }}</td>
-                            <td class="">0</td>
-                            <td class="">0</td>
-                            <td class="">{{ topic.last_updated }}</td>
-                        </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
+            <div class="card col-12 bg-dark">
+            <table class="table table-hover table-light text-center">
+                <thead class="thead-dark">
+                <tr class="forum-headers">
+                    <th><h3>Topic</h3></th>
+                    <th><h3>Originator</h3></th>
+                    <th><h3>Replies</h3></th>
+                    <th><h3>Views</h3></th>
+                    <th><h3>Last Update</h3></th>
+                </tr>
+                </thead>
+                <tbody class="text-center align-items-center">
+                <tr>{% for topic in forum.topics.all %}
+                    <td class="topic-title">
+                        <a href="{% url 'topic_posts' forum.id topic.id %}">
+                            <h4 class="m-0">{{ topic.subject }}</h4>
+                    </td>
+                    <td class="">{{ topic.originator.username }}</td>
+                    <td class="">{{ topic.id}}</td>
+                    <td class="">{{ forum.id }}</td>
+                    <td class="">{{ topic.last_updated }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
             </div>
         </div>
     </div>
-    <div class="row w-100 text-center">
+    <div class="row w-100 d-flex text-center">
         <div class="col-12">
-            <a href="{% url 'new_topic' forum.id %}" class="btn btn-secondary highlight rounded mt-1">
+            <a href="{% url 'new_topic' forum.id %}" class="btn btn-dark rounded mt-1">
                                 <span class="icon">
                                     <i class="far fa-plus-square"></i>
                                 </span>
-                <span class="text-uppercase">Add Topic</span>
+                <span class="">Create New Topic</span>
             </a>
         </div>
     </div>
