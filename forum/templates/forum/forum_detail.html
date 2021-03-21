@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load static %}
 
 {% block page_header %}
@@ -37,10 +37,10 @@
                         <a href="{% url 'topic_posts' forum.id topic.id %}">
                             <h4 class="m-0">{{ topic.subject }}</h4>
                     </td>
-                    <td class="">{{ topic.originator.username }}</td>
-                    <td class="">{{ topic.id}}</td>
-                    <td class="">{{ forum.id }}</td>
-                    <td class="">{{ topic.last_updated }}</td>
+                    <td class="">{{ topic.originator.user }}</td>
+                    <td class=""></td>
+                    <td class=""></td>
+                    <td class="">{{ topic.last_updated | date:"g:i F j, Y" }}</td>
                 </tr>
                 {% endfor %}
                 </tbody>

@@ -22,32 +22,49 @@
                     </ol>
                 </nav>
             </div>
-            <div class="col-12 justify-content-center align-items-center rounded pt-2 bg-light">
-                <ul class="list-unstyled">
-                    {% for post in topic.posts.all %}
-                    <li class="media">
-                        {% if post.created_by.user_image.url %}
-                        <a href="{{ post.created_by.user_image.url }}" target="_blank">
-                            <img class="forum-profile-image" src="{{ post.created_by.user_image.url }}"
-                                 alt="{{ profile.name }}">
-                        </a>
-                        {% else %}
-                        <a href="">
-                            <img class="img-fluid" src="{{ MEDIA_URL }}user.png" alt="{{ profile.name }}">
-                        </a>
-                        {% endif %}
-                        <div class="media-body mx-3">
-                            <h4 class="">{{ post.created_by.user }}</h4>
-                            <p class="">{{ post.message }}</p>
-                        </div>
-                        {% if post.created_by.user == user %}
-                        <div>
-                            <a href="#" class="btn btn-dark" role="button">Edit</a>
-                        </div>
-                        {% endif %}
-                    </li>
-                    {% endfor %}
-                </ul>
+            <div class="card col-12 bg-dark p-2">
+                <div class="col-12 justify-content-center align-items-center rounded pt-2 bg-light">
+                    <ul class="list-unstyled">
+                        {% for post in topic.posts.all %}
+                        <li class="media pt-2">
+                            {% if post.created_by.user_image.url %}
+                            <div class="">
+                                <a href="{{ post.created_by.user_image.url }}" target="_blank">
+                                    <img class="forum-profile-image" src="{{ post.created_by.user_image.url }}"
+                                         alt="{{ profile.name }}">
+                                </a>
+                            </div>
+                            {% else %}
+                            <a href="">
+                                <img class="img-fluid" src="{{ MEDIA_URL }}user.png" alt="{{ profile.name }}">
+                            </a>
+                            {% endif %}
+                            <div class="media-body text-left mx-3">
+                                <h4 class="">{{ post.created_by.user }}</h4>
+                                <small>Posts: {{ post.created_by.posts.count }}</small>
+                                <hr class="w-100">
+                                <p class="">{{ post.message }}</p>
+                            </div>
+                            {% if post.created_by.user == user %}
+                            <div class="text-right">
+                                <a href="#" class="btn btn-dark" role="button">Edit</a>
+                                <p class="mt-3">{{ post.created_at | date:"g:i F j, Y" }}</p>
+                            </div>
+                            {% endif %}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="row w-100 d-flex text-center">
+                <div class="col-12">
+                    <a href="{% url 'post_reply' %}" class="btn btn-dark rounded mt-1">
+                                <span class="icon">
+                                    <i class="far fa-comment-dots"></i>
+                                </span>
+                        <span class="">Reply</span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

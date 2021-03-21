@@ -3,10 +3,12 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import Forum, Topic, Posts
+from profiles.models import UserProfile
 
 
 @login_required
 def all_forums(request):
+    """Start view from Nav link to show all forums in the DB"""
     forums = Forum.objects.all()
     context = {
         'forums': forums,
@@ -29,13 +31,14 @@ def forum_detail(request, forum_id):
 
 @login_required
 def new_topic(request, forum_id):
+    """create a new topic and redirect to forum details view"""
     forum = get_object_or_404(Forum, pk=forum_id)
 
     if request.method == 'POST':
         subject = request.POST['subject']
         message = request.POST['message']
 
-        user = get_object_or_404(User, username=request.user)
+        user = get_object_or_404(UserProfile, user=request.user)
 
         topic = Topic.objects.create(
             subject=subject,
@@ -61,9 +64,29 @@ def new_topic(request, forum_id):
 
 
 def topic_posts(request, forum_id, topic_id):
+    """A view to render the individual
+    topic and posts within that topic"""
+
     topic = get_object_or_404(Topic, forum_id=forum_id, pk=topic_id)
 
-    for post in topic.posts.all():
-        print(post.created_by.user_image.url)
-
     return render(request, 'forum/topic_posts.html', {'topic': topic})
+
+
+def post_reply(request):
+    if request.method == 'POST':
+        topic = request.POST['topic']
+        user = request.POST['user']
+        message = request.POST['reply']
+
+        post = Posts.objects.create(
+            message=message,
+            topic=topic,
+            created_by=user,
+        )
+
+        messages.success(request, f'Your reply to {topic.subject} has been posted')
+        return render(request, 'forum/topic_posts.html', {'topic': topic})
+
+    template = 'forum/new_reply.html'
+
+    return render(request, template)
