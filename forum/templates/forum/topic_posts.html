@@ -42,7 +42,6 @@
                             <div class="media-body text-left mx-3">
                                 <h4 class="">{{ post.created_by.user }}</h4>
                                 <small>Posts: {{ post.created_by.posts.count }}</small>
-                                <hr class="w-100">
                                 <p class="">{{ post.message }}</p>
                             </div>
                             {% if post.created_by.user == user %}
@@ -52,13 +51,14 @@
                             </div>
                             {% endif %}
                         </li>
+                        <hr class="w-100 mt-0">
                         {% endfor %}
                     </ul>
                 </div>
             </div>
             <div class="row w-100 d-flex text-center">
                 <div class="col-12">
-                    <a href="{% url 'post_reply' %}" class="btn btn-dark rounded mt-1">
+                    <a href="{% url 'post_reply' topic.forum.id topic.id %}" class="btn btn-dark rounded mt-1">
                                 <span class="icon">
                                     <i class="far fa-comment-dots"></i>
                                 </span>

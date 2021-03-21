@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
 from .models import Forum, Topic, Posts
+from .forms import NewPostsForm, NewTopicForm
 from profiles.models import UserProfile
 
 
@@ -31,38 +31,36 @@ def forum_detail(request, forum_id):
 
 @login_required
 def new_topic(request, forum_id):
-    """create a new topic and redirect to forum details view"""
+    """create a new topic via Forms and redirect to forum details view"""
     forum = get_object_or_404(Forum, pk=forum_id)
+    user = get_object_or_404(UserProfile, user=request.user)
 
     if request.method == 'POST':
-        subject = request.POST['subject']
-        message = request.POST['message']
+        form = NewTopicForm(request.POST)
+        if form.is_valid():
+            topic = form.save(commit=False)
+            topic.originator = user
+            topic.forum = forum
+            topic.save()
+            post = Posts.objects.create(
+                message=form.cleaned_data.get('message'),
+                topic=topic,
+                created_by=user,
+            )
 
-        user = get_object_or_404(UserProfile, user=request.user)
-
-        topic = Topic.objects.create(
-            subject=subject,
-            forum=forum,
-            originator=user,
-        )
-
-        post = Posts.objects.create(
-            message=message,
-            topic=topic,
-            created_by=user,
-        )
-
-        messages.success(request, f'Your {topic.subject} has been created')
-        return redirect('forum_detail', forum_id=forum.id)
-
-    context = {
-        'forum': forum,
-    }
-    template = 'forum/new_topic.html'
-
-    return render(request, template, context)
+            messages.success(request, f'Your {topic.subject} has been created')
+            return redirect('forum_detail', forum_id=forum.id)
+    else:
+        form = NewTopicForm()
+        context = {
+            'forum': forum,
+            'form': form,
+        }
+        template = 'forum/new_topic.html'
+        return render(request, template, context)
 
 
+@login_required
 def topic_posts(request, forum_id, topic_id):
     """A view to render the individual
     topic and posts within that topic"""
@@ -72,21 +70,20 @@ def topic_posts(request, forum_id, topic_id):
     return render(request, 'forum/topic_posts.html', {'topic': topic})
 
 
-def post_reply(request):
+@login_required
+def post_reply(request, forum_id, topic_id):
+    topic = get_object_or_404(Topic, forum_id=forum_id, pk=topic_id)
+    user = get_object_or_404(UserProfile, user=request.user)
     if request.method == 'POST':
-        topic = request.POST['topic']
-        user = request.POST['user']
-        message = request.POST['reply']
-
-        post = Posts.objects.create(
-            message=message,
-            topic=topic,
-            created_by=user,
-        )
-
-        messages.success(request, f'Your reply to {topic.subject} has been posted')
-        return render(request, 'forum/topic_posts.html', {'topic': topic})
-
-    template = 'forum/new_reply.html'
-
-    return render(request, template)
+        form = NewPostsForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            print(post)
+            post.topic = topic
+            post.created_by = user
+            post.save()
+            messages.success(request,'Your reply has been posted')
+            return redirect('topic_posts', forum_id=forum_id, topic_id=topic_id)
+    else:
+        form = NewPostsForm()
+    return render(request, 'forum/new_reply.html', {'form':form, 'topic':topic})

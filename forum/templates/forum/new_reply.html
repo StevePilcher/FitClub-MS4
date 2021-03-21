@@ -16,9 +16,11 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-light">
                         <li class="breadcrumb-item"><a href="{% url 'all_forums' %}">Forum</a></li>
-                        <li class="breadcrumb-item"><a href="{% url 'forum_detail' forum.id %}">{{ forum.name }}</a>
+                        <li class="breadcrumb-item"><a href="{% url 'forum_detail' topic.forum.id %}">{{ topic.forum.name }}</a>
                         </li>
-                        <li class="breadcrumb-item text-light active" aria-current="page">New Topic</li>
+                        <li class="breadcrumb-item"><a href="{% url 'topic_posts' topic.forum.id topic.id %}">{{ topic.subject }}</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ topic.originator }}</li>
                     </ol>
                 </nav>
             </div>
@@ -30,8 +32,8 @@
                 <form method="POST" class="bg-dark p-3 rounded">
                     {% csrf_token %}
                     <div class="form-group">
-                        <label class="forum-headers" for="id_reply">Message</label>
-                        <textarea class="form-control" id="id_reply" name="reply" rows="4"></textarea>
+                        <label class="forum-headers" for="id_reply">Reply to {{ topic.originator }}'s Post</label>
+                        <textarea class="form-control" id="id_reply" name="message" rows="4"></textarea>
                         <input type="hidden" id="topic-id" name="topic" value="{{ topic.id }}">
                     </div>
                     <button type="submit" class="btn btn-light highlight rounded mt-1"><span class="icon">
