@@ -58,19 +58,25 @@
                             <input type="submit" class="btn btn-dark highlight rounded-0 text-uppercase mt-5"
                                 id="add-to-bag" value="Add to Bag">
                         </div>
-                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
-{% if can_review %}
+{% for review in reviews %}
+{{  review.review_title }}
+{{ review.review_description }}
+<br>
+
+{% if request.user == recipe.created_by %}
+    {% if owns_item %}
 <div class="container-fluid" id="reviews-container">
     {% include 'products/product_reviews.html' %}
 </div>
+    {% endif %}
 {% endif %}
-
+{% endfor %}
 <script type="text/javascript">
     // Change icon colour on cursor hover
     $('.highlight').hover(
