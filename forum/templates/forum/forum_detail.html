@@ -21,30 +21,29 @@
                 </nav>
             </div>
             <div class="card col-12 bg-dark">
-            <table class="table table-hover table-light text-center">
-                <thead class="thead-dark">
-                <tr class="forum-headers">
-                    <th><h3>Topic</h3></th>
-                    <th><h3>Originator</h3></th>
-                    <th><h3>Replies</h3></th>
-                    <th><h3>Views</h3></th>
-                    <th><h3>Last Update</h3></th>
-                </tr>
-                </thead>
-                <tbody class="text-center align-items-center">
-                <tr>{% for topic in forum.topics.all %}
-                    <td class="topic-title">
-                        <a href="{% url 'topic_posts' forum.id topic.id %}">
-                            <h4 class="m-0">{{ topic.subject }}</h4>
-                    </td>
-                    <td class="">{{ topic.originator.user }}</td>
-                    <td class=""></td>
-                    <td class=""></td>
-                    <td class="">{{ topic.last_updated | date:"g:i F j, Y" }}</td>
-                </tr>
-                {% endfor %}
-                </tbody>
-            </table>
+                <table class="table table-hover table-light text-center">
+                    <thead class="thead-dark">
+                    <tr class="forum-headers">
+                        <th><h3>Topic</h3></th>
+                        <th><h3>Originator</h3></th>
+                        <th><h3>Replies</h3></th>
+                        <th><h3>Last Update</h3></th>
+                    </tr>
+                    </thead>
+                    <tbody class="text-center align-items-center">
+                    {% for topic in topics %}
+                    <tr>
+                        <td class="topic-title">
+                            <a href="{% url 'topic_posts' forum.id topic.id %}">
+                                <h4 class="m-0">{{ topic.subject }}</h4>
+                        </td>
+                        <td class="">{{ topic.originator.user }}</td>
+                        <td class="">{{ topic.replies }}</td>
+                        <td class="">{{ topic.last_updated | date:"g:i F j, Y" }}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

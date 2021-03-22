@@ -11,6 +11,15 @@ class Forum(models.Model):
     def __str__(self):
         return str(self.name)
 
+    def get_forum_topics_count(self):
+        return Topic.objects.filter(forum=self).count()
+
+    def get_last_post_date(self):
+        return Posts.objects.filter(topic__forum=self).order_by('-created_at').first()
+
+    def get_forum_posts_count(self):
+        return Posts.objects.filter(topic__forum=self).count()
+
 
 class Topic(models.Model):
     subject = models.CharField(max_length=255)
@@ -32,3 +41,6 @@ class Posts(models.Model):
 
     def __str__(self):
         return str(self.message)
+
+    def get_all_posts(self):
+        return Posts.objects.order_by('-created_at')

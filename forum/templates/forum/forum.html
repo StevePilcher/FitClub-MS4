@@ -35,9 +35,9 @@
                                     <h3 class="m-0">{{ forum.name }}</h3><br>
                                     <p><small class="text-muted d-block">{{ forum.description }}</small></p>
                             </td>
-                            <td class="forum-table-font">0</td>
-                            <td class="forum-table-font">0</td>
-                            <td class="forum-table-font">0</td>
+                            <td class="forum-table-font">{{ forum.get_forum_topics_count }}</td>
+                            <td class="forum-table-font">{{ forum.get_forum_posts_count }}</td>
+                            <td class="forum-table-font">{{ forum.get_last_post_date }}</td>
                         </tr>
                         {% endfor %}
                         </tbody>
