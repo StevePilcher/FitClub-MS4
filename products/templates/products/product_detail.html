@@ -10,7 +10,6 @@
     <div class="row">
         <div class="col text-center mt-3">
             <h1 class="logo-font">{{ product.name }}</h1>
-            <hr class="w-100 mb-1">
         </div>
     </div>
     <div class="row">
@@ -66,9 +65,9 @@
         </div>
     </div>
 </div>
-{% if reviews %}
+{% if can_review %}
 <div class="container-fluid" id="reviews-container">
-    {% include 'reviews/reviews.html' %}
+    {% include 'products/product_reviews.html' %}
 </div>
 {% endif %}
 
