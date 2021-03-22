@@ -4,26 +4,70 @@
 {% block page_header %}
 {% endblock %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/forum.css' %}">
+{% endblock %}
+
 {% block content %}
 <div class="container-fluid">
     <div class="d-flex align-items-center justify-content-center">
-        <div class="row d-flex hero-spacer" id="hero-quote">
-            <div class="col-12 d-flex justify-content-center align-items-center ">
-                <h1 class="gradient-text text-center">
-                    Achieve Your<br>
-                    Fitness Goals<br>
-                </h1>
+        {% if request.user.is_authenticated %}
+        <div class="row w-100  flex justify-content-center hero-spacer">
+        <div class="text-light pb-3"><h1>Member Dashboard</h1></div>
+        <div class="row w-100 flex justify-content-center">
+            <h3 class="forum-headers">Latest Member Posts</h3>
+            <div class="row w-100 flex justify-content-center" id="dashboard">
+                <div class="card col-6 bg-dark text-center p-2">
+                    <div class="col-12 rounded bg-light">
+                        <ul class="list-unstyled">
+                            {% for post in posts %}
+                            <li class="media pt-2">
+                                {% if post.created_by.user_image.url %}
+                                <div class="">
+                                    <a href="{{ post.created_by.user_image.url }}" target="_blank">
+                                        <img class="forum-profile-image" src="{{ post.created_by.user_image.url }}"
+                                             alt="{{ profile.name }}">
+                                    </a>
+                                </div>
+                                {% else %}
+                                <a href="">
+                                    <img class="img-fluid" src="{{ MEDIA_URL }}user.png" alt="{{ profile.name }}">
+                                </a>
+                                {% endif %}
+                                <div class="media-body text-left mx-3">
+                                    <h4 class="">{{ post.created_by.user }}</h4>
+                                    <small>Posts: {{ post.created_by.posts.count }}</small>
+                                    <p class="">{{ post.message }}</p>
+                                </div>
+                            </li>
+                            <hr class="w-100 mt-0">
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+
+                {% else %}
+                <div class="row d-flex hero-spacer" id="hero-quote">
+                    <div class="col-12 d-flex justify-content-center align-items-center ">
+                        <h1 class="gradient-text text-center">
+                            Achieve Your<br>
+                            Fitness Goals<br>
+                        </h1>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="pt-5 d-flex align-items-top justify-content-center">
-        <div class="row" id="join-now-row">
-            <div class="col-12">
-                <h3>
-                    <a href="{% url 'account_signup' %}" class="join-now-button btn btn-dark btn-lg text-uppercase text-light py-3">Join Now</a>
-                </h3>
+            <div class="pt-5 d-flex align-items-top justify-content-center">
+                <div class="row" id="join-now-row">
+                    <div class="col-12">
+                        <h3>
+                            <a href="{% url 'account_signup' %}"
+                               class="join-now-button btn btn-dark btn-lg text-uppercase text-light py-3">Join Now</a>
+                        </h3>
+                    </div>
+                </div>
             </div>
+            {% endif %}
         </div>
     </div>
 </div>
-{% endblock %}
+    {% endblock %}
