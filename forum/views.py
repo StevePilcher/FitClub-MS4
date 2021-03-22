@@ -77,10 +77,9 @@ def post_reply(request, forum_id, topic_id):
     user = get_object_or_404(UserProfile, user=request.user)
 
     if request.method == 'POST':
-        form = NewPostsForm(request.POST, instance=post_reply)
+        form = NewPostsForm(request.POST)
         if form.is_valid():
-            post = form.save()
-            print('back to post reply')
+            post = form.save(commit=False)
             post.topic = topic
             post.created_by = user
             post.save()
@@ -107,7 +106,7 @@ def edit_posts(request, forum_id, topic_id, post_id):
 
     if request.method == 'POST':
         if form.is_valid():
-            post = form.save()
+            post = form.save(commit=False)
             post.topic = topic
             post.created_by = user
             post.save()
@@ -115,3 +114,14 @@ def edit_posts(request, forum_id, topic_id, post_id):
             return redirect('topic_posts', forum_id=forum_id, topic_id=topic_id)
 
     return render(request, 'forum/topic_posts.html', {'topic': topic})
+
+
+@login_required
+def delete_post(request, forum_id, topic_id, post_id):
+    post = get_object_or_404(Posts, pk=post_id)
+    topic = get_object_or_404(Topic, forum_id=forum_id, pk=topic_id)
+
+    if request.method == 'GET':
+        Posts.objects.filter(id=post_id).delete()
+
+    return redirect('topic_posts', forum_id=forum_id, topic_id=topic_id)
