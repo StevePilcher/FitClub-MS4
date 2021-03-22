@@ -26,7 +26,18 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
-    owned_by = models.ForeignKey(UserProfile, null=True, related_name='+', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
+
+
+class Review(models.Model):
+    review_title = models.CharField(max_length=80, blank=False, null=True)
+    user = models.ForeignKey(UserProfile, null=True, related_name='reviews', on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, null=False, on_delete=models.CASCADE)
+    review_description = models.CharField(max_length=500, blank=True)
+    review_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.review_title
+

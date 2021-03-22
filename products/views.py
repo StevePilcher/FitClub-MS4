@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Product, Category
-
+from profiles.models import UserProfile
 
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
@@ -41,11 +41,16 @@ def all_products(request):
 def product_detail(request, product_id):
     """ A view to show individual product details & reviews """
     product = get_object_or_404(Product, pk=product_id)
-    reviews = product.reviews.all()
+    profile = get_object_or_404(UserProfile, user=request.user)
+    can_review = profile.orders.filter(lineitems__product_id=product_id)
+    print(can_review)
 
     context = {
         'product': product,
-        'reviews': reviews,
     }
 
     return render(request, 'products/product_detail.html', context)
+
+
+def product_review(request, product_id):
+    """A view to leave a prodcut review"""

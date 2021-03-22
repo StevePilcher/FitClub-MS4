@@ -27,7 +27,7 @@
                     <ul class="list-unstyled">
                         {% for post in topic.posts.all %}
                         <li class="media pt-2">
-                            {% if post.created_by.user_image.url %}
+                            {% if post.created_by.user_image %}
                             <div class="">
                                 <a href="{{ post.created_by.user_image.url }}" target="_blank">
                                     <img class="forum-profile-image" src="{{ post.created_by.user_image.url }}"
@@ -36,7 +36,7 @@
                             </div>
                             {% else %}
                             <a href="">
-                                <img class="img-fluid" src="{{ MEDIA_URL }}user.png" alt="{{ profile.name }}">
+                                <img class="forum-profile-image" src="{{ MEDIA_URL }}user.png" alt="{{ profile.name }}">
                             </a>
                             {% endif %}
                             <div class="media-body text-left mx-3">

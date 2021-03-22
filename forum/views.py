@@ -65,7 +65,6 @@ def new_topic(request, forum_id):
 def topic_posts(request, forum_id, topic_id):
     """A view to render the individual
     topic and posts within that topic"""
-
     topic = get_object_or_404(Topic, forum_id=forum_id, pk=topic_id)
 
     return render(request, 'forum/topic_posts.html', {'topic': topic})

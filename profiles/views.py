@@ -3,7 +3,6 @@ from django.contrib import messages
 
 from .models import UserProfile
 from .forms import UserProfileForm
-from reviews.forms import ProductReviewForm
 
 from checkout.models import Order
 
