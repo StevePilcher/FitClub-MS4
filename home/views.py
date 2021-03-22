@@ -8,7 +8,6 @@ from forum.models import Posts
 def index(request):
     """A view to return the index page and dashboard for logged in user"""
     posts = Posts.objects.all().order_by('-created_at')[:2]
-    print(posts)
     context = {
         'posts': posts,
     }

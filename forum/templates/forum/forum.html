@@ -30,14 +30,14 @@
                         </thead>
                         <tbody class="text-center align-items-center">
                         <tr>{% for forum in forums %}
-                            <td class="topic-title">
+                            <td class="topic-title m-1">
                                 <a href="{% url 'forum_detail' forum.id %}">
-                                    <h3 class="m-0">{{ forum.name }}</h3><br>
+                                    <h3 class="m-0">{{ forum.name }}</h3>
                                     <p><small class="text-muted d-block">{{ forum.description }}</small></p>
                             </td>
-                            <td class="forum-table-font">{{ forum.get_forum_topics_count }}</td>
-                            <td class="forum-table-font">{{ forum.get_forum_posts_count }}</td>
-                            <td class="forum-table-font">{{ forum.get_last_post_date }}</td>
+                            <td class="">{{ forum.get_forum_topics_count }}</td>
+                            <td class="">{{ forum.get_forum_posts_count }}</td>
+                            <td class="">{% with post=forum.get_last_post_date %} {{ post.created_at | date:"g:i F j, Y"}} {% endwith %}</td>
                         </tr>
                         {% endfor %}
                         </tbody>

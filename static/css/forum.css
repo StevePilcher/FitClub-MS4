@@ -11,6 +11,7 @@
 
 .table td {
     vertical-align: middle;
+    padding: 0.25rem;
 }
 
 .table {
@@ -18,7 +19,7 @@
 }
 
 .forum-table-font {
-    font-size: 2rem;
+    font-size: 1rem;
 }
 
 topic-title {
