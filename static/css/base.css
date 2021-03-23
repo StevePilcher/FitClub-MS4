@@ -71,13 +71,21 @@ a {
     font-weight: 600 !important;
 }
 
-
-
 .gradient-text {
   font-size: 7em;
   font-family: 'Pacifico', cursive;
   overflow-y: visible;
 }
+/* FitClub Section */
+
+.section-padding {
+    padding-bottom: 7rem;
+}
+
+.image-split {
+    width:100%;
+}
+
 /* Toasts */ 
 
 .message-container {
@@ -163,4 +171,19 @@ select option {
 select:invalid,
 select option[value=""] {
     color: #6c757d !important;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 600px) {
+#hero-quote {
+    font-size: 7rem;
+}
+
+.hero-h2 {
+    font-size: 2.5rem;
+}
+
+.gradient-text {
+    font-size: 3em;
+    }
 }

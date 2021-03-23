@@ -16,20 +16,21 @@
         {% include 'home/dashboard.html' %}
     </div>
 </div>
-{% endif %}
+{% else %}
+
 <section id="hero-section">
     <div class="top-banner row hero-spacer">
         <div class="container-fluid text-center vh-100 mb-4">
             <div class="col-lg-8 col-md-10 col-sm-12 offset-lg-2 text-light">
                 <h1 class="gradient-text text-warning" id="hero-quote">FitClub</h1>
-                <h1 class="hero-h2 m-5 pb-5" id="hero-phrase">The Future Of Fitness Is Here</h1>
+                <h1 class="hero-h2 m-5 pb-5" id="hero-phrase">Your Fitness Friends Are Here</h1>
                 <!-- Vertically centered modal -->
                 <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#staticBackdrop">
-                    Play Video
+                    Play <i class="far fa-play-circle"></i> Video
                 </button>
                 <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
                      aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-xl">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
                         <div class="modal-content">
                             <div class="modal-body">
                                 <video id="" width="100%" controls poster="">
@@ -42,17 +43,17 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
 </section>
-<section id="product-section">
-    <div class="row bg-light no-gutters">
+<section id="club-section bg-light">
+    <div class="row bg-light no-gutters section-padding">
         <div class="container">
-            <div class="row section-header justify-content-center pb-5">
+            <div class="row section-header text-center justify-content-center pb-5">
                 <h2 class="gradient-text text-dark pt-5">The FitClub Way</h2>
-                <p>Everybody has a goal. Get fitter, lose weight or join a like minded community of people</p>
+                <p class="pt-3">Everybody has a goal. Get fitter, lose weight or join a like minded community of people</p>
+                <p>At FitClub you'll find the answer to whatever fitness need you have</p>
             </div>
             <div class="row justify-content-center">
                 <div class="col-sm-6 ">
@@ -60,50 +61,86 @@
                         <img src="{{MEDIA_URL}}pc.png" alt="">
                     </div>
                     <div class="text-center pt-3">
-                        <h3>Log in and Sign Up</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur de elit, sed do tempor incididunt ut labore eta
-                            rehenderit in
-                            voluptate velit.</p>
+                        <h3>Sign Up and Log In</h3>
+                        <p>This is where your journey starts. Sign up, join the growing community and get ready
+                        to select one of our amazing plans</p>
                     </div>
                 </div>
-
-                <div class="col-sm-6 work-process wow fadeIn" data-wow-delay="0.5s">
+                <div class="col-sm-6 work-process ">
                     <div class="row justify-content-center">
                         <img src="{{MEDIA_URL}}shopping-online.png" alt="">
                     </div>
                     <div class="text-center pt-3">
-                        <h3>Configure Your Plan</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur de elit, sed do tempor incididunt ut labore eta
-                            rehenderit in
-                            voluptate velit.</p>
+                        <h3>Choose Your Plan</h3>
+                        <p>Choose from our award winning meal plans and training regimes designed by the best
+                            personal trainers out there</p>
                     </div>
                 </div>
 
-                <div class="col-sm-6 work-process wow fadeIn" data-wow-delay="1s">
+                <div class="col-sm-6 work-process">
                     <div class="row justify-content-center pt-5">
                         <img src="{{MEDIA_URL}}chat.png" alt="">
                     </div>
                     <div class="text-center pt-3">
                         <h3>Join the FitClub Community</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur de elit, sed do tempor incididunt ut labore eta
-                            rehenderit in
-                            voluptate velit.</p>
+                        <p>Now you're a FitClub member share your progress and get motivation from
+                            others on our members only forum</p>
                     </div>
                 </div>
-                <div class="col-sm-6 work-process wow fadeIn" data-wow-delay="1s">
+                <div class="col-sm-6 work-process">
                     <div class="row justify-content-center pt-5">
                         <img src="{{MEDIA_URL}}strength.png" alt="">
                     </div>
                     <div class="text-center pt-3">
                         <h3>Get Fit</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur de elit, sed do tempor incididunt ut labore eta
-                            rehenderit in
-                            voluptate velit.</p>
+                        <p>Soon you'll start seeing all that hard work pay off.
+                            Getter fitter, healthier and happier.
+                            The rewards for being a FitClub Member</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
+<section id="products-section bg-dark">
+    <div class="row bg-dark text-light no-gutters">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="text-left p-3">
+                        <h2>Every Apps you wanted</h2>
+                        <p>You won’t just send and receive messages, calls, and mail more easily and efficiently. You’ll express yourself in unique, fun, and more personal ways. Communicating with Watch is discreet, sophisticated, and nuanced. a whole new way to connect with others.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 p-0">
+                    <img class="image-split" src="{{MEDIA_URL}}training-split1.jpg" alt="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 p-0">
+                    <img class="image-split" src="{{MEDIA_URL}}training-split2.jpg" alt="">
+                </div>
+                <div class="col-sm-6 text-left">
+                    <div class="row p-3">
+                        <h2>Health and Fitness</h2>
+                        <p>Fitness isn’t just about running, biking, or hitting the gym. It’s also about being active throughout the day. Watch measures all the ways you move, such as walking the dog, taking the stairs, or playing with your kids. It even keeps track of when you stand up.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="reviews-section">
+    <div class="row bg-light no-gutters">
+        <div class="container">
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="row bg-light no-gutters">
+        <div class="container">
+        </div>
+    </div>
+</footer>
+{% endif %}
 {% endblock %}
