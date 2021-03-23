@@ -9,67 +9,85 @@
 {% endblock %}
 
 {% block content %}
+
+{% if request.user.is_authenticated %}
 <div class="container-fluid">
     <div class="d-flex align-items-center justify-content-center">
-        {% if request.user.is_authenticated %}
-        <div class="row w-100  flex justify-content-center hero-spacer">
-            <div class="pb-3 text-light"><h1>Member Dashboard</h1></div>
-            <div class="row w-100 flex justify-content-center">
-                <h3 class="forum-headers">Latest Member Posts</h3>
-                <div class="row w-100 flex justify-content-center" id="dashboard">
-                    <div class="card col-6 bg-dark text-center p-2">
-                        <div class="col-12 rounded bg-light">
-                            <ul class="list-unstyled">
-                                {% for post in posts %}
-                                <li class="media pt-2">
-                                    {% if post.created_by.user_image %}
-                                    <div class="">
-                                        <a href="{{ post.created_by.user_image.url }}" target="_blank">
-                                            <img class="forum-profile-image align-self-start mr-3"
-                                                 src="{{ post.created_by.user_image.url }}"
-                                                 alt="{{ profile.name }}">
-                                        </a>
-                                    </div>
-                                    {% else %}
-                        </div>
-                        <a href="">
-                            <img class="forum-profile-image align-self-start mr-3" src="{{ MEDIA_URL }}user.png"
-                                 alt="{{ profile.name }}">
-                        </a>
-                        {% endif %}
-                        <div class="media-body text-left mx-3">
-                            <h4 class="">{{ post.created_by.user }}</h4>
-                            <small>Posts: {{ post.created_by.posts.count }}</small>
-                            <p class="">{{ post.message }}</p>
-                        </div>
-                        </li>
-                        <hr class="w-100 mt-0">
-                        {% endfor %}
-                        </ul>
-                    </div>
-                </div>
-                {% else %}
-                <div class="row d-flex hero-spacer" id="hero-quote">
-                    <div class="col-12 d-flex justify-content-center align-items-center ">
-                        <h1 class="gradient-text text-center">
-                            Achieve Your<br>
-                            Fitness Goals<br>
-                        </h1>
-                    </div>
-                </div>
-            </div>
-            <div class="pt-5 d-flex align-items-top justify-content-center">
-                <div class="row" id="join-now-row">
-                    <div class="col-12">
-                        <h3>
-                            <a href="{% url 'account_signup' %}"
-                               class="join-now-button btn btn-dark btn-lg text-uppercase text-light py-3">Join Now</a>
-                        </h3>
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-        </div>
+        {% include 'home/dashboard.html' %}
     </div>
 </div>
+{% endif %}
+<section id="hero-section">
+    <div class="top-banner row hero-spacer">
+        <div class="container-fluid text-center vh-100 mb-4">
+            <div class="col-lg-6 col-md-10 col-sm-12 offset-lg-3 text-light">
+                <h1 class="gradient-text text-warning p-5" id="hero-quote">FitClub</h1>
+                <h1 class="hero-h2 p-5" id="hero-phrase">The Future Of Fitness Is Here</h1>
+                <a href="{{MEDIA_URL}}movies/hero.mp4" class="btn-warning text-dark btn-lg">Play <i
+                        class="far fa-play-circle"></i>
+                    Video
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="product-section">
+    <div class="row bg-light no-gutters">
+        <div class="container">
+            <div class="row section-header justify-content-center pb-5">
+                <h2 class="gradient-text text-dark pt-5">The FitClub Way</h2>
+                <p>Everybody has a goal. Get fitter, lose weight or join a like minded community of people</p>
+            </div>
+            <div class="row justify-content-center pt-3">
+                <div class="col-sm-6 ">
+                    <div class="row justify-content-center">
+                        <img src="{{MEDIA_URL}}pc.png" alt="">
+                    </div>
+                    <div class="text-center">
+                    <h3>Log in and Sign Up</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur de elit, sed do tempor incididunt ut labore eta
+                        rehenderit in
+                        voluptate velit.</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 work-process wow fadeIn" data-wow-delay="0.5s">
+                    <div class="row justify-content-center">
+                        <img src="{{MEDIA_URL}}shopping-online.png" alt="">
+                    </div>
+                    <div class="text-center">
+                        <h3>Configure Your Plan</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur de elit, sed do tempor incididunt ut labore eta
+                            rehenderit in
+                            voluptate velit.</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 work-process wow fadeIn" data-wow-delay="1s">
+                    <div class="row justify-content-center">
+                        <img src="{{MEDIA_URL}}chat.png" alt="">
+                    </div>
+                    <div class="text-center">
+                        <h3>Join the FitClub Community</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur de elit, sed do tempor incididunt ut labore eta
+                            rehenderit in
+                            voluptate velit.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 work-process wow fadeIn" data-wow-delay="1s">
+                    <div class="row justify-content-center">
+                        <img src="{{MEDIA_URL}}strength.png" alt="">
+                    </div>
+                    <div class="text-center">
+                        <h3>Get Fit</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur de elit, sed do tempor incididunt ut labore eta
+                            rehenderit in
+                            voluptate velit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 {% endblock %}
