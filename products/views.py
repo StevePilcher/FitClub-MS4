@@ -45,7 +45,7 @@ def product_detail(request, product_id):
     """ A view to show individual
     product details & enable review
      if the user has purchased the
-     product before"""
+     product before and/or left a review already"""
 
     product = get_object_or_404(Product, pk=product_id)
     profile = get_object_or_404(UserProfile, user=request.user)
