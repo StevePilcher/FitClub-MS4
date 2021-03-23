@@ -22,11 +22,27 @@
         <div class="container-fluid text-center vh-100 mb-4">
             <div class="col-lg-6 col-md-10 col-sm-12 offset-lg-3 text-light">
                 <h1 class="gradient-text text-warning p-5" id="hero-quote">FitClub</h1>
-                <h1 class="hero-h2 p-5" id="hero-phrase">The Future Of Fitness Is Here</h1>
-                <a href="{{MEDIA_URL}}movies/hero.mp4" class="btn-warning text-dark btn-lg">Play <i
-                        class="far fa-play-circle"></i>
-                    Video
-                </a>
+                <h1 class="hero-h2 pb-5" id="hero-phrase">The Future Of Fitness Is Here</h1>
+                <!-- Vertically centered modal -->
+                <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#staticBackdrop">
+                    Play Video
+                </button>
+                <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <video id="" width="100%" controls poster="">
+                                    <source src="{{MEDIA_URL}}movies/hero.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -38,16 +54,16 @@
                 <h2 class="gradient-text text-dark pt-5">The FitClub Way</h2>
                 <p>Everybody has a goal. Get fitter, lose weight or join a like minded community of people</p>
             </div>
-            <div class="row justify-content-center pt-3">
+            <div class="row justify-content-center">
                 <div class="col-sm-6 ">
                     <div class="row justify-content-center">
                         <img src="{{MEDIA_URL}}pc.png" alt="">
                     </div>
-                    <div class="text-center">
-                    <h3>Log in and Sign Up</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur de elit, sed do tempor incididunt ut labore eta
-                        rehenderit in
-                        voluptate velit.</p>
+                    <div class="text-center pt-3">
+                        <h3>Log in and Sign Up</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur de elit, sed do tempor incididunt ut labore eta
+                            rehenderit in
+                            voluptate velit.</p>
                     </div>
                 </div>
 
@@ -55,7 +71,7 @@
                     <div class="row justify-content-center">
                         <img src="{{MEDIA_URL}}shopping-online.png" alt="">
                     </div>
-                    <div class="text-center">
+                    <div class="text-center pt-3">
                         <h3>Configure Your Plan</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur de elit, sed do tempor incididunt ut labore eta
                             rehenderit in
@@ -64,10 +80,10 @@
                 </div>
 
                 <div class="col-sm-6 work-process wow fadeIn" data-wow-delay="1s">
-                    <div class="row justify-content-center">
+                    <div class="row justify-content-center pt-5">
                         <img src="{{MEDIA_URL}}chat.png" alt="">
                     </div>
-                    <div class="text-center">
+                    <div class="text-center pt-3">
                         <h3>Join the FitClub Community</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur de elit, sed do tempor incididunt ut labore eta
                             rehenderit in
@@ -75,10 +91,10 @@
                     </div>
                 </div>
                 <div class="col-sm-6 work-process wow fadeIn" data-wow-delay="1s">
-                    <div class="row justify-content-center">
+                    <div class="row justify-content-center pt-5">
                         <img src="{{MEDIA_URL}}strength.png" alt="">
                     </div>
-                    <div class="text-center">
+                    <div class="text-center pt-3">
                         <h3>Get Fit</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur de elit, sed do tempor incididunt ut labore eta
                             rehenderit in
