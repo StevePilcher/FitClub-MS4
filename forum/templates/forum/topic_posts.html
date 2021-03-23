@@ -30,13 +30,13 @@
                             {% if post.created_by.user_image %}
                             <div class="">
                                 <a href="{{ post.created_by.user_image.url }}" target="_blank">
-                                    <img class="forum-profile-image" src="{{ post.created_by.user_image.url }}"
+                                    <img class="forum-profile-image align-self-start mr-3" src="{{ post.created_by.user_image.url }}"
                                          alt="{{ profile.name }}">
                                 </a>
                             </div>
                             {% else %}
                             <a href="">
-                                <img class="forum-profile-image" src="{{ MEDIA_URL }}user.png" alt="{{ profile.name }}">
+                                <img class="forum-profile-image align-self-start mr-3" src="{{ MEDIA_URL }}user.png" alt="{{ profile.name }}">
                             </a>
                             {% endif %}
                             <div class="media-body text-left mx-3">

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from .models import Product, Category, Review
 from profiles.models import UserProfile
@@ -51,8 +51,9 @@ def product_detail(request, product_id):
     profile = get_object_or_404(UserProfile, user=request.user)
     owns_item = profile.orders.filter(lineitems__product_id=product_id)
     reviews = Review.objects.filter(product_id=product.id)
-    print(owns_item)
-    print(request.user)
+    can_review = ''
+    template = 'products/product_detail.html'
+
     if request.method == 'POST':
         form = NewReviewForm(request.POST)
         if form.is_valid():
@@ -60,12 +61,32 @@ def product_detail(request, product_id):
             review.product = product
             review.created_by = profile
             review.save()
-            messages.success(request, 'Your review has been posted, thanks!')
+            messages.success(request, "You've left a review, thanks!")
 
-    context = {
+    if reviews:
+        if owns_item:
+            for review in reviews:
+                if review.created_by == profile:
+                    context = {
+                        'product': product,
+                        'reviews': reviews,
+                        'can_review': False,
+                    }
+                    return render(request, template, context)
 
-        'product': product,
-        'reviews': reviews,
-        'owns_item': owns_item,
-    }
-    return render(request, 'products/product_detail.html', context)
+            context = {
+                'product': product,
+                'reviews': reviews,
+                'can_review': True,
+            }
+            return render(request, template, context)
+
+    elif owns_item:
+        context = {
+            'product': product,
+            'can_review': True,
+        }
+        return render(request, template, context)
+
+    else:
+        return render(request, template, {'product': product})

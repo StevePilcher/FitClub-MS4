@@ -13,7 +13,7 @@ def view_bag(request):
 
 
 def add_to_bag(request, item_id):
-    """Add a item to the shopping bag with qauntity"""
+    """Add a item to the shopping bag with quantity"""
 
     product = Product.objects.get(pk=item_id)
     quantity = int(request.POST.get('quantity'))
