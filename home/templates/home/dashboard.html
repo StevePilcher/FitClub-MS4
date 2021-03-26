@@ -1,5 +1,7 @@
-<div class="row w-100  flex justify-content-center hero-spacer">
-    <div class="pb-3 text-light"><h1>Member Dashboard</h1></div>
+<div class="row w-100 justify-content-center hero-spacer">
+    <div class="pb-3 text-light">
+        <h1>Member Dashboard</h1>
+    </div>
     <div class="row w-100 flex justify-content-center">
         <h3 class="forum-headers">Latest Member Posts</h3>
         <div class="row w-100 flex justify-content-center" id="dashboard">
@@ -17,21 +19,21 @@
                                 </a>
                             </div>
                             {% else %}
+                            <a href="">
+                                <img class="forum-profile-image align-self-start mr-3" src="{{ MEDIA_URL }}user.png"
+                                     alt="{{ profile.name }}">
+                            </a>
+                            {% endif %}
+                            <div class="media-body text-left mx-3">
+                                <h4 class="">{{ post.created_by.user }}</h4>
+                                <small>Posts: {{ post.created_by.posts.count }}</small>
+                                <p class="">{{ post.message }}</p>
+                            </div>
+                        </li>
+                        <hr class="w-100 mt-0">
+                        {% endfor %}
+                    </ul>
                 </div>
-                <a href="">
-                    <img class="forum-profile-image align-self-start mr-3" src="{{ MEDIA_URL }}user.png"
-                         alt="{{ profile.name }}">
-                </a>
-                {% endif %}
-                <div class="media-body text-left mx-3">
-                    <h4 class="">{{ post.created_by.user }}</h4>
-                    <small>Posts: {{ post.created_by.posts.count }}</small>
-                    <p class="">{{ post.message }}</p>
-                </div>
-                </li>
-                <hr class="w-100 mt-0">
-                {% endfor %}
-                </ul>
             </div>
         </div>
     </div>

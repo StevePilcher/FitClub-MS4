@@ -19,12 +19,15 @@
     </div>
     <div class="row">
         <div class="col-4 offset-2">
-            <form action="{% url 'profile' %}" method="POST" id="profile-update-form" class="pb-2" enctype="multipart/form-data">
+            <form action="{% url 'profile' %}" method="POST" id="profile-update-form" class="pb-2"
+                  enctype="multipart/form-data">
                 {% csrf_token %}
                 {% if profile.user_image %}
-                <a href="{{ profile.user_image.url }}" target="_blank">
-                    <img class="img-fluid" src="{{ profile.user_image.url }}" alt="{{ profile.name }}">
-                </a>
+                <div id="profile-image">
+                    <a href="{{ profile.user_image.url }}" target="_blank">
+                        <img class="img" src="{{ profile.user_image.url }}" alt="{{ profile.name }}">
+                    </a>
+                </div>
                 {% else %}
                 <a href="">
                     <img class="img-fluid" src="{{ MEDIA_URL }}user.png" alt="{{ profile.name }}">
@@ -43,31 +46,31 @@
             <table class="table table-sm table-borderless text-center boot-border">
                 <tr class="table-light">
                     <thead class="table-dark text-center">
-                        <td class="w-15">Order No</td>
-                        <td class="w-15">Date</td>
-                        <td class="w-15">Items</td>
-                        <td class="w-15">Total</td>
+                    <td class="w-15">Order No</td>
+                    <td class="w-15">Date</td>
+                    <td class="w-15">Items</td>
+                    <td class="w-15">Total</td>
                     </thead>
                 </tr>
                 <tbody>
-                    {% for order in orders %}
-                    <tr>
-                        <td>
-                            <a href="{% url 'order_history' order.order_number %}" 
-                            title="{{ order.order_number }}">{{ order.order_number|truncatechars:6 }}
-                            </a>
-                            </td>
-                            <td>{{ order.date }}</td>
-                            <td>
-                                <ul>
-                                    {% for item in order.lineitems.all %}
-                                    <li> {{ item.product.name }}</li>
-                                    {% endfor %}
-                                </ul>
-                            </td>
-                            <td>{{ order.grand_total }}</td>
-                        </tr>
-                    {% endfor %}
+                {% for order in orders %}
+                <tr>
+                    <td>
+                        <a href="{% url 'order_history' order.order_number %}"
+                           title="{{ order.order_number }}">{{ order.order_number|truncatechars:6 }}
+                        </a>
+                    </td>
+                    <td>{{ order.date }}</td>
+                    <td>
+                        <ul>
+                            {% for item in order.lineitems.all %}
+                            <li> {{ item.product.name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                    <td>{{ order.grand_total }}</td>
+                </tr>
+                {% endfor %}
                 </tbody>
             </table>
 

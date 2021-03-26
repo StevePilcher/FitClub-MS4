@@ -48,22 +48,13 @@ def product_detail(request, product_id):
      product before and/or left a review already"""
 
     product = get_object_or_404(Product, pk=product_id)
-    profile = get_object_or_404(UserProfile, user=request.user)
-    owns_item = profile.orders.filter(lineitems__product_id=product_id)
     reviews = Review.objects.filter(product_id=product.id)
     can_review = ''
     template = 'products/product_detail.html'
 
-    if request.method == 'POST':
-        form = NewReviewForm(request.POST)
-        if form.is_valid():
-            review = form.save(commit=False)
-            review.product = product
-            review.created_by = profile
-            review.save()
-            messages.success(request, "You've left a review, thanks!")
-
-    if reviews:
+    if request.user.is_authenticated:
+        profile = get_object_or_404(UserProfile, user=request.user)
+        owns_item = profile.orders.filter(lineitems__product_id=product_id)
         if owns_item:
             for review in reviews:
                 if review.created_by == profile:
@@ -74,6 +65,7 @@ def product_detail(request, product_id):
                     }
                     return render(request, template, context)
 
+        if reviews:
             context = {
                 'product': product,
                 'reviews': reviews,
@@ -81,12 +73,19 @@ def product_detail(request, product_id):
             }
             return render(request, template, context)
 
-    elif owns_item:
-        context = {
-            'product': product,
-            'can_review': True,
-        }
-        return render(request, template, context)
+    if request.method == 'POST':
+        profile = get_object_or_404(UserProfile, user=request.user)
+        form = NewReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.product = product
+            review.created_by = profile
+            review.save()
+            messages.success(request, "You've left a review, thanks!")
 
-    else:
-        return render(request, template, {'product': product})
+    reviews = Review.objects.filter(product_id=product.id)
+    context = {
+        'product': product,
+        'reviews': reviews,
+    }
+    return render(request, template, context)

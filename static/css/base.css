@@ -110,6 +110,12 @@ a {
     height: 2px;
 }
 
+.toast {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 9999999;
+
 /*Products Page*/
 
 .bg-light {
@@ -126,16 +132,38 @@ a {
 	z-index: -1;
 }
 
-card-img-top {
-    max-height: 150px;
+.card-title {
+    font-family: 'Pacifico', cursive;
+    font-size: 3rem;
 }
 
-.toast {
-    position: absolute; 
-    top: 0; 
-    right: 0;
-    z-index: 9999999;
+card-img-top {
+    max-height: 150px;
+    opacity:0.95;
 }
+
+.logo-font {
+    font-family: 'Pacifico', cursive;
+    font-size: 3rem;
+}
+
+
+}
+
+/* Forum Pages */
+
+
+/* Profile Page */
+
+#profile-image {
+
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+
+
 .forum-headers {
     font-family: 'Pacifico' , sans-serif;
     color: #ffc107;
@@ -181,6 +209,11 @@ select option[value=""] {
 }
 
 /* Footer */
+
+
+footer {
+
+}
 
 #footer-navbar {
     list-style-type:none;
