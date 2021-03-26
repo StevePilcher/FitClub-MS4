@@ -14,12 +14,15 @@ body {
     height: calc(100vh - 164px);
     font-family: 'Poppins', sans-serif;
     color: #555;
+}
 
+.background-image {
     /* Center and scale the image nicely */
     background: url('/media/homepage_hero3.jpg');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: fixed;
+    background-size: auto;
+    z-index: 1;
      /* Add the blur effect
       filter: blur(3px);
       -webkit-filter: blur(3px);*/
@@ -77,6 +80,10 @@ a {
   overflow-y: visible;
 }
 /* FitClub Section */
+
+#club-section {
+    background: #
+}
 
 .section-padding {
     padding-bottom: 7rem;
@@ -172,6 +179,17 @@ select:invalid,
 select option[value=""] {
     color: #6c757d !important;
 }
+
+/* Footer */
+
+#footer-navbar {
+    list-style-type:none;
+}
+
+#footer-navbar li i {
+    font-size: 3rem;
+}
+
 
 /* Media Queries */
 @media only screen and (max-width: 600px) {

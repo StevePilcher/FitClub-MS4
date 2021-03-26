@@ -18,27 +18,31 @@
 </div>
 {% else %}
 
-<section id="hero-section">
-    <div class="top-banner row hero-spacer">
-        <div class="container-fluid text-center vh-100 mb-4">
-            <div class="col-lg-8 col-md-10 col-sm-12 offset-lg-2 text-light">
-                <h1 class="gradient-text text-warning" id="hero-quote">FitClub</h1>
-                <h1 class="hero-h2 m-5 pb-5" id="hero-phrase">Your Fitness Friends Are Here</h1>
-                <!-- Vertically centered modal -->
-                <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#staticBackdrop">
-                    Play <i class="far fa-play-circle"></i> Video
-                </button>
-                <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
-                     aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                                <video id="" width="100%" controls poster="">
-                                    <source src="{{MEDIA_URL}}movies/hero.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+<section id="hero-section ">
+    <div class="container-fluid">
+        <div class="top-banner row hero-spacer section-padding background-image">
+            <div class="container-fluid text-center mb-4 p-0">
+                <div class="col-lg-8 col-md-10 col-sm-12 offset-lg-2 text-light">
+                    <h1 class="gradient-text text-warning" id="hero-quote">FitClub</h1>
+                    <h1 class="hero-h2 m-5 pb-5" id="hero-phrase">Your Fitness Friends Are Here</h1>
+                    <!-- Vertically centered modal -->
+                    <button type="button" class="btn btn-warning btn-lg" data-toggle="modal"
+                            data-target="#staticBackdrop">
+                        Play <i class="far fa-play-circle"></i> Video
+                    </button>
+                    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false"
+                         tabindex="-1"
+                         aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <video id="" width="100%" controls poster="{{MEDIA_URL}}video-placeholder.png">
+                                        <source src="{{MEDIA_URL}}movies/hero.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -47,12 +51,13 @@
         </div>
     </div>
 </section>
-<section id="club-section bg-light">
-    <div class="row bg-light no-gutters section-padding">
+<section id="club-section">
+    <div class="row mt-5 section-padding">
         <div class="container">
-            <div class="row section-header text-center justify-content-center pb-5">
+            <div class="row m-0 section-header text-center justify-content-center pb-5">
                 <h2 class="gradient-text text-dark pt-5">The FitClub Way</h2>
-                <p class="pt-3">Everybody has a goal. Get fitter, lose weight or join a like minded community of people</p>
+                <p class="pt-3">Everybody has a goal. Get fitter, lose weight or join a like minded community of
+                    people</p>
                 <p>At FitClub you'll find the answer to whatever fitness need you have</p>
             </div>
             <div class="row justify-content-center">
@@ -63,7 +68,7 @@
                     <div class="text-center pt-3">
                         <h3>Sign Up and Log In</h3>
                         <p>This is where your journey starts. Sign up, join the growing community and get ready
-                        to select one of our amazing plans</p>
+                            to select one of our amazing plans</p>
                     </div>
                 </div>
                 <div class="col-sm-6 work-process ">
@@ -102,37 +107,78 @@
         </div>
     </div>
 </section>
-<section id="products-section bg-dark">
-    <div class="row bg-dark text-light no-gutters">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="text-left p-3">
-                        <h2>Every Apps you wanted</h2>
-                        <p>You won’t just send and receive messages, calls, and mail more easily and efficiently. You’ll express yourself in unique, fun, and more personal ways. Communicating with Watch is discreet, sophisticated, and nuanced. a whole new way to connect with others.</p>
-                    </div>
-                </div>
-                <div class="col-sm-6 p-0">
-                    <img class="image-split" src="{{MEDIA_URL}}training-split1.jpg" alt="">
+<div class="container-fluid p-0">
+    <section id="products-section bg-dark">
+        <div class="row m-0 bg-dark text-light no-gutters">
+            <div class="container">
+                <div class="row m-0 section-header text-center justify-content-center pb-5">
+                    <h2 class="gradient-text text-light pt-5">Our Plans</h2>
+                    <p class="pt-3">Everybody has a goal. Get fitter, lose weight or join a like minded community of
+                        people</p>
+                    <p>At FitClub you'll find the answer to whatever fitness need you have</p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-6 p-0">
-                    <img class="image-split" src="{{MEDIA_URL}}training-split2.jpg" alt="">
+            <div class="container-fluid p-0">
+                <div class="row m-0 align-items-center">
+                    <div class="col-sm-6">
+                        <div class="text-left p-3">
+                            <h2>Meals To Suit You</h2>
+                            <p>You won’t just send and receive messages, calls, and mail more easily and efficiently.
+                                You’ll
+                                express yourself in unique, fun, and more personal ways. Communicating with Watch is
+                                discreet, sophisticated, and nuanced. a whole new way to connect with others.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-0">
+                        <img class="image-split" src="{{MEDIA_URL}}training-split4.jpg" alt="">
+                    </div>
                 </div>
-                <div class="col-sm-6 text-left">
-                    <div class="row p-3">
+                <div class="row m-0 align-items-center">
+                    <div class="col-sm-6 p-0">
+                        <img class="image-split" src="{{MEDIA_URL}}training-split1.jpg" alt="">
+                    </div>
+                    <div class="col-sm-6 text-left p-3">
                         <h2>Health and Fitness</h2>
-                        <p>Fitness isn’t just about running, biking, or hitting the gym. It’s also about being active throughout the day. Watch measures all the ways you move, such as walking the dog, taking the stairs, or playing with your kids. It even keeps track of when you stand up.</p>
+                        <p>Fitness isn’t just about running, biking, or hitting the gym. It’s also about being
+                            active
+                            throughout the day. Watch measures all the ways you move, such as walking the dog,
+                            taking
+                            the stairs, or playing with your kids. It even keeps track of when you stand up.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+</div>
 <section id="reviews-section">
-    <div class="row bg-light no-gutters">
+    <div class="row bg-light no-gutters pb-4">
         <div class="container">
+            <div class="container">
+                <div class="row m-0 section-header text-center justify-content-center pb-5">
+                    <h2 class="gradient-text text-dark pt-5">Our Reviews</h2>
+                    <p class="pt-3">Don’t take our word,. See what our members says about our plans. We have 1000s of
+                        positive reviews.</p>
+                </div>
+            </div>
+            <div class="container text-center">
+                <div class="row justify-content-center">
+
+                </div>
+                <div class="row">
+                    <div class="review col-sm-4 ">
+                        <i class="fas fa-quote-right"></i>
+                        <p>Enter great quote here.</p>
+                    </div>
+                    <div class="review col-sm-4 wow fadeIn" data-wow-delay="0.3s">
+                        <i class="fas fa-quote-right"></i>
+                        <p>Enter another geat quoet here.</p>
+                    </div>
+                    <div class="review col-sm-4 wow fadeIn" data-wow-delay="0.6s">
+                        <i class="fas fa-quote-right"></i>
+                        <p>final great quoet here</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
