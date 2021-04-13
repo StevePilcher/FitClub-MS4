@@ -7,7 +7,7 @@
 {% block content %}
 <div class="overlay"></div>
 <div class="text-dark">
-    <div class="container-fluid vh-100 hero-spacer">
+    <div class="container-fluid hero-spacer">
         <div class="row">
             <div class="col text-center mt-3">
                 <h2 class="logo-font">Products</h2>
@@ -23,7 +23,6 @@
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
                     <li><a class="dropdown-item" type="button" href="{% url 'products' %}?sort=price&direction=desc">Price Hi-Lo</a></li>
                     <li><a class="dropdown-item" type="button" href="{% url 'products' %}?sort=price&direction=asc&">Price Lo-Hi</a></li>
-                    <li><a class="dropdown-item" type="button" href="{% url 'products' %}?sort=rating&direction=desc">Star Rating</a></li>
                 </ul>
             </div>
         </div>

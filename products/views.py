@@ -52,26 +52,38 @@ def product_detail(request, product_id):
     can_review = ''
     template = 'products/product_detail.html'
 
-    if request.user.is_authenticated:
-        profile = get_object_or_404(UserProfile, user=request.user)
-        owns_item = profile.orders.filter(lineitems__product_id=product_id)
-        if owns_item:
-            for review in reviews:
-                if review.created_by == profile:
+    if request.method == 'GET':
+        if request.user.is_active:
+            profile = get_object_or_404(UserProfile, user=request.user)
+            owns_item = profile.orders.filter(lineitems__product_id=product_id)
+            if owns_item:
+                for review in reviews:
+                    if review.created_by == profile:
+                        context = {
+                            'product': product,
+                            'reviews': reviews,
+                            'can_review': False,
+                        }
+                        print("has item but already reviewed")
+                        return render(request, template, context)
+                else:
                     context = {
                         'product': product,
                         'reviews': reviews,
-                        'can_review': False,
+                        'can_review': True,
                     }
+                    print("Owns but hasn't reviewed yet")
+                    print(context)
                     return render(request, template, context)
 
-        if reviews:
-            context = {
-                'product': product,
-                'reviews': reviews,
-                'can_review': True,
-            }
-            return render(request, template, context)
+            if reviews:
+                context = {
+                    'product': product,
+                    'reviews': reviews,
+                    'can_review': True,
+                }
+                print("has item but no review posted")
+                return render(request, template, context)
 
     if request.method == 'POST':
         profile = get_object_or_404(UserProfile, user=request.user)
@@ -88,4 +100,5 @@ def product_detail(request, product_id):
         'product': product,
         'reviews': reviews,
     }
+    print("anonymous user, or user does not own/has reviewed the product")
     return render(request, template, context)

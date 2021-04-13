@@ -1,5 +1,4 @@
 @charset "UTF-8";
-
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
@@ -115,7 +114,7 @@ a {
     top: 0;
     right: 0;
     z-index: 9999999;
-
+}
 /*Products Page*/
 
 .bg-light {
@@ -134,7 +133,7 @@ a {
 
 .card-title {
     font-family: 'Pacifico', cursive;
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
 card-img-top {
@@ -145,9 +144,6 @@ card-img-top {
 .logo-font {
     font-family: 'Pacifico', cursive;
     font-size: 3rem;
-}
-
-
 }
 
 /* Forum Pages */
@@ -227,7 +223,7 @@ footer {
 /* Media Queries */
 @media only screen and (max-width: 600px) {
 #hero-quote {
-    font-size: 7rem;
+    font-size: 5rem;
 }
 
 .hero-h2 {
