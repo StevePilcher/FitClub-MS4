@@ -97,9 +97,6 @@ transform: translate(0, 0);
 
 /* FitClub Section */
 
-#club-section {
-    background: #
-}
 
 .section-padding {
     padding-bottom: 7rem;
@@ -163,9 +160,6 @@ card-img-top {
     font-size: 3rem;
 }
 
-/* Forum Pages */
-
-
 /* Profile Page */
 
 #profile-image {
@@ -175,13 +169,12 @@ card-img-top {
 
 }
 
-
+/* Forum Pages */
 
 .forum-headers {
     font-family: 'Pacifico' , sans-serif;
     color: #ffc107;
 }
-
 
 /* Bag Page */
 
@@ -192,6 +185,9 @@ card-img-top {
 .w-15 {
     width:1.5em;
 }
+
+/* Checkout Page */
+
 .StripeElement{
     height: calc(1.5em + .75rem + 2px);
     padding: .375rem .75rem;
@@ -209,7 +205,6 @@ card-img-top {
     border: 1px solid #ced4da;
     border-radius: .25rem;
 }
-/* Checkout Page */
 
 select,
 select option {
@@ -223,11 +218,6 @@ select option[value=""] {
 
 /* Footer */
 
-
-footer {
-
-}
-
 #footer-navbar {
     list-style-type:none;
 }
@@ -235,7 +225,6 @@ footer {
 #footer-navbar li i {
     font-size: 3rem;
 }
-
 
 /* Media Queries */
 @media only screen and (max-width: 600px) {
