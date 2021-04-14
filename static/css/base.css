@@ -28,11 +28,16 @@ body {
 }
 
 a {
-    color:#ffc107 !important
+    color:#ffc107 !important;
 }
 
 .cursor-pointer {
     cursor: pointer;
+}
+
+/* Selects any <a> element when "hovered" */
+a.text-light:focus, a.text-light:hover {
+    color:#ffc107 !important;
 }
 
 /* Header & NavBar Styling */
@@ -78,6 +83,18 @@ a {
   font-family: 'Pacifico', cursive;
   overflow-y: visible;
 }
+/* Fading transitions between sections */ 
+
+section {
+opacity: 0;
+transform: translate(0, 15px); transition: all 3s;
+}
+
+section.visible {
+opacity: 1;
+transform: translate(0, 0); 
+}
+
 /* FitClub Section */
 
 #club-section {

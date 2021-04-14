@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block content %}
-
+<!-- Display dashboard if user is logged in rather than the landing page -->
 {% if request.user.is_authenticated %}
 <div class="container-fluid vh-100 p-0">
     <div class="d-flex align-items-center justify-content-center background-image h-100">
@@ -17,32 +17,28 @@
     </div>
 </div>
 {% else %}
-
-<section id="hero-section ">
-    <div class="container-fluid">
-        <div class="top-banner row hero-spacer section-padding background-image">
-            <div class="container-fluid text-center mb-4 p-0">
-                <div class="col-lg-8 col-md-10 col-sm-12 offset-lg-2 text-light">
-                    <h1 class="gradient-text text-warning" id="hero-quote">FitClub</h1>
-                    <h1 class="hero-h2 m-5 pb-5" id="hero-phrase">Your Fitness Friends Are Here</h1>
-                    <!-- Vertically centered modal -->
-                    <button type="button" class="btn btn-warning btn-lg" data-toggle="modal"
-                            data-target="#staticBackdrop">
-                        Play <i class="far fa-play-circle"></i> Video
-                    </button>
-                    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false"
-                         tabindex="-1"
-                         aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered modal-lg">
-                            <div class="modal-content">
-                                <div class="modal-body">
-                                    <video id="" width="100%" controls poster="{{MEDIA_URL}}video-placeholder.png">
-                                        <source src="{{MEDIA_URL}}movies/hero.mp4" type="video/mp4">
-                                    </video>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
-                                </div>
+<!-- Display landing page if Anonymous -->
+<div class="container-fluid" id="hero-landing-section">
+    <div class="top-banner row hero-spacer section-padding background-image">
+        <div class="container-fluid text-center mb-4 p-0">
+            <div class="col-lg-8 col-md-10 col-sm-12 offset-lg-2 text-light" id="hero-landing-div">
+                <h1 class="gradient-text text-warning" id="hero-quote">FitClub</h1>
+                <h1 class="hero-h2 m-5 pb-5" id="hero-phrase">Your Fitness Friends Are Here</h1>
+                <!-- Vertically centered modal -->
+                <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#staticBackdrop">
+                    Play <i class="far fa-play-circle"></i> Video
+                </button>
+                <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <video id="" width="100%" controls poster="{{MEDIA_URL}}video-placeholder.png">
+                                    <source src="{{MEDIA_URL}}movies/hero.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
@@ -50,7 +46,7 @@
             </div>
         </div>
     </div>
-</section>
+</div>
 <section id="club-section">
     <div class="row mt-5 section-padding">
         <div class="container">
@@ -192,4 +188,30 @@
     </div>
 </footer>
 {% endif %}
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Fade in hero landing text
+        $('#hero-landing-div').css('opacity', 0);
+        $('#hero-landing-div').animate({
+            opacity: '1',
+        }, 3000 );
+
+        // Scroll event fade in sections as user scrolls past  
+        $(document).on("scroll", function () {
+            var pageTop = $(document).scrollTop()
+            var pageBottom = pageTop + $(window).height()
+            var tags = $("section")
+
+            for (var i = 0; i < tags.length; i++) {
+                var tag = tags[i]
+
+                if ($(tag).position().top < pageBottom) {
+                    $(tag).addClass("visible")
+                } else {
+                    $(tag).removeClass("visible")
+                }
+            }
+        })
+    })
+</script>
 {% endblock %}
