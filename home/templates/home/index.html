@@ -29,11 +29,11 @@
                     Play <i class="far fa-play-circle"></i> Video
                 </button>
                 <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
-                    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-lg">
                         <div class="modal-content">
                             <div class="modal-body">
-                                <video id="" width="100%" controls poster="{{MEDIA_URL}}video-placeholder.png">
+                                <video width="100%" controls poster="{{MEDIA_URL}}video-placeholder.png">
                                     <source src="{{MEDIA_URL}}movies/hero.mp4" type="video/mp4">
                                 </video>
                             </div>
@@ -103,7 +103,7 @@
     </div>
 </section>
 <div class="container-fluid p-0">
-    <section id="products-section bg-dark">
+    <section id="products-section">
         <div class="row m-0 bg-dark text-light no-gutters">
             <div class="container">
                 <div class="row m-0 section-header text-center justify-content-center pb-5">
@@ -188,7 +188,7 @@
     </div>
 </footer>
 {% endif %}
-<script type="text/javascript">
+<script>
     $(document).ready(function () {
         // Fade in hero landing text
         $('#hero-landing-div').css('opacity', 0);
