@@ -33,11 +33,12 @@ class Product(models.Model):
 
 class Review(models.Model):
     review_title = models.CharField(max_length=80, blank=False, null=True)
-    created_by = models.ForeignKey(UserProfile, null=True, related_name='reviews', on_delete=models.CASCADE)
+    created_by = models.ForeignKey(
+        UserProfile, null=True, related_name='reviews',
+        on_delete=models.CASCADE)
     product = models.ForeignKey(Product, null=False, on_delete=models.CASCADE)
     review_description = models.CharField(max_length=500, blank=True)
     review_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.review_title
-

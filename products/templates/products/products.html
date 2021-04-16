@@ -20,9 +20,9 @@
                     aria-expanded="false">
                     Filter Items
                 </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
-                    <li><a class="dropdown-item" type="button" href="{% url 'products' %}?sort=price&direction=desc">Price Hi-Lo</a></li>
-                    <li><a class="dropdown-item" type="button" href="{% url 'products' %}?sort=price&direction=asc&">Price Lo-Hi</a></li>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item"  href="{% url 'products' %}?sort=price&direction=desc">Price Hi-Lo</a></li>
+                    <li><a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc&">Price Lo-Hi</a></li>
                 </ul>
             </div>
         </div>
