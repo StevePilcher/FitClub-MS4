@@ -21,7 +21,8 @@ def all_forums(request):
 @login_required
 def forum_detail(request, forum_id):
     forum = get_object_or_404(Forum, pk=forum_id)
-    topics = forum.topics.order_by('last_updated').annotate(replies=Count('posts'))
+    topics = forum.topics.order_by(
+        'last_updated').annotate(replies=Count('posts'))
     context = {
         'forum': forum,
         'topics': topics,
@@ -49,7 +50,8 @@ def new_topic(request, forum_id):
                 created_by=user,
             )
 
-            messages.success(request, f'Your {topic.subject} has been created')
+            messages.success(request, f'Your {topic.subject}'
+                             ' topic has been posted')
             return redirect('forum_detail', forum_id=forum.id)
     else:
         form = NewTopicForm()
@@ -83,10 +85,12 @@ def post_reply(request, forum_id, topic_id):
             post.created_by = user
             post.save()
             messages.success(request, 'Your reply has been posted')
-            return redirect('topic_posts', forum_id=forum_id, topic_id=topic_id)
+            return redirect('topic_posts',
+                            forum_id=forum_id, topic_id=topic_id)
     else:
         form = NewPostsForm()
-    return render(request, 'forum/new_reply.html', {'form': form, 'topic': topic})
+    return render(request, 'forum/new_reply.html',
+                  {'form': form, 'topic': topic})
 
 
 @login_required
@@ -110,7 +114,8 @@ def edit_posts(request, forum_id, topic_id, post_id):
             post.created_by = user
             post.save()
             messages.success(request, 'Your reply has been posted')
-            return redirect('topic_posts', forum_id=forum_id, topic_id=topic_id)
+            return redirect('topic_posts', forum_id=forum_id,
+                            topic_id=topic_id)
 
     return render(request, 'forum/topic_posts.html', {'topic': topic})
 

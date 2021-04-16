@@ -1,9 +1,11 @@
 from django.contrib import admin
 from .models import Forum, Topic, Posts
 
+
 # Register your models here.
+
 class ForumAdmin(admin.ModelAdmin):
-    list_display = ( 'all' )
+    list_display = ('all')
 
 
 admin.site.register(Forum)
