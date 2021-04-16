@@ -18,9 +18,9 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-4 offset-2">
+        <div class="col-sm-10 col-lg-4 offset-md-1">
             <form action="{% url 'profile' %}" method="POST" id="profile-update-form" class="pb-2"
-                  enctype="multipart/form-data">
+                enctype="multipart/form-data">
                 {% csrf_token %}
                 {% if profile.user_image %}
                 <div id="profile-image">
@@ -37,43 +37,43 @@
                     <legend class="fieldset-label text-black mb-0 w-auto">Profile Information</legend>
                     {{ form|crispy }}
                 </fieldset>
-                <button href="{% url 'profile' %}" id="submit-button" class="btn btn-dark rounded-3">
+                <p class="small">Recommended image size 100x100px</p>
+                <button id="submit-button" class="btn btn-dark rounded-3">
                     <span>Update Profile</span>
                 </button>
             </form>
         </div>
-        <div class="col-4">
+        <div class="col-sm-10 col-md-5 offset-md-1">
             <table class="table table-sm table-borderless text-center boot-border">
-                <tr class="table-light">
-                    <thead class="table-dark text-center">
-                    <td class="w-15">Order No</td>
-                    <td class="w-15">Date</td>
-                    <td class="w-15">Items</td>
-                    <td class="w-15">Total</td>
-                    </thead>
-                </tr>
+                <thead class="table-dark text-center">
+                    <tr>
+                        <td class="w-15">Order No</td>
+                        <td class="w-15">Date</td>
+                        <td class="w-15">Items</td>
+                        <td class="w-15">Total</td>
+                    </tr>
+                </thead>
                 <tbody>
-                {% for order in orders %}
-                <tr>
-                    <td>
-                        <a href="{% url 'order_history' order.order_number %}"
-                           title="{{ order.order_number }}">{{ order.order_number|truncatechars:6 }}
-                        </a>
-                    </td>
-                    <td>{{ order.date }}</td>
-                    <td>
-                        <ul>
-                            {% for item in order.lineitems.all %}
-                            <li> {{ item.product.name }}</li>
-                            {% endfor %}
-                        </ul>
-                    </td>
-                    <td>{{ order.grand_total }}</td>
-                </tr>
-                {% endfor %}
+                    {% for order in orders %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'order_history' order.order_number %}"
+                                title="{{ order.order_number }}">{{ order.order_number|truncatechars:6 }}
+                            </a>
+                        </td>
+                        <td>{{ order.date }}</td>
+                        <td>
+                            <ul>
+                                {% for item in order.lineitems.all %}
+                                <li> {{ item.product.name }}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                        <td>{{ order.grand_total }}</td>
+                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
-
         </div>
     </div>
 </div>
