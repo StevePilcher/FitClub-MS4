@@ -18,16 +18,18 @@
                 {% if bag_items %}
                 <table class="table table-sm table-borderless text-center table-striped">
                     <thead class="table-dark text-center">
-                        <td class="w-15">Item</td>
-                        <td class="w-15">Description</td>
-                        <td class="w-15">Quantity</td>
-                        <td class="w-15">Price</td>
-                        <td class="w-15">Remove</td>
+                        <tr>
+                            <td class="w-15">Item</td>
+                            <td class="w-15">Description</td>
+                            <td class="w-15">Quantity</td>
+                            <td class="w-15">Price</td>
+                            <td class="w-15">Remove</td>
+                        </tr>
                     </thead>
                     {% for item in bag_items %}
                     <tr class="table-light">
                         <td class="p-1 text-center">
-                            <img class="img-fluid-bag rounded" src="{{ item.product.image.url }}">
+                            <img class="img-fluid-bag rounded" src="{{ item.product.image.url }}" alt="product-image">
                         </td>
                         <td class="table-light align-middle">{{ item.product.name }}</td>
                         <td class="table-light align-middle">{{ item.quantity }}</td>
@@ -98,7 +100,7 @@
 {% block postloadjs %}
 {{ block.super }}
 
-<script type="text/javascript">
+<script>
     // Change icon colour on cursor hover
     $('.highlight').hover(function () {
         $(this).toggleClass('text-dark');
@@ -107,7 +109,7 @@
 
     // Remove quantity on click
     $('.remove-item').click(function (e) {
-        var csrfToken = "{{ csrf_token }}";
+        var csrfToken = "qEwLOZKi3lTZmZABKw4C8ETcnlikCDCucp87K6UjxAkStPJO17mI4CvImWTPxdc9";
         var itemId = $(this).attr('id').split('remove_')[1];
         var url = `/bag/remove/${itemId}/`;
         var data = { 'csrfmiddlewaretoken': csrfToken, };
@@ -116,6 +118,6 @@
             .done(function () {
                 location.reload();
             });
-    })
+    });
 </script>
 {% endblock %}
