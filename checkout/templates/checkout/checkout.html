@@ -69,14 +69,15 @@
                     </div>
                 </form>
             </div>
+            
             <div class="col-4">
-                <legend class="fieldset-label small text-black w-auto">Basket</legend>
                 {% if bag_items %}
+                <div class="small text-black">Basket</div>
                 <table class="table table-sm table-borderless rounded-3 text-center boot-border">
                     {% for item in bag_items %}
                     <tr class="table-light">
                         <td class="p-1 text-center">
-                            <img class="img-fluid-bag rounded" src="{{ item.product.image.url }}">
+                            <img class="img-fluid-bag rounded" src="{{ item.product.image.url }}" alt="product-image">
                         </td>
                         <td class="table-light align-middle">{{ item.product.name }}</td>
                         <td class="table-light align-middle">{{ item.quantity }}</td>

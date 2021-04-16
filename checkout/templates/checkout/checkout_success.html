@@ -39,14 +39,16 @@
             {% for item in order.lineitems.all %}
             <table class="table table-sm table-borderless rounded-3 text-center boot-border">
                 <thead class="table-dark text-center">
-                <td class="w-15">Item</td>
-                <td class="w-15">Description</td>
-                <td class="w-15">Quantity</td>
-                <td class="w-15">Price</td>
+                    <tr>
+                        <td class="w-15">Item</td>
+                        <td class="w-15">Description</td>
+                        <td class="w-15">Quantity</td>
+                        <td class="w-15">Price</td>
+                    </tr>
                 </thead>
                 <tr class="table-light">
                     <td class="p-1 text-center">
-                        <img class="img-fluid-bag rounded" src="{{ item.product.image.url }}">
+                        <img class="img-fluid-bag rounded" src="{{ item.product.image.url }}" alt="product-image">
                     </td>
                     <td class="table-light align-middle">{{ item.product.name }}</td>
                     <td class="table-light align-middle">{{ item.quantity }}</td>
@@ -83,7 +85,7 @@
         {% else %}
         <div class="col-12 col-lg-8 offset-lg-2 text-dark">
             <p>It's time to join your fellow FitClub members and get going, head to the fit forum!</p>
-            <a href="" class="btn btn-dark text-light py-3">FitClub Forum
+            <a href="{% url 'all_forums' %}" class="btn btn-dark text-light py-3">FitClub Forum
             </a>
         </div>
     </div>
