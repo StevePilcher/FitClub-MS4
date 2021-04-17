@@ -20,6 +20,7 @@ def all_forums(request):
 
 @login_required
 def forum_detail(request, forum_id):
+    """ A veiw to display the details of a particular Forum """
     forum = get_object_or_404(Forum, pk=forum_id)
     topics = forum.topics.order_by(
         'last_updated').annotate(replies=Count('posts'))
@@ -74,6 +75,7 @@ def topic_posts(request, forum_id, topic_id):
 
 @login_required
 def post_reply(request, forum_id, topic_id):
+    """ A view to post a reply to a particular topic """
     topic = get_object_or_404(Topic, forum_id=forum_id, pk=topic_id)
     user = get_object_or_404(UserProfile, user=request.user)
 
@@ -95,6 +97,7 @@ def post_reply(request, forum_id, topic_id):
 
 @login_required
 def edit_posts(request, forum_id, topic_id, post_id):
+    """ A view to edit your post """
     post = get_object_or_404(Posts, pk=post_id)
     topic = get_object_or_404(Topic, forum_id=forum_id, pk=topic_id)
 
@@ -122,6 +125,7 @@ def edit_posts(request, forum_id, topic_id, post_id):
 
 @login_required
 def delete_post(request, forum_id, topic_id, post_id):
+    """ A view to delete your post """
     post = get_object_or_404(Posts, pk=post_id)
     topic = get_object_or_404(Topic, forum_id=forum_id, pk=topic_id)
 

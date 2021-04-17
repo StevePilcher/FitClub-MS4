@@ -9,9 +9,11 @@
 {% endblock %}
 
 {% block content %}
+<!-- Container for Nav Breadcrumbs and topic posts -->
 <div class="container-fluid vh-100 background-image pb-2">
     <div class="d-flex align-items-center justify-content-center">
         <div class="row w-100 d-flex forum-spacer">
+            <!-- Breadcrumbs Forum Nav-->
             <div class="col-12 justify-content-center align-items-center rounded p-0">
                 <nav aria-label="breadcrumb ">
                     <ol class="breadcrumb bg-light">
@@ -22,6 +24,7 @@
                     </ol>
                 </nav>
             </div>
+            <!-- Card to display all posts within a topic -->
             <div class="card col-12 bg-dark p-2">
                 <div class="col-12 justify-content-center align-items-center rounded pt-2 bg-light">
                     <ul class="list-unstyled">
@@ -58,6 +61,7 @@
                     </ul>
                 </div>
             </div>
+            <!-- Button to create a reply to the post -->
             <div class="row w-100 d-flex text-center">
                 <div class="col-12">
                     <a href="{% url 'post_reply' topic.forum.id topic.id %}" class="btn btn-dark rounded mt-1">

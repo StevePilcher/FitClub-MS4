@@ -9,9 +9,11 @@
 {% endblock %}
 
 {% block content %}
+<!-- Container for Forums and breadcumbs nav -->
 <div class="container-fluid vh-100 background-image">
     <div class="d-flex align-items-center justify-content-center">
         <div class="row w-100 d-flex forum-spacer">
+            <!-- Forum Breadcrumbs -->
             <div class="col-12 justify-content-center align-items-center rounded p-0">
                 <nav aria-label="breadcrumb ">
                     <ol class="breadcrumb bg-light">
@@ -20,6 +22,7 @@
                     </ol>
                 </nav>
             </div>
+            <!-- Table to display the forum topics -->
             <div class="card col-12 bg-dark">
                 <table class="table table-hover table-light text-center">
                     <thead class="thead-dark">
@@ -48,6 +51,7 @@
             </div>
         </div>
     </div>
+    <!-- Button to create new topic -->
     <div class="row w-100 d-flex text-center">
         <div class="col-12">
             <a href="{% url 'new_topic' forum.id %}" class="btn btn-dark rounded mt-1">
@@ -59,5 +63,4 @@
         </div>
     </div>
 </div>
-
 {% endblock %}
