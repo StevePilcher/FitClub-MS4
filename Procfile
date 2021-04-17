@@ -1,0 +1,1 @@
+web: gunicorn iron_paradise.wsgi:application
