@@ -30,6 +30,8 @@ def profile(request):
 
 
 def order_history(request, order_number):
+    """ Get the user order history and
+    display on the order success page  """
     order = get_object_or_404(Order, order_number=order_number)
 
     messages.info(request, (
