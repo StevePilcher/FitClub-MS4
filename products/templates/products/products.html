@@ -5,7 +5,9 @@
 {% endblock %}
 
 {% block content %}
+<!-- Overlay to cover the backaground-->
 <div class="overlay"></div>
+<!-- Container to display all product cards -->
 <div class="text-dark">
     <div class="container-fluid hero-spacer">
         <div class="row">
@@ -14,6 +16,7 @@
                 <hr class="w-100 mb-1">
             </div>
         </div>
+        <!-- A dropdown button to filter products with basics hi/lo price -->
         <div class="row">
             <div class="dropdown px-2">
                 <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
@@ -64,6 +67,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- A loop to add a horizontal rule depending on result numbers-->
                     {% if forloop.counter|divisibleby:1 %}
                     <div class="col-12 d-sm-none mb-5">
                         <hr>
