@@ -30,6 +30,8 @@ def cache_checkout_data(request):
 
 
 def checkout(request):
+    """ view to process the checkout """
+
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -39,7 +41,7 @@ def checkout(request):
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
-
+        # Fill form data from sumbmitted form
         form_data = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
@@ -52,12 +54,14 @@ def checkout(request):
             'country': request.POST['country'],
         }
         order_form = OrderForm(form_data)
+        # Check form is valid
         if order_form.is_valid():
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
             order.original_bag = json.dumps(bag)
             order.save()
+            # search and save items to order_line_item
             for item_id, item_data in bag.items():
                 try:
                     product = Product.objects.get(id=item_id)
@@ -68,6 +72,7 @@ def checkout(request):
                             quantity=item_data,
                         )
                         order_line_item.save()
+                # throw an error message if item is not found
                 except Product.DoesNotExist:
                     messages.error(request, (
                         "One of the products in your bag wasn't \
@@ -76,11 +81,12 @@ def checkout(request):
                     )
                     order.delete()
                     return redirect(reverse('view_bag'))
-
+            # Save info if check box is ticked
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success',
                                     args=[order.order_number]))
         else:
+            # Invalid form error
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
     else:

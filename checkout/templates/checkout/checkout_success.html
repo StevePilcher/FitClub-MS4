@@ -9,6 +9,7 @@
 
 {% block content %}
 <div class="overlay"></div>
+<!-- Container for Checkout Success -->
 <div class="container-fluid rounded">
     <div class="h-50 d-flex align-items-center justify-content-center">
         <div class="row d-flex hero-spacer">
@@ -21,6 +22,7 @@
             </div>
         </div>
     </div>
+    <!-- Display the checkout address -->
     <div class="row">
         <div class="col-12 col-lg-8 offset-lg-2">
             <div class="row">
@@ -36,6 +38,7 @@
                     </p>
                 </div>
             </div>
+            <!-- A Table for the order items -->
             {% for item in order.lineitems.all %}
             <table class="table table-sm table-borderless rounded-3 text-center boot-border">
                 <thead class="table-dark text-center">
@@ -76,6 +79,7 @@
             </table>
         </div>
     </div>
+    <!-- Additional button if coming to the view from My Profile -->
     <div class="row text-center pb-5">
         {% if from_profile %}
         <div class="col-12 col-lg-8 offset-lg-2 text-dark">

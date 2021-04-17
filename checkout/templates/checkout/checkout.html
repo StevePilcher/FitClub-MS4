@@ -10,6 +10,7 @@
 
 {% block content %}
 <div class="text-dark ">
+    <!-- Container to display the order summary -->
     <div class="container-fluid bg-light h-100">
         <div class="row">
             <div class="col text-center mt-3">
@@ -20,14 +21,17 @@
         </div>
         <div class="row">
             <div class="col-4 offset-2">
+                <!-- Form for the order details -->
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form" class="pb-2">
                     {% csrf_token %}
+                    <!-- Field for User details -->
                     <fieldset class="rounded mb-1">
                         <legend class="fieldset-label small text-black w-auto">Details</legend>
                         {{ order_form.full_name | as_crispy_field }}
                         {{ order_form.email | as_crispy_field }}
                         {{ order_form.phone_number | as_crispy_field }}
                     </fieldset>
+                    <!-- Field for User address -->
                     <fieldset class="rounded mb-2">
                         <legend class="fieldset-label small text-black mb-0 w-auto">Delivery</legend>
                         {{ order_form.street_address1 | as_crispy_field }}
@@ -45,8 +49,8 @@
                         <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
                         <!-- Pass the client secret to the view so we can get the pid  -->
                         <input type="hidden" value="{{ client_secret }}" name="client_secret">
-
                     </fieldset>
+                    <!-- Buttons to go back and adjust bag or complete order -->
                     <div class="submit-button text-right mt-5 mb-2">
                         <a href="{% url 'view_bag' %}" class="btn btn-outline-dark rounded-3">
                             <span class="icon">
@@ -69,7 +73,7 @@
                     </div>
                 </form>
             </div>
-            
+            <!-- Column for displaying the items in the bag -->
             <div class="col-4">
                 {% if bag_items %}
                 <div class="small text-black">Basket</div>
