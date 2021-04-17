@@ -1,39 +1,40 @@
 <!-- Member Dashboard HTML-->
-<div class="row w-100 justify-content-center hero-spacer">
-    <div class="pb-3 text-light">
+<div class="row w-100 justify-content-center">
+    <div class="pb-3 text-light forum-headers">
         <h1>Member Dashboard</h1>
     </div>
     <!-- Row to display a the latest Member posts -->
     <div class="row w-100 flex justify-content-center">
         <h3 class="forum-headers">Latest Member Posts</h3>
-        <div class="row w-100 flex justify-content-center" id="dashboard">
-            <div class="card col-6 bg-dark text-center p-2">
-                <div class="col-12 rounded bg-light">
-                    <ul class="list-unstyled">
-                        {% for post in posts %}
-                        <li class="media pt-2">
-                            {% if post.created_by.user_image %}
-                            <div class="">
-                                <a href="{{ post.created_by.user_image.url }}" target="_blank">
-                                    <img class="forum-profile-image align-self-start mr-3"
-                                         src="{{ post.created_by.user_image.url }}"
-                                         alt="{{ profile.name }}">
+        <div class="col-12 offset-sm-1">
+            <div class="row w-100 flex justify-content-center" id="dashboard">
+                <div class="card col-sm-12 col-md-6 bg-dark text-center p-2">
+                    <div class="col-12 rounded bg-light">
+                        <ul class="list-unstyled">
+                            {% for post in posts %}
+                            <li class="media pt-2">
+                                {% if post.created_by.user_image %}
+                                <div class="">
+                                    <a href="{{ post.created_by.user_image.url }}" target="_blank">
+                                        <img class="forum-profile-image align-self-start mr-3"
+                                            src="{{ post.created_by.user_image.url }}" alt="{{ profile.name }}">
+                                    </a>
+                                </div>
+                                {% else %}
+                                <a href="">
+                                    <img class="forum-profile-image align-self-start mr-3" src="{{ MEDIA_URL }}user.png"
+                                        alt="{{ profile.name }}">
                                 </a>
-                            </div>
-                            {% else %}
-                            <a href="">
-                                <img class="forum-profile-image align-self-start mr-3" src="{{ MEDIA_URL }}user.png"
-                                     alt="{{ profile.name }}">
-                            </a>
-                            {% endif %}
-                            <div class="media-body text-left mx-3">
-                                <h4 class="">{{ post.created_by.user }}</h4>
-                                <small>Posts: {{ post.created_by.posts.count }}</small>
-                                <p class="">{{ post.message }}</p>
-                            </div>
-                        </li>
-                        {% endfor %}
-                    </ul>
+                                {% endif %}
+                                <div class="media-body text-left mx-3">
+                                    <h4 class="">{{ post.created_by.user }}</h4>
+                                    <small>Posts: {{ post.created_by.posts.count }}</small>
+                                    <p class="">{{ post.message }}</p>
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

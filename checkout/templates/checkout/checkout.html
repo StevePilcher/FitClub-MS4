@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-4 offset-2">
+            <div class="col-sm-12 col-md-4 offset-md-2">
                 <!-- Form for the order details -->
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form" class="pb-2">
                     {% csrf_token %}
@@ -74,7 +74,7 @@
                 </form>
             </div>
             <!-- Column for displaying the items in the bag -->
-            <div class="col-4">
+            <div class="col-sm-12 col-md-4">
                 {% if bag_items %}
                 <div class="small text-black">Basket</div>
                 <table class="table table-sm table-borderless rounded-3 text-center boot-border">

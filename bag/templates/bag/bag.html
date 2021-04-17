@@ -16,7 +16,7 @@
         </div>
         <!-- Table to display all of the bag items, looping through to display-->
         <div class="row">
-            <div class="col-6 offset-3">
+            <div class="col-sm-12 col-md-6 offset-md-3">
                 {% if bag_items %}
                 <table class="table table-sm table-borderless text-center table-striped">
                     <thead class="table-dark text-center">
@@ -69,13 +69,13 @@
                     <!-- Buttons to Go back to products or proceed to checkout -->
                     <tr class="table-light">
                         <td class="table-light text-right" colspan="5">
-                            <a href="{% url 'products' %}" class="btn btn-outline-dark rounded-3 btn-lg">
+                            <a href="{% url 'products' %}" class="btn btn-outline-dark rounded-3 btn m-1">
                                 <span class="icon">
                                     <i class="fas fa-chevron-left"></i>
                                 </span>
                                 <span class="text-uppercase">Continue Shopping</span>
                             </a>
-                            <a href="{% url 'checkout' %}" class="btn btn-dark rounded-3 btn-lg">
+                            <a href="{% url 'checkout' %}" class="btn btn-dark rounded-3 btn m-1">
                                 <span class="text-uppercase">Secure Checkout</span>
                                 <span class="icon">
                                     <i class="fas fa-lock"></i>
