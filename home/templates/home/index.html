@@ -33,6 +33,7 @@
                     <div class="modal-dialog modal-dialog-centered modal-lg">
                         <div class="modal-content">
                             <div class="modal-body">
+                                <!-- Width attribute needs % to work ?? -->
                                 <video width="100%" controls poster="{{MEDIA_URL}}video-placeholder.png">
                                     <source src="{{MEDIA_URL}}movies/hero.mp4" type="video/mp4">
                                 </video>
@@ -47,6 +48,7 @@
         </div>
     </div>
 </div>
+<!-- Club section with 4 main Sales Points and Icons -->
 <section id="club-section">
     <div class="row mt-5 section-padding">
         <div class="container">
@@ -59,7 +61,7 @@
             <div class="row justify-content-center">
                 <div class="col-sm-6 ">
                     <div class="row justify-content-center">
-                        <img src="{{MEDIA_URL}}pc.png" alt="">
+                        <img src="{{MEDIA_URL}}pc.png" alt="PC Computer">
                     </div>
                     <div class="text-center pt-3">
                         <h3>Sign Up and Log In</h3>
@@ -69,7 +71,7 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="row justify-content-center">
-                        <img src="{{MEDIA_URL}}shopping-online.png" alt="">
+                        <img src="{{MEDIA_URL}}shopping-online.png" alt="Online Shopping">
                     </div>
                     <div class="text-center pt-3">
                         <h3>Choose Your Plan</h3>
@@ -79,7 +81,7 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="row justify-content-center pt-5">
-                        <img src="{{MEDIA_URL}}chat.png" alt="">
+                        <img src="{{MEDIA_URL}}chat.png" alt="Group Chat">
                     </div>
                     <div class="text-center pt-3">
                         <h3>Join the FitClub Community</h3>
@@ -89,7 +91,7 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="row justify-content-center pt-5">
-                        <img src="{{MEDIA_URL}}strength.png" alt="">
+                        <img src="{{MEDIA_URL}}strength.png" alt="Dumb bell">
                     </div>
                     <div class="text-center pt-3">
                         <h3>Get Fit</h3>
@@ -102,6 +104,7 @@
         </div>
     </div>
 </section>
+<!-- Products Section split with images/text -->
 <div class="container-fluid p-0">
     <section id="products-section">
         <div class="row m-0 bg-dark text-light no-gutters">
@@ -144,6 +147,7 @@
         </div>
     </section>
 </div>
+<!-- Reviews section with 3 main quotes -->
 <section id="reviews-section">
     <div class="row bg-light no-gutters pb-4">
         <div class="container">
@@ -156,7 +160,6 @@
             </div>
             <div class="container text-center">
                 <div class="row justify-content-center">
-
                 </div>
                 <div class="row">
                     <div class="review col-sm-4 ">
@@ -188,6 +191,7 @@
     </div>
 </footer>
 {% endif %}
+<!-- JS for making the landing more interactive -->
 <script>
     $(document).ready(function () {
         // Fade in hero landing text

@@ -6,7 +6,7 @@ from forum.models import Posts
 
 
 def index(request):
-    """A view to return the index page and dashboard for logged in user"""
+    """A view to return the index page or dashboard for logged in user"""
     posts = Posts.objects.all().order_by('-created_at')[:2]
     context = {
         'posts': posts,
