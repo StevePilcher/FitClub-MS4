@@ -29,7 +29,7 @@
                 {% if profile.user_image %}
                 <div id="profile-image">
                     <a href="{{ profile.user_image.url }}" target="_blank">
-                        <img class="img" src="{{ profile.user_image.url }}" alt="{{ MEDIA_URL }}user.png">
+                        <img class="img" src="{{ profile.user_image.url }}" alt="{{ profile.name }}">
                     </a>
                 </div>
                 {% else %}
