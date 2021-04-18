@@ -28,8 +28,8 @@
                 {% csrf_token %}
                 {% if profile.user_image %}
                 <div id="profile-image">
-                    <a href="{{ profile.user_image.url }}" target="_blank">
-                        <img class="img" src="{{ profile.user_image.url }}" alt="{{ profile.name }}">
+                    <a href="{{ profile.user_image }}" target="_blank">
+                        <img class="img" src="{{ profile.user_image }}" alt="{{ profile.name }}">
                     </a>
                 </div>
                 {% else %}
