@@ -112,7 +112,7 @@
 
     // Remove quantity on click
     $('.remove-item').click(function (e) {
-        var csrfToken = "qEwLOZKi3lTZmZABKw4C8ETcnlikCDCucp87K6UjxAkStPJO17mI4CvImWTPxdc9";
+        var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('remove_')[1];
         var url = `/bag/remove/${itemId}/`;
         var data = { 'csrfmiddlewaretoken': csrfToken, };
