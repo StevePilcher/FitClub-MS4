@@ -28,13 +28,13 @@
                 {% csrf_token %}
                 {% if profile.user_image %}
                 <div id="profile-image">
-                    <a href="{{ profile.user_image }}" target="_blank">
-                        <img class="img" src="{{ profile.user_image }}" alt="{{ profile.name }}">
+                    <a href="{{ profile.user_image.url }}" target="_blank">
+                        <img class="img" src="{{ profile.user_image.url }}" alt="{{ MEDIA_URL }}user.png">
                     </a>
                 </div>
                 {% else %}
-                <a href="{{ MEDIA_URL }}/user.png" target="_blank">
-                    <img class="img-fluid" src="{{ MEDIA_URL }}/user.png" alt="{{ profile.name }}">
+                <a href="{{ MEDIA_URL }}user.png" target="_blank">
+                    <img class="img-fluid" src="{{ MEDIA_URL }}user.png" alt="{{ profile.name }}">
                 </a>
                 {% endif %}
                 <fieldset class="rounded mb-2">
