@@ -12,7 +12,7 @@ import time
 
 
 class StripeWH_Handler:
-    """Handle Stripe webhooks"""
+    """Handle Stripe webhooks taken from Boutique Ado tutorial"""
 
     def __init__(self, request):
         self.request = request
@@ -96,7 +96,7 @@ class StripeWH_Handler:
                 break
             except Order.DoesNotExist:
                 attempt += 1
-                time.sleep(4)
+                time.sleep(0.300)
         if order_exists:
             self._send_confirmation_email(order)
             return HttpResponse(
@@ -129,16 +129,6 @@ class StripeWH_Handler:
                             quantity=item_data,
                         )
                         order_line_item.save()
-                    else:
-                        for size, quantity in item_data['items_by_size'].items(
-                        ):
-                            order_line_item = OrderLineItem(
-                                order=order,
-                                product=product,
-                                quantity=quantity,
-                                product_size=size,
-                            )
-                            order_line_item.save()
             except Exception as e:
                 if order:
                     order.delete()
@@ -147,7 +137,7 @@ class StripeWH_Handler:
                     status=500)
         self._send_confirmation_email(order)
         return HttpResponse(
-            content=f'Webhook received: {event["type"]}' 
+            content=f'Webhook received: {event["type"]}'
             '| SUCCESS: Created order in webhook',
             status=200)
 
