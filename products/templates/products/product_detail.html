@@ -65,7 +65,9 @@
 </div>
 {% if can_review %}
 <div class="col-12 col-md-6 col-lg-4 offset-lg-4 pb-2">
-    <p>You're on this plan, why not leave a review ?</p>
+    <div class="row m-0 text-center justify-content-center">
+        <p>You're on this plan, why not leave a review ?</p>
+    </div>
     {% include 'products/product_reviews.html' %}
 </div>
 {% endif %}
@@ -100,7 +102,7 @@
     $(document).ready(function () {
         // Animate bag with wiggle when adding items
         $('#add-to-bag').click(function () {
-            $('#shopping-bag').effect( "shake", "slow" );
+            $('#shopping-bag').effect("shake", "slow");
         });
     })
 </script>

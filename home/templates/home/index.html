@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block content %}
-<!-- Display dashboard if user is logged in rather than the landing page -->
+<!-- Display dashboard if user is logged in rather than the landing page 
 {% if request.user.is_authenticated %}
 <div class="container-fluid vh-100 p-0">
     <div class="d-flex align-items-center justify-content-center background-image h-100">
@@ -17,6 +17,7 @@
     </div>
 </div>
 {% else %}
+-->
 <!-- Display landing page if Anonymous -->
 <div class="container-fluid p-0" id="hero-landing-section">
     <div class="top-banner row m-0 hero-spacer section-padding background-image">
