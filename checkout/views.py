@@ -1,16 +1,18 @@
-import json
-import stripe
-from bag.contexts import bag_contents
-from profiles.forms import UserProfileForm
-from profiles.models import UserProfile
-from products.models import Product
-from .models import Order, OrderLineItem
-from .forms import OrderForm
-from django.conf import settings
-from django.contrib import messages
+from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from django.views.decorators.http import require_POST
-from django.shortcuts import render, redirect, reverse
-from django.shortcuts import HttpResponse, get_object_or_404
+from django.contrib import messages
+from django.conf import settings
+
+from .forms import OrderForm
+from .models import Order, OrderLineItem
+
+from products.models import Product
+from profiles.models import UserProfile
+from profiles.forms import UserProfileForm
+from bag.contexts import bag_contents
+
+import stripe
+import json
 
 
 @require_POST
@@ -30,8 +32,6 @@ def cache_checkout_data(request):
 
 
 def checkout(request):
-    """ view to process the checkout """
-
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -41,7 +41,7 @@ def checkout(request):
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
-        # Fill form data from sumbmitted form
+
         form_data = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
@@ -54,14 +54,12 @@ def checkout(request):
             'country': request.POST['country'],
         }
         order_form = OrderForm(form_data)
-        # Check form is valid
         if order_form.is_valid():
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
             order.original_bag = json.dumps(bag)
             order.save()
-            # search and save items to order_line_item
             for item_id, item_data in bag.items():
                 try:
                     product = Product.objects.get(id=item_id)
@@ -72,7 +70,6 @@ def checkout(request):
                             quantity=item_data,
                         )
                         order_line_item.save()
-                # throw an error message if item is not found
                 except Product.DoesNotExist:
                     messages.error(request, (
                         "One of the products in your bag wasn't \
@@ -81,12 +78,10 @@ def checkout(request):
                     )
                     order.delete()
                     return redirect(reverse('view_bag'))
-            # Save info if check box is ticked
+
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success',
-                                    args=[order.order_number]))
+            return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
-            # Invalid form error
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
     else:
@@ -137,7 +132,9 @@ def checkout_success(request, order_number):
     Handle successful checkouts
     """
     save_info = request.session.get('save_info')
+    profile = UserProfile.objects.get(user=request.user)
     order = get_object_or_404(Order, order_number=order_number)
+    print(profile)
 
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
