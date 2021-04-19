@@ -49,7 +49,6 @@ def product_detail(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
     reviews = Review.objects.filter(product_id=product.id)
-    can_review = ''
     template = 'products/product_detail.html'
 
     if request.method == 'GET':
