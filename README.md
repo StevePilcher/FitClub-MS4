@@ -12,7 +12,7 @@ Further ideas are included in the User stories document but identified as for fu
  
 ## UX
 
-The UX design follows a standardised approach to usability. A simple one page landing with all of the product/sales info and then single pages for each part of the site. The site further navigates from a fixed top nav with associated dropdown menus for the account options. 
+The UX design follows a standardised approach to usability. A simple one page landing with all of the product/sales info and then single pages for each part of the site. The site further navigates from a fixed top bar with associated dropdown menus for the account options and a permanent shopping bag displayed. 
 
 The UX has 3 types of user. Owner, anonymous user and registered user. The design is focused on the 2 groups of users for this project. Due to the pre-built Django admin panel, the development time was spent on the user UX. Further development should be spent on a frontend to give the owner/admin greater ease in creating new products, managing orders, forums etc. 
 
@@ -28,7 +28,7 @@ The UX design and site concept **wireframes** are included here in [this](https:
 
 ### Database Schema
 
-The database schema that is implemented is detailed here on [this](https://github.com/StevePilcher/FitClub-MS4/blob/master/media/files/FitClub_DB_Schema.pdf) 
+The database schema that is implemented is detailed here on this [pdf](https://github.com/StevePilcher/FitClub-MS4/blob/master/media/files/FitClub_DB_Schema.pdf). 
 
 ## Features
 
@@ -119,10 +119,15 @@ The following technologies were used;
 - [Python Django](https://www.djangoproject.com/)
     - This project uses **Python Django** framework, whose web framework helps with rapid development and clean, pragmatic design.
 
-
 ## Testing
 
 The testing of this site is documented [here](https://github.com/StevePilcher/FitClub-MS4/blob/master/media/files/Testing.md)
+
+The projects code was run through individual validators. The detailed breakdown can be found [here](https://github.com/StevePilcher/FitClub-MS4/blob/master/media/files/FitClub_Validators_Summary.pdf) with written explanations on any warnings or errors.
+
+The use of flake8 IDE plugin was run and errors corrected. The following [output](https://github.com/StevePilcher/FitClub-MS4/blob/master/media/files/flake8output.txt) were the remaining flags that were not corrected due to them being self created files such as db migrations or advice flags on django model attribute. 
+
+Two IDEs were used for the coding of this project due to the poor internet connectivity mid project. GitPod was the primary IDE and IntelliJ was used to code offline. You will notice commits detailing the move between IDEs. 
 
 ## Deployment
 
@@ -138,7 +143,6 @@ In addition, if it is not obvious, you should also describe how to run your code
 ## Credits
 
 ### Content
-
 
 - The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
 
