@@ -113,7 +113,7 @@ The following technologies were used;
 - [Bootstrap4](https://getbootstrap.com/) 
     - This project uses **Bootstrap 4** to create responsive web & mobile layouts with integrated javascript
 - [JQuery](https://jquery.com)
-    - The project uses **JQuery** and **JQUERYUI** to simplify DOM manipulation and add the for its use of interface effects and widgets.
+    - The project uses **JQuery** and **JQUERYUI** to simplify DOM manipulation and for its use of interface effects and widgets.
 - [Python](https://www.python.org/) 
     - This project uses **Python** for the backend programming.
 - [Python Django](https://www.djangoproject.com/)
@@ -138,14 +138,30 @@ In addition, if it is not obvious, you should also describe how to run your code
 ## Credits
 
 ### Content
+
+
 - The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
 
-- The layout for the user stories document was taken from this source [User Stories tracking template idea](https://www.techno-pm.com/2016/09/product-backlog-excel-template.html)
+- The layout for the user stories document was taken from this source [User Stories tracking template idea](https://www.techno-pm.com/2016/09/product-backlog-excel-template.html), although template was not copied just inspired by.
 
 
 ### Media
-- The photos used in this site were obtained from ...
+
+- [Font Awesome](https://fontawesome.com/) was used for all icons on the site unless otherwise stated in the per page attributions.
+
+- [Unsplash](https://unsplash.com/) was used for to obtain the photo images the site. Image by image referenceing is detailed on the seperate media.md file below
+
+The media references by page are detailed on a seperate markdown [here](https://github.com/StevePilcher/FitClub-MS4/blob/master/media/files/Media.md)
+
 
 ### Acknowledgements
 
-- I received inspiration for this project from X
+- **No** tutors or Mentor was used in the development of this project
+
+- The product, bag, checkout and profile apps were heavily influenced by the Code Institutes Boutique Ado tutorials.
+
+- The landing page effect fading sectiosn whilst scrolling was taken from [Super Hi](https://www.superhi.com/library/posts/how-to-add-web-design-elements-that-fade-in-and-out-on-scroll)
+
+- The Forum was influenced by tutorials by [Data FLair's](https://data-flair.training/blogs/discussion-forum-python-django/) creating a discussion forum with Python Django
+
+- I received inspiration for this project from [Sphinx Digitals](https://www.spinxdigital.com/blog/top-10-website-designs-2020/) top 10 website designs 2020, also [awwwards](https://www.awwwards.com/) 
