@@ -26,6 +26,9 @@ The **User Stories** have been detailed into a pdf [here](https://github.com/Ste
 
 The UX design and site concept **wireframes** are included here in [this](https://github.com/StevePilcher/FitClub-MS4/blob/master/media/files/FitClub_Wireframing.pdf) pdf. 
 
+### Database Schema
+
+The database schema that is implemented is detailed here on [this](https://github.com/StevePilcher/FitClub-MS4/blob/master/media/files/FitClub_DB_Schema.pdf) 
 
 ## Features
 
@@ -35,6 +38,8 @@ The sites existing features are broken down by app.
 **Home App**
 
 - Dynamic Information - Landing page shows potential customers the sales information and USP of the busniess by simpy viewing the home page.
+
+- Promotional Video - Hero image contains model with motivational video of person working out, opened by clicking the button. 
 
 - Dashboard Display - A logged in user will see the latest relevant information to them by returning to the main page *needs further development, see features left to implement*
 
@@ -95,7 +100,7 @@ Additional features to be implemented in the future:
 
 **Admin**
 
--All in one Admin App - Admin app to compile sales metrics, users, and product management
+- All in one Admin App - Admin app to compile sales metrics, users, and product management
 
 ## Technologies Used
 
@@ -108,7 +113,7 @@ The following technologies were used;
 - [Bootstrap4](https://getbootstrap.com/) 
     - This project uses **Bootstrap 4** to create responsive web & mobile layouts with integrated javascript
 - [JQuery](https://jquery.com)
-    - The project uses **JQuery** to simplify DOM manipulation.
+    - The project uses **JQuery** and **JQUERYUI** to simplify DOM manipulation and add the for its use of interface effects and widgets.
 - [Python](https://www.python.org/) 
     - This project uses **Python** for the backend programming.
 - [Python Django](https://www.djangoproject.com/)
