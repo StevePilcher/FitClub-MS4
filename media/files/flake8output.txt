@@ -1,0 +1,89 @@
+./products/models.py:11:21: DJ01 Avoid using null=True on string-based fields such CharField.
+./products/models.py:23:11: DJ01 Avoid using null=True on string-based fields such CharField.
+./products/models.py:27:17: DJ01 Avoid using null=True on string-based fields such URLField.
+./products/models.py:28:13: DJ01 Avoid using null=True on string-based fields such ImageField.
+./products/models.py:35:20: DJ01 Avoid using null=True on string-based fields such CharField.
+./products/migrations/0003_review.py:18:80: E501 line too long (114 > 79 characters)
+./products/migrations/0003_review.py:19:34: DJ01 Avoid using null=True on string-based fields such CharField.
+./products/migrations/0003_review.py:20:80: E501 line too long (85 > 79 characters)
+./products/migrations/0003_review.py:22:80: E501 line too long (115 > 79 characters)
+./products/migrations/0003_review.py:23:80: E501 line too long (145 > 79 characters)
+./products/migrations/0001_initial.py:18:80: E501 line too long (114 > 79 characters)
+./products/migrations/0001_initial.py:20:35: DJ01 Avoid using null=True on string-based fields such CharField.
+./products/migrations/0001_initial.py:20:80: E501 line too long (91 > 79 characters)
+./products/migrations/0001_initial.py:29:80: E501 line too long (114 > 79 characters)
+./products/migrations/0001_initial.py:30:25: DJ01 Avoid using null=True on string-based fields such CharField.
+./products/migrations/0001_initial.py:30:80: E501 line too long (81 > 79 characters)
+./products/migrations/0001_initial.py:34:31: DJ01 Avoid using null=True on string-based fields such URLField.
+./products/migrations/0001_initial.py:34:80: E501 line too long (87 > 79 characters)
+./products/migrations/0001_initial.py:35:27: DJ01 Avoid using null=True on string-based fields such ImageField.
+./products/migrations/0001_initial.py:35:80: E501 line too long (82 > 79 characters)
+./products/migrations/0001_initial.py:36:80: E501 line too long (141 > 79 characters)
+./products/migrations/0004_auto_20210322_0358.py:18:80: E501 line too long (126 > 79 characters)
+./products/migrations/0002_product_owned_by.py:18:80: E501 line too long (137 > 79 characters)
+./products/migrations/0006_auto_20210322_0403.py:22:80: E501 line too long (143 > 79 characters)
+./products/migrations/0005_auto_20210322_0401.py:18:80: E501 line too long (133 > 79 characters)
+./checkout/webhooks.py:28:5: F841 local variable 'e' is assigned to but never used
+./checkout/webhooks.py:31:5: F841 local variable 'e' is assigned to but never used
+./checkout/apps.py:8:9: F401 'checkout.signals' imported but unused
+./checkout/models.py:5:1: F401 'django.conf.settings' imported but unused
+./checkout/models.py:22:16: DJ01 Avoid using null=True on string-based fields such CharField.
+./checkout/models.py:25:23: DJ01 Avoid using null=True on string-based fields such CharField.
+./checkout/models.py:26:14: DJ01 Avoid using null=True on string-based fields such CharField.
+./checkout/migrations/0001_initial.py:21:80: E501 line too long (114 > 79 characters)
+./checkout/migrations/0001_initial.py:22:80: E501 line too long (82 > 79 characters)
+./checkout/migrations/0001_initial.py:26:80: E501 line too long (80 > 79 characters)
+./checkout/migrations/0001_initial.py:27:30: DJ01 Avoid using null=True on string-based fields such CharField.
+./checkout/migrations/0001_initial.py:27:80: E501 line too long (85 > 79 characters)
+./checkout/migrations/0001_initial.py:30:37: DJ01 Avoid using null=True on string-based fields such CharField.
+./checkout/migrations/0001_initial.py:30:80: E501 line too long (92 > 79 characters)
+./checkout/migrations/0001_initial.py:31:28: DJ01 Avoid using null=True on string-based fields such CharField.
+./checkout/migrations/0001_initial.py:31:80: E501 line too long (83 > 79 characters)
+./checkout/migrations/0001_initial.py:33:80: E501 line too long (98 > 79 characters)
+./checkout/migrations/0001_initial.py:34:80: E501 line too long (97 > 79 characters)
+./checkout/migrations/0001_initial.py:35:80: E501 line too long (97 > 79 characters)
+./checkout/migrations/0001_initial.py:38:80: E501 line too long (171 > 79 characters)
+./checkout/migrations/0001_initial.py:44:80: E501 line too long (114 > 79 characters)
+./checkout/migrations/0001_initial.py:46:80: E501 line too long (104 > 79 characters)
+./checkout/migrations/0001_initial.py:47:80: E501 line too long (137 > 79 characters)
+./checkout/migrations/0001_initial.py:48:80: E501 line too long (115 > 79 characters)
+./profiles/models.py:13:28: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/models.py:15:31: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/models.py:17:31: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/models.py:19:28: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/models.py:21:22: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/models.py:24:24: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/models.py:25:18: DJ01 Avoid using null=True on string-based fields such ImageField.
+./profiles/models.py:26:22: DJ01 Avoid using null=True on string-based fields such URLField.
+./profiles/migrations/0001_initial.py:21:80: E501 line too long (114 > 79 characters)
+./profiles/migrations/0001_initial.py:22:42: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/migrations/0001_initial.py:22:80: E501 line too long (97 > 79 characters)
+./profiles/migrations/0001_initial.py:23:45: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/migrations/0001_initial.py:23:80: E501 line too long (100 > 79 characters)
+./profiles/migrations/0001_initial.py:24:45: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/migrations/0001_initial.py:24:80: E501 line too long (100 > 79 characters)
+./profiles/migrations/0001_initial.py:25:42: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/migrations/0001_initial.py:25:80: E501 line too long (97 > 79 characters)
+./profiles/migrations/0001_initial.py:26:36: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/migrations/0001_initial.py:26:80: E501 line too long (91 > 79 characters)
+./profiles/migrations/0001_initial.py:27:80: E501 line too long (88 > 79 characters)
+./profiles/migrations/0001_initial.py:28:38: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/migrations/0001_initial.py:28:80: E501 line too long (93 > 79 characters)
+./profiles/migrations/0001_initial.py:29:32: DJ01 Avoid using null=True on string-based fields such ImageField.
+./profiles/migrations/0001_initial.py:29:80: E501 line too long (87 > 79 characters)
+./profiles/migrations/0001_initial.py:30:36: DJ01 Avoid using null=True on string-based fields such URLField.
+./profiles/migrations/0001_initial.py:30:80: E501 line too long (92 > 79 characters)
+./profiles/migrations/0001_initial.py:31:80: E501 line too long (121 > 79 characters)
+./forum/views.py:48:13: F841 local variable 'post' is assigned to but never used
+./forum/migrations/0004_auto_20210321_0338.py:18:80: E501 line too long (130 > 79 characters)
+./forum/migrations/0004_auto_20210321_0338.py:23:80: E501 line too long (137 > 79 characters)
+./forum/migrations/0001_initial.py:20:80: E501 line too long (114 > 79 characters)
+./forum/migrations/0001_initial.py:21:80: E501 line too long (85 > 79 characters)
+./forum/migrations/0001_initial.py:28:80: E501 line too long (114 > 79 characters)
+./forum/migrations/0001_initial.py:31:80: E501 line too long (131 > 79 characters)
+./forum/migrations/0001_initial.py:32:80: E501 line too long (147 > 79 characters)
+./forum/migrations/0001_initial.py:38:80: E501 line too long (114 > 79 characters)
+./forum/migrations/0001_initial.py:42:80: E501 line too long (146 > 79 characters)
+./forum/migrations/0001_initial.py:43:80: E501 line too long (130 > 79 characters)
+./forum/migrations/0001_initial.py:44:80: E501 line too long (153 > 79 characters)
+./forum/migrations/0005_auto_20210321_0339.py:18:80: E501 line too long (131 > 79 characters)
