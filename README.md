@@ -1,5 +1,7 @@
 # FitClub - Code Institute MileStone 4 Project 
 
+![here](https://github.com/StevePilcher/FitClub-MS4/blob/master/media/FitClubLanding.png)
+
 FitClub is a health business designed to provide fitness training plans and/or dietary eating plans to customers looking to get fitter and lose weight. 
 
 The website is primarily designed to allow any user to buy plans. The USP for the buisness is to build the 'Club' ethos and encourage users to sign up after purchasing a plan and use the forum to talk to others and share experiences, creating a fitness/shared community.
@@ -18,7 +20,7 @@ The UX has 3 types of user. Owner, anonymous user and registered user. The desig
 
 ![here](https://github.com/StevePilcher/FitClub-MS4/blob/master/media/FitClubuserstories.jpg)
 
-The **User Stories** have been detailed into a pdf [here](https://github.com/StevePilcher/FitClub-MS4/blob/master/media/files/User_stories.pdf). The stories have been broken down in to 3 types of user, anonymous, registered & owner/admin. The status of development has also been flagged to show what items have been fully implemented, partially implemented or for future development. The testing will cover these user stories and their state of implementation.
+The **User Stories** have been detailed into a pdf [here](https://github.com/StevePilcher/FitClub-MS4/blob/master/media/files/FitClub_User_Stories.pdf). The stories have been broken down in to 3 types of user, anonymous, registered & owner/admin. The status of development has also been flagged to show what items have been fully implemented, partially implemented or for future development. The testing will cover these user stories and their state of implementation.
 
 ### Wireframes
 
