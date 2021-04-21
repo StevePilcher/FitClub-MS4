@@ -4,7 +4,7 @@ The testing of the FitClub site was conducted manually. This tesing document ref
 
 The testing is broken down firstly, seperated to different user types, then per app and finally page if the app has multiple pages/actions to test on that page. Comments on screen size testing will be made to show validation for smaller form factors. 
 
-Testing steps are not repeated under both user types where te user stories are not unique to a user type (IDs 2-8). These are documented only under the anonymous user section. 
+Testing steps are not repeated under both user types where the user stories are not unique to a user type (IDs 2-8). These are documented only under the anonymous user section. 
 
 The following browsers were tested and devices simulated using the Mozilla Firefox dev tools; 
 
@@ -56,7 +56,7 @@ The followng user scenarios were tested :
 
 3. Manual URL attempts:
     1. Maunally entering URLs to attempt to navigate the user to site content for RU
-    2. Django @login_required decorator works to redirect users to login page
+    2. Django @login_required decorator works to redirect users to login/signup page
 
 ### Products App
 
@@ -175,7 +175,7 @@ The followng user scenarios were tested :
     2. RU redirects to My Profile page
         - Displays centred with address details and order history side by side on desktop 
         - Displays centred with address details and order history centred on tablets
-        - Displays centred with address details and order history centred on mobiles devices
+        - Displays centred with address details and order history centred on mobiles
     3. RU sees prepopulated forms with address
     4. RU changes details in any/all form fields and submits
         - Page refreshes
@@ -202,8 +202,20 @@ The followng user scenarios were tested :
         - Page displays on desktop centred correctly
         - Page displays on tabelts centred correctly
         - Page displays on mobile devices correctly
-    3. 
+    3. RU click link to Parent forum, Training or Eating Plans
+    4. RU is directed to requested link
 
+2. Topics Page
+    1. RU is redirected from the parent forums link
+    2. Topics are listed in creation date order
+        - Table is populated and displays centred on desktop
+        - Table is populated and displays centres on tablet
+        - Table is populated and displays centred on mobile
+    3. Create New Topic button is displayed underneath correctly
+        - RU clicks 'Create New Topic' link
+        - Link redirects to Create new topic form page
+        - Page displays correctly, breadcrumb nav populates with the correct link
+        - 
 
 ## Owner/Admin (OA)
 
@@ -212,5 +224,5 @@ The followng user scenarios were tested :
 
 1. Checkout display on mobile needs UX improvement
 2. Footer My profile page on Kindle Fire HDX linux pushes from the bottom of the page
-3. Payment_intent_Succeeded Webhook is failing, it was working pre-deployment
-4. 
+3. Payment_intent_Succeeded Webhook is failing, it was working pre-deployment. Time contraints have limited troubleshooting. 
+4. Device views for Forum pages needs more UX improvement, just reducing the overal size isn't very user friendly

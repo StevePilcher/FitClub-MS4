@@ -35,7 +35,7 @@
                     {% csrf_token %}
                     <div class="form-group">
                         <label class="forum-headers" for="edit_reply">Reply to {{ topic.originator }}'s Post</label>
-                        <textarea class="form-control" id="edit_reply" name="message" rows="4">{{post.message}}</textarea>
+                        <textarea class="form-control" id="edit_reply" name="message" rows="4" required>{{post.message}}</textarea>
                         <input type="hidden" id="topic-id" name="topic" value="{{ topic.id }}">
                     </div>
                     <button type="submit" class="btn btn-light highlight rounded mt-1"><span class="icon">

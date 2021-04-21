@@ -102,6 +102,8 @@ Additional features to be implemented in the future:
 
 - All in one Admin App - Admin app to compile sales metrics, users, and product management
 
+- Customised Http response errors - added Customised Http pages
+
 **Products** 
 
 - Search/Filtering - Create a search bar and greater filtering options

@@ -33,11 +33,11 @@
                     {% csrf_token %}
                     <div class="form-group">
                         <label class="forum-headers" for="id_subject">Subject</label>
-                        <input type="text" class="form-control" id="id_subject" name="subject">
+                        <input type="text" class="form-control" id="id_subject" name="subject" required>
                     </div>
                     <div class="form-group">
                         <label class="forum-headers" for="id_message">Message</label>
-                        <textarea class="form-control" id="id_message" name="message" rows="4"></textarea>
+                        <textarea class="form-control" id="id_message" name="message" rows="4" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-light highlight rounded mt-1"><span class="icon">
                             <i class="far fa-plus-square"></i>
