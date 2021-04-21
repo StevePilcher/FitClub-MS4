@@ -18,6 +18,8 @@ Before continuing, link to each of these platforms and signup, then verify for a
     - for repository hosting and git.
 - [Django Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/)
     - To generate a django secret key, item **6** in the config vars table
+- [Gmail](https://accounts.google.com)
+    - Gmail Accounts for sending emails
 
 
 This table details the key value pairs that are required in Heroku config vars. You will retrieve these from the above sites. Each pair and it's associated value location will be detailed in the step by step guide.
@@ -25,14 +27,14 @@ This table details the key value pairs that are required in Heroku config vars. 
 | ID | Key  | Value  |
 |---|---|---|
 | 1 | AWS_ACCESS_KEY_ID | <*from your user CSV file created on AWS*> |
-| 2 | AWS_SECRET_ACCESS_KEY | <**> |
+| 2 | AWS_SECRET_ACCESS_KEY | <*from your user CSV file created on AWS*> |
 | 3 | DATABASE_URL | <*Step 2 - Heroku DB URL automatically populated*> |
-| 4 | EMAIL_HOST_PASS | <**> |
-| 5 | EMAIL_HOST_USER | <**> |
+| 4 | EMAIL_HOST_PASS | <*step 5 - Gmail, 6*> |
+| 5 | EMAIL_HOST_USER | <*youremail@gmail.com*> |
 | 6 | SECRET_KEY | <*Generated using Django Secret Key Generator*> |
 | 7 | STRIPE_PUBLIC_KEY | <*Step 4 - Stripe, 4*>  |
 | 8 | STRIPE_SECRET_KEY | <*Step 4 - Stripe, 4*> |
-| 9 | STRIPE_WH_KEY | <**> |
+| 9 | STRIPE_WH_KEY | <*Step 4 - Stripe, 4*> |
 | 10 | USE_AWS | <*True*> |
 
 
@@ -78,7 +80,6 @@ Now your app has been created you will need to edit the ALLOWED_HOSTS variable i
 
 1. Replace ALLOWED_HOSTS = ['spilcher-fitclub-ms4.herokuapp.com', 'localhost']
     - with ALLOWED_HOSTS = ['*your-project-name*.herokuapp.com', 'localhost']
-
 
 To edit your Heroku config vars follow these steps; 
 
@@ -185,25 +186,55 @@ Create a User to assign to the Group;
 
 Follow these steps to find your Stripe keys required for Heroku Config Vars
 
-1. Follow the [link](https://stripe.com) to Stripe
+1. Loging to your Stripe account
 2. Once signed in you'll arrive at your Stripe dashboard
-3. Look on the lefthand dashboard menu for developers/API keys
+3. Look on the lefthand dashboard menu for **developers/API keys**
 4. Here you will find 2 stripe keys, Items 7 & 8 for heroku config vars.
     - Publishable Key = STRIPE_PUBLIC_KEY
     - Secret Key = STRIPE_SECRET_KEY
 5. Copy and paste these in to Heroku config vars.
 
+Create a webhook address and get the webhook variable; 
+
+1. Under the same menu, click **Webhook** link
+2. Click **Add Endpoint**
+3. The address will be;
+    - https:/*your-heroku-app-name.herokuapp.com*/checkout/wh/
+    - **Add**
+4. Under the 'Signing Secret' reveal key 
+    - STRIPE_WH_KEY = Signing Secret Key
+5. Enter the signing secret key in to Heroku config vars
 
 
+### Step 5 - Gmail
+
+Follow these steps to setup a gmail account to automate with this project
+
+1. Login in to your created Gmail account
+2. Go to the **account** settings in the top right corner, cog icon
+3. Click **Accounts and Import**
+    - Other google account settings
+    - Go to the securty tab on the left hand menu
+    - Click **2 Step Verification**
+    - Click **Get Started**
+    - Select the Verification method, your preference
+    - Complete the 2 Step Verification
+4. Now back to the Security tab
+    - App passwords will now have appeared as an option
+    - Click and verify passwords
+5. On the App password screen; 
+    - Select App = Mail
+    - Device Type = Custom, name it Django
+    - Click **Accept** 
+6. A popup will give you another key; 
+    - EMAIL_HOST_PASS = Popup password
+
+Lastly your last heroku config var will be your created gmail account. 
+
+1. EMAIL_HOST_USER = *youremail@gmail.com*
+    
+
+## Local development
 
 
-
-
-
-In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
-- Different values for environment variables (Heroku Config Vars)?
-- Different configuration files?
-- Separate git branch?
-
-In addition, if it is not obvious, you should also describe how to run your code locally.
 
