@@ -123,7 +123,7 @@ The followng user scenarios were tested :
 
 **User Story 7, 8, AU & RU** 
 
-1. Checkout Page:
+1. Checkout / Checkout Success Page:
     1. AU/RU clicks on the 'Secure Checkout' from the bag app
     2. AU/RU redirects to checkout page
         - Displays details form / bag with correct bag items/amounts, side by side correctly on desktop
@@ -168,14 +168,25 @@ The followng user scenarios were tested :
 
 ### Profile App
 
-**User Story 9, 10** 
+**User Story 9, 10, 11** 
 
 1. My Profile page:
     1. RU clicks the link to the 'My Account' icon, followed by dropdown link 'My Profile'
     2. RU redirects to My Profile page
         - Displays centred with address details and order history side by side on desktop 
-        - Displays centred with address details and order history side by side on desktop 
+        - Displays centred with address details and order history centred on tablets
+        - Displays centred with address details and order history centred on mobiles devices
+    3. RU sees prepopulated forms with address
+    4. RU changes details in any/all form fields and submits
+        - Page refreshes
+        - Toast message displays correctly
+        - Form is now repopulated with updated data
 
+    *User profile images are currently disabled for production. Bug fixes are required now the media hosting has deployed to AWS S3. The Local development version has the ability to update user profile images* 
+
+    5. RU clicks linked order numbers from history
+        - RU redirects to a the same checkout success page
+        - Order displays 
 
 
 
@@ -197,4 +208,6 @@ You should also mention in this section any interesting bugs or problems you dis
 ## Known Issues/Bugs
 
 1. Checkout display on mobile needs UX improvement
-2. 
+2. Footer My profile page on Kindle Fire HDX linux pushes from the bottom of the page
+3. Payment_intent_Succeeded Webhook is failing and not triggering the success email
+4. 
