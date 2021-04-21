@@ -150,7 +150,7 @@ This specific steps to deployment and versions there of are deatiled in [this](h
 
 ### Content
 
-- The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
+- The text for products was copied from variou sources and is documented here in [this](https://github.com/StevePilcher/FitClub-MS4/blob/master/media/files/Content.md)
 
 - The layout for the user stories document was taken from this source [User Stories tracking template idea](https://www.techno-pm.com/2016/09/product-backlog-excel-template.html), although template was not copied just inspired by.
 
