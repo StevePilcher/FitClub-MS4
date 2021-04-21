@@ -113,7 +113,7 @@ The followng user scenarios were tested :
     3. AU/RU clicks 'trash can' icon
         - Item is removed
         - page refreshes
-        - toast message displays correctly
+        - Toast message displays correctly
     4. AU/RU clicks 'Continue Shopping' button
         - Redirects back to all products view
     5. AU/RU clicks 'Secure Checkout'
@@ -134,7 +134,7 @@ The followng user scenarios were tested :
         - Form error flashes
         - Required form fields highlight red
     5. AU/RU sumbits a valid form
-        - submit button becomes inactive 
+        - Submit button becomes inactive 
         - Stripe payment intent succeeded webhook
         - Stripe payment success webhook
     6. On payemnt success, AU/RU redirects to checkout success page
@@ -200,7 +200,7 @@ The followng user scenarios were tested :
     1. RU clicks the link to the forums page
     2. RU redirects to forum page
         - Page displays on desktop centred correctly
-        - Page displays on tabelts centred correctly
+        - Page displays on tablets centred correctly
         - Page displays on mobile devices correctly
     3. RU click link to Parent forum, Training or Eating Plans
     4. RU is directed to requested link
