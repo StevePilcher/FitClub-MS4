@@ -170,6 +170,8 @@ The media references by page are detailed on a seperate markdown [here](https://
 
 - **No** Mentoring was used in the development of this project. It was written alone. 
 
+- Additional Django learning from Nick Walter's Django 3 - Full Stack Websites with Python Web Development course on [Udemy](https://www.udemy.com/course/django-3-make-websites-with-python-tutorial-beginner-learn-bootstrap/)
+
 - The product, bag, checkout and profile apps were heavily influenced by the [Code Institutes](https://codeinstitute.net/) Boutique Ado tutorials, in places like for like, especially with the Stripe payments system. I found this difficult to make work without the tutorials/source code.
 
 - The landing page effect fading sectiosn whilst scrolling was taken from [Super Hi](https://www.superhi.com/library/posts/how-to-add-web-design-elements-that-fade-in-and-out-on-scroll)
