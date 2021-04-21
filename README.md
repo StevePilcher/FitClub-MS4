@@ -129,7 +129,7 @@ The following technologies were used;
 
 ## Testing
 
-The testing of this site is documented [here](https://github.com/StevePilcher/FitClub-MS4/blob/master/media/files/Testing.md)
+The testing of this site is documented [here](https://github.com/StevePilcher/FitClub-MS4/blob/master/media/files/Testing.md) in seperate markdown file.
 
 The projects code was run through individual validators. The detailed breakdown can be found [here](https://github.com/StevePilcher/FitClub-MS4/blob/master/media/files/FitClub_Validators_Summary.pdf) with written explanations on any warnings or errors.
 
@@ -168,9 +168,9 @@ The media references by page are detailed on a seperate markdown [here](https://
 
 ### Acknowledgements
 
-- **No** Mentor was used in the development of this project
+- **No** Mentoring was used in the development of this project. It was written alone. 
 
-- The product, bag, checkout and profile apps were heavily influenced by the Code Institutes Boutique Ado tutorials
+- The product, bag, checkout and profile apps were heavily influenced by the [Code Institutes](https://codeinstitute.net/) Boutique Ado tutorials, in places like for like, especially with the Stripe payments system. I found this difficult to make work without the tutorials/source code.
 
 - The landing page effect fading sectiosn whilst scrolling was taken from [Super Hi](https://www.superhi.com/library/posts/how-to-add-web-design-elements-that-fade-in-and-out-on-scroll)
 

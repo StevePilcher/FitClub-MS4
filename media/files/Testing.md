@@ -20,7 +20,8 @@ The following browsers were tested and devices simulated using the Mozilla Firef
 - iPhone 6/7/8 iOS11 
 - iPhone 6/7/8 Plus iOS11
 - iPhone X/XS iOS12
-- iPad 
+- iPad
+- Kindle Fire HDX Linux
 
 The followng user scenarios were tested :
 
@@ -53,9 +54,13 @@ The followng user scenarios were tested :
         - Tested on tablets 
         - Tested on mobile devices
 
+3. Manual URL attempts:
+    1. Maunally entering URLs to attempt to navigate the user to site content for RU
+    2. Django @login_required decorator works to redirect users to login page
+
 ### Products App
 
-**User Story 2, 3 both AU & RU**
+**User Story 2, 3, both AU & RU**
 
 1. All Products:
     1. AU/RU clicks the products link
@@ -68,7 +73,9 @@ The followng user scenarios were tested :
         - AU/RU clicks either option 'Hi/Lo, Lo/Hi'
         - Products refresh and filter to the selected filter
 
-**User Story 4, 5 both AU & RU**
+*Further development intended to improve filtering and add a search function*
+
+**User Story 4, 5, both AU & RU**
 
 2. Product details:
     1. AU/RU clicks the individual product from the all products view
@@ -81,6 +88,7 @@ The followng user scenarios were tested :
     4. AU/RU click 'Add to Bag'
         - Bag icon shakes and changes to active yellow colour
         - Bag total also updates with items total
+        - Toast message pops up correctly
     5. If item has reviews
         - Reviews display correctly on;
             - Tablets
@@ -92,15 +100,51 @@ The followng user scenarios were tested :
             - Mobile devices
         - If RU has already left a review the form will not display a 2nd time
 
+
 ### Bag App
 
-**User Story 6, 7 both AU & RU**
+**User Story 6, both AU & RU**
 
 1. Bag Page:
     1. AU/RU clicks on bag on icon on the nav bar
-    2. AU/RU redirects to bag page
-        - Displays
-        -
+    2. AU/RU redirects to bag page and bag is in table format
+        - Displays centred on tablet
+        - Displays centred on mobile devices
+    3. AU/RU clicks 'trash can' icon
+        - Item is removed
+        - page refreshes
+        - toast message displays correctly
+    4. AU/RU clicks 'Continue Shopping' button
+        - Redirects back to all products view
+    5. AU/RU clicks 'Secure Checkout'
+        - Redirects to Checkout app
+
+## Checkout App
+
+**User Story 7, 8, AU & RU** 
+
+1. Checkout Page:
+    1. AU/RU clicks on the 'Secure Checkout' from the bag app
+    2. AU/RU redirects to checkout page
+        - Displays details form / bag with correct bag items/amounts, side by side correctly on desktop
+        - Displays details form / bag with correct bag items/amounts, side by side correctly on tablet
+        - Displays details form / bag with correct bag items/amounts, centred on mobile devices
+    3. Stripe Payment Intent webhook created Successfully
+    4. AU/RU attempts to submit invalid form
+        - Form error flashes
+        - Required form fields highlight red
+    5. AU/RU sumbits a valid form
+        - submit button becomes inactive 
+        - Stripe payment intent succeeded webhook
+        - Stripe payment success webhook
+    6. On payemnt success, AU/RU redirects to checkout success page
+        - Displays unique order number, message, address and order items summary centred correctly on desktop
+        - Displays unique order number, message, address and order items summary centred correctly on tablet
+        - Displays unique order number, message, address and order items summary centred correctly on mobile devices
+    7. Success page 'Forum button' links correctly
+        - AU redirect to a login/signup page
+        - RU that are logged in redirect to forums page
+
 
 ## Registered User (RU)
 
@@ -122,6 +166,19 @@ The followng user scenarios were tested :
 *Further development planned to add more content to this dashboard*
 
 
+### Profile App
+
+**User Story 9, 10** 
+
+1. My Profile page:
+    1. RU clicks the link to the 'My Account' icon, followed by dropdown link 'My Profile'
+    2. RU redirects to My Profile page
+        - Displays centred with address details and order history side by side on desktop 
+        - Displays centred with address details and order history side by side on desktop 
+
+
+
+
 
 
 
@@ -137,5 +194,7 @@ You should also mention in this section any interesting bugs or problems you dis
 
 
 
-## Known bugs
+## Known Issues/Bugs
 
+1. Checkout display on mobile needs UX improvement
+2. 
