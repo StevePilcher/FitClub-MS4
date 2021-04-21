@@ -34,7 +34,7 @@ This table details the key value pairs that are required in Heroku config vars. 
 | 6 | SECRET_KEY | <*Generated using Django Secret Key Generator*> |
 | 7 | STRIPE_PUBLIC_KEY | <*Step 4 - Stripe, 4*>  |
 | 8 | STRIPE_SECRET_KEY | <*Step 4 - Stripe, 4*> |
-| 9 | STRIPE_WH_KEY | <*Step 4 - Stripe, 4*> |
+| 9 | STRIPE_WH_KEY | <*Step 4 - Stripe, 2.5*> |
 | 10 | USE_AWS | <*True*> |
 
 
@@ -236,5 +236,66 @@ Lastly your last heroku config var will be your created gmail account.
 
 ## Local development
 
+The project branch **Local** was split form the master for a locally run development version. This version will need to follow the 3 steps below. 
+
+To run a local copy of this code you will need 3 stripe keys. This will need to be entered in to your IDE. Refer to the your IDE softwares docmentation to see where to enter these values. 
 
 
+#### ID Config Vars
+| ID | Key  | Value  |
+|---|---|---|
+| 6 | SECRET_KEY | <*Generated using Django Secret Key Generator*> |
+| 7 | STRIPE_PUBLIC_KEY | <*Step 2 - Stripe, 4*>  |
+| 8 | STRIPE_SECRET_KEY | <*Step 2 - Stripe, 4*> |
+| 9 | STRIPE_WH_KEY | <*Step 2 - Stripe, 2.5*> |
+
+
+### Step 1 - GitHub
+
+Next, you can clone a copy of this code through GitHub.
+
+The development version is off of the local branch from this project on GitHub [here](https://github.com/StevePilcher/FitClub-MS4)
+
+#### Cloning this Project
+
+To clone this project, follow these steps;
+
+1. Follow the [link](https://github.com/StevePilcher/FitClub-MS4)
+2. Click the **'Use this template'** button
+3. User will be redirected to a create repository from template page
+4. Fill in the name of the repository you want to create
+5. Choose public or private
+6. Click the green **Create repository from template** button
+
+
+### Step 2 - Stripe 
+
+The 3 Config vars that are required to make the project locally are from Stripe. Follow these steps to find your config vars from Stripe.
+
+Follow these steps to find your Stripe keys required for IDE Config Vars.
+
+1. Loging to your Stripe account
+2. Once signed in you'll arrive at your Stripe dashboard
+3. Look on the lefthand dashboard menu for **developers/API keys**
+4. Here you will find 2 stripe keys, Items 7 & 8 for heroku config vars.
+    - Publishable Key = STRIPE_PUBLIC_KEY
+    - Secret Key = STRIPE_SECRET_KEY
+5. Copy and paste these in to Heroku config vars.
+
+Create a webhook address and get the webhook variable; 
+
+1. Under the same menu, click **Webhook** link
+2. Click **Add Endpoint**
+3. The address will be;
+    - https:/*your-heroku-app-name.herokuapp.com*/checkout/wh/
+    - **Add**
+4. Under the 'Signing Secret' reveal key 
+    - STRIPE_WH_KEY = Signing Secret Key
+5. Enter the signing secret key in to Heroku config vars
+
+### Step 3 
+
+Now your app has been created you will need to edit the SECRET_KEY variable in the settings.py file for a generatored Django secret key, you can use the site listed at the top of this document; 
+
+1. Replace SECRET_KEY = ''
+    - with SECRET_KEY = '*your generated django secret key*'
