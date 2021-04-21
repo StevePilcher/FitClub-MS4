@@ -237,6 +237,17 @@ The followng user scenarios were tested :
         - Required form boxes highlight red
     6. RU fills in and submits form
         - Page redirects back to all topics with the particulary parent posts topic
+    7. RU's post has been displayed underneath all other posts
+        - RU with post creation flagged true
+        - Post dipsplays 'Edit' & 'Delete' buttons
+    8. RU clicks Edit button
+        - RU is redirected to reply form page
+        - Form is pre-populated with orginal post
+        - RU edits form and click post reply button
+        - Form resubmits and edited post is now displayed
+    9. RU clicks delete button
+        - RU's post is deleted 
+        - Page is refreshed and deleted post is removed
 
 ## Owner/Admin (OA)
 

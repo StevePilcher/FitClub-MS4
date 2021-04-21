@@ -20,7 +20,9 @@ The UX has 3 types of user. Owner, anonymous user and registered user. The desig
 
 ![here](https://github.com/StevePilcher/FitClub-MS4/blob/master/media/FitClubuserstories.jpg)
 
-The **User Stories** have been detailed into a pdf [here](https://github.com/StevePilcher/FitClub-MS4/blob/master/media/files/FitClub_User_Stories.pdf). The stories have been broken down in to 3 types of user, anonymous, registered & owner/admin. The status of development has also been flagged to show what items have been fully implemented, partially implemented or for future development. The testing will cover these user stories and their state of implementation.
+The **User Stories** have been detailed into a pdf [here](https://github.com/StevePilcher/FitClub-MS4/blob/master/media/files/FitClub_User_Stories.pdf). The stories have been broken down in to 3 types of user, anonymous, registered & owner/admin. The status of development has also been flagged to show what items have been fully implemented, partially implemented or for future development. 
+
+The testing will cover these user stories and their proof of implementation.
 
 ### Wireframes
 
