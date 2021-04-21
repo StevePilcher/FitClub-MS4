@@ -187,27 +187,30 @@ The followng user scenarios were tested :
     5. RU clicks linked order numbers from history
         - RU redirects to a the same checkout success page
         - Order displays 
+        - Toast message displays correctly
+        - Nav button under order correctly displays 'Return to My Profile'
+        - Button links correctly back to My Profile page
 
 
+### Forum App
 
+**User Story 12, 13, & 14**
 
+1. Forum Page
+    1. RU clicks the link to the forums page
+    2. RU redirects to forum page
+        - Page displays on desktop centred correctly
+        - Page displays on tabelts centred correctly
+        - Page displays on mobile devices correctly
+    3. 
 
 
 ## Owner/Admin (OA)
-
-
-
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
-
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
-
-
-
 
 
 ## Known Issues/Bugs
 
 1. Checkout display on mobile needs UX improvement
 2. Footer My profile page on Kindle Fire HDX linux pushes from the bottom of the page
-3. Payment_intent_Succeeded Webhook is failing and not triggering the success email
+3. Payment_intent_Succeeded Webhook is failing, it was working pre-deployment
 4. 
