@@ -143,7 +143,7 @@ Two IDEs were used for the coding of this project due to the poor internet conne
 
 ## Deployment
 
-This specific steps to deployment and versions there of are deatiled in [this]()seperate document 
+This specific steps to deployment and versions there of are deatiled in [this](https://github.com/StevePilcher/FitClub-MS4/blob/master/media/files/Deployment.md) seperate document 
 
 
 ## Credits
