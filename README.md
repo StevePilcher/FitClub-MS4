@@ -143,14 +143,8 @@ Two IDEs were used for the coding of this project due to the poor internet conne
 
 ## Deployment
 
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
+This specific steps to deployment and versions there of are deatiled in [this]()seperate document 
 
-In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
-- Different values for environment variables (Heroku Config Vars)?
-- Different configuration files?
-- Separate git branch?
-
-In addition, if it is not obvious, you should also describe how to run your code locally.
 
 ## Credits
 
@@ -166,6 +160,8 @@ In addition, if it is not obvious, you should also describe how to run your code
 - [Font Awesome](https://fontawesome.com/) was used for all icons on the site unless otherwise stated in the per page attributions.
 
 - [Unsplash](https://unsplash.com/) was used for to obtain the photo images the site. Image by image referenceing is detailed on the seperate media.md file below
+
+- Fonts taken from [Google Fonts](https://fonts.google.com)
 
 The media references by page are detailed on a seperate markdown [here](https://github.com/StevePilcher/FitClub-MS4/blob/master/media/files/Media.md)
 
