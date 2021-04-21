@@ -209,16 +209,38 @@ The followng user scenarios were tested :
     1. RU is redirected from the parent forums link
     2. Topics are listed in creation date order
         - Table is populated and displays centred on desktop
-        - Table is populated and displays centres on tablet
+        - Table is populated and displays centred on tablet
         - Table is populated and displays centred on mobile
     3. Create New Topic button is displayed underneath correctly
         - RU clicks 'Create New Topic' link
         - Link redirects to Create new topic form page
         - Page displays correctly, breadcrumb nav populates with the correct link
-        - 
+    4. RU attempts to submit blank forum
+        - Required warning flags
+        - Required form boxes highlight red
+    5. RU fills in and submits form
+        - Page redirects back to all topics with the particulary parent forum
+
+3. Posts Page
+    1. RU clicks link for topics page within parent forum
+    2. Posts page displays
+        - Table is populated and displays centred on desktop
+        - Table is populated and displays centred on tablet
+        - Table is populated and displays centred on mobile wihtout profile images to save screen space
+    3. Breadcrumb nav populates with the correct navigation links
+        - Links works as intended back to respective parents on all devices
+    4. Reply button displays correctly under the posts listed
+        - RU clicks the reply button
+        - Page redirects to reply form
+    5. RU attempts to submit blank forum
+        - Required warning flags
+        - Required form boxes highlight red
+    6. RU fills in and submits form
+        - Page redirects back to all topics with the particulary parent posts topic
 
 ## Owner/Admin (OA)
 
+Future development is planned for a frontend platform for the OA to create new products, see sales figures and police the community forum. Although currently the project relies on the default Django admin and as such was not tested, it can be deemed as fully working and without security flaws.
 
 ## Known Issues/Bugs
 
@@ -226,3 +248,4 @@ The followng user scenarios were tested :
 2. Footer My profile page on Kindle Fire HDX linux pushes from the bottom of the page
 3. Payment_intent_Succeeded Webhook is failing, it was working pre-deployment. Time contraints have limited troubleshooting. 
 4. Device views for Forum pages needs more UX improvement, just reducing the overal size isn't very user friendly
+5. Footer on forum posts mobile view gets overidden, this does not happen in tablet or desktop. Time contraints have limited troubleshooting. 
