@@ -261,7 +261,7 @@ select option[value=""] {
 @media only screen and (max-width: 600px) {
 
 body {
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 .background-image {
     height: 100vh;
