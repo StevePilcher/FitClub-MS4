@@ -28,7 +28,7 @@ The UX design and site concept **wireframes** are included here in [this](https:
 
 ### Database Schema
 
-The database schema that is implemented is detailed here on this [pdf](https://github.com/StevePilcher/FitClub-MS4/blob/master/media/files/FitClub_DB_Schema.pdf). 
+The database schema that is implemented is detailed here on [this](https://github.com/StevePilcher/FitClub-MS4/blob/master/media/files/FitClub_DB_Schema.pdf) pdf. 
 
 ## Features
 
@@ -102,6 +102,14 @@ Additional features to be implemented in the future:
 
 - All in one Admin App - Admin app to compile sales metrics, users, and product management
 
+**Products** 
+
+- Search/Filtering - Create a search bar and greater filtering options
+
+**Forum** 
+
+- More Forum Layers - Develop a more detailed forum system. Added more layers and implement an updated time/date as well as how many edits etc
+
 ## Technologies Used
 
 The following technologies were used;
@@ -125,7 +133,7 @@ The testing of this site is documented [here](https://github.com/StevePilcher/Fi
 
 The projects code was run through individual validators. The detailed breakdown can be found [here](https://github.com/StevePilcher/FitClub-MS4/blob/master/media/files/FitClub_Validators_Summary.pdf) with written explanations on any warnings or errors.
 
-The use of flake8 IDE plugin was run and errors corrected. The following [output](https://github.com/StevePilcher/FitClub-MS4/blob/master/media/files/flake8output.txt) were the remaining flags that were not corrected due to them being self created files such as db migrations or advice flags on django model attribute. 
+The use of flake8 IDE plugin was run and errors corrected. The following [output](https://github.com/StevePilcher/FitClub-MS4/blob/master/media/files/flake8output.txt) where the remaining flags that were not corrected due to them being self created files such as db migrations or advice flags on django model attribute. 
 
 Two IDEs were used for the coding of this project due to the poor internet connectivity mid project. GitPod was the primary IDE and IntelliJ was used to code offline. You will notice commits detailing the move between IDEs. 
 
@@ -160,9 +168,9 @@ The media references by page are detailed on a seperate markdown [here](https://
 
 ### Acknowledgements
 
-- **No** tutors or Mentor was used in the development of this project
+- **No** Mentor was used in the development of this project
 
-- The product, bag, checkout and profile apps were heavily influenced by the Code Institutes Boutique Ado tutorials.
+- The product, bag, checkout and profile apps were heavily influenced by the Code Institutes Boutique Ado tutorials
 
 - The landing page effect fading sectiosn whilst scrolling was taken from [Super Hi](https://www.superhi.com/library/posts/how-to-add-web-design-elements-that-fade-in-and-out-on-scroll)
 

@@ -1,10 +1,22 @@
 # Testing
 
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
+The testing of the FitClub site was conducted manually. This tesing document references the [User Stories](https://github.com/StevePilcher/FitClub-MS4/blob/master/media/files/FitClub_User_Stories.pdf) file. The unique story ID will be referenced when a specific user story is tested/verified. 
 
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
+The testing is broken down firstly, seperated to different user types, then per app and finally page if the app has multiple pages/actions to test to that. Comments on screen size testing will be made to show validation for smaller form factors. 
 
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
+The followng scenarios were tested :
+
+## Anonymous User (AU)
+
+### Home App
+
+1. Landing Page:
+    1. Got to home page
+    2. Layout displays correctly on desktop
+        2a. 
+
+
+
 
 1. Contact form:
     1. Go to the "Contact Us" page
@@ -12,11 +24,33 @@ For any scenarios that have not been automated, test the user stories manually a
     3. Try to submit the form with an invalid email address and verify that a relevant error message appears
     4. Try to submit the form with all inputs valid and verify that a success message appears.
 
+
+
+
+
+
+
+## Registered User (RU)
+
+
+
+
+
+
+
+
+
+## Owner/Admin (OA)
+
+
+
 In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
 
 You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
 
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
+
+
+
 
 ## Known bugs
 
